@@ -4,7 +4,9 @@
   <test>
     <sunit> GNUSmalltalkKoans.Koan*</sunit>
     <filein>Koan.st</filein> 
+    <filein>AssertsTest.st</filein>
   </test>
   <file>Koan.st</file>
+  <file>AssertsTest.st</file>
 </package>
 
