@@ -1,0 +1,2 @@
+TestCase subclass: Koan [
+]

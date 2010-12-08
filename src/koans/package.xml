@@ -1,0 +1,10 @@
+<package>
+  <name>GNUSmalltalkKoans</name>
+  <namespace>GNUSmalltalkKoans</namespace>
+  <test>
+    <sunit> GNUSmalltalkKoans.Koan*</sunit>
+    <filein>Koan.st</filein> 
+  </test>
+  <file>Koan.st</file>
+</package>
+
