@@ -1,5 +1,17 @@
+Object subclass: Tracker [
+  |status|
+
+  status [
+    ^status
+  ]
+
+  status: newStatus [
+    status := newStatus
+  ]
+]
+
 Object subclass: Zen [
-  | passed currentTest |
+  | passed tracker currentTest |
 
   Zen class >> new [
     ^super new initialize
@@ -7,10 +19,15 @@ Object subclass: Zen [
 
   initialize [
     passed := 0.
+    tracker := Tracker new.
+  ]
+
+  tracker [
+    ^tracker
   ]
 
   testAssert [
-    currentTest := TestAssert new.
+    currentTest := TestAssert create: (self tracker).
     self tally: #testTruth.
     self tally: #testEquality.
     self tally: #testStringEquality.
@@ -18,58 +35,63 @@ Object subclass: Zen [
   ]
 
   testNil [
-    currentTest := TestNil new.
+    currentTest := TestNil create: (self tracker).
     self tally: #testNilIsAnObject.
-    self tally: #testNilInstancesCanBeDifferent.
+    self tally: #testNilIsTheSameInstance.
+    self tally: #testNilInstancesAreNotTheSame.
     self tally: #testNilChecking.
   ]
 
   testObject [
-
+    currentTest := TestObject create: (self tracker).
   ]
 
   testMessage [
-
+    currentTest := TestMessage create: (self tracker).
   ]
 
   testNumber [
-
+    currentTest := TestNumber create: (self tracker).
   ]
 
   testArray [
-
+    currentTest := TestArray create: (self tracker).
   ]
 
   testString [
-
+    currentTest := TestString create: (self tracker).
   ]
 
   testCharacter [
-
+    currentTest := TestCharacter create: (self tracker).
   ]
 
   testSymbol [
+    currentTest := TestSymbol create: (self tracker).
+  ]
 
+  testRegex [
+    currentTest := TestRegex create: (self tracker).
   ]
 
   testBoolean [
-
+    currentTest := TestBoolean create: (self tracker).
   ]
 
   testSet [
-
+    currentTest := TestSet create: (self tracker).
   ]
 
   testBlock [
-
+    currentTest := TestBlock create: (self tracker).
   ]
 
   testClass [
-
+    currentTest := TestClass create: (self tracker).
   ]
 
   testMetaclass [
-
+    currentTest := TestMetaclass create: (self tracker).
   ]
 
   runKoans [
@@ -77,12 +99,13 @@ Object subclass: Zen [
     "self testAssert."
     "self testNil."
     self testObject.
-    self testMessage.    "three types of messages, order of precedence, sending, chaining, cascading"
-    self testNumber.     "arithmetic precedence"
+    self testMessage.    "three types of messages, order of precedence, sending, chaining, cascading, parentheses"
+    self testNumber.     "arithmetic precedence, fractions"
     self testArray.
     self testString.     "concatenation"
     self testCharacter.
     self testSymbol.
+    self testRegex.
     self testBoolean.
     self testSet.
     self testBlock.      "array each, select, inject, ifTrue/ifFalse, loops"
@@ -93,7 +116,8 @@ Object subclass: Zen [
   ]
 
   tally: testName [
-    (currentTest perform: testName)
+    currentTest perform: testName.
+    (self tracker status)
       ifTrue: [ passed:= (passed + 1). ]
       ifFalse: [
         self displayClass: currentTest class test: testName.

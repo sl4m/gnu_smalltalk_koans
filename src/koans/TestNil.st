@@ -4,15 +4,20 @@ Koan subclass: TestNil [
   testNilIsAnObject [
     "name returns symbol"
 
-    ^self expect: (self fillMeIn) toEqual: nil class name.
+    self expect: (self fillMeIn) toEqual: (nil isMemberOf: UndefinedObject).
   ]
 
-  testNilInstancesCanBeDifferent [
-    "expect:toBeLike: checks for exact class names"
-    ^self expect: (self fillMeIn) toBeLike: UndefinedObject new.
+  testNilIsTheSameInstance [
+    self expect: nil toEqual: nil.
+  ]
+
+  testNilInstancesAreNotTheSame [
+    "expect:toBeLike: selector checks for exact class names"
+
+    self expect: (self fillMeIn) toBeLike: UndefinedObject new.
   ]
 
   testNilChecking [
-    ^self expect: (self fillMeIn) toEqual: nil isNil.
+    self expect: (self fillMeIn) toEqual: nil isNil.
   ]
 ]

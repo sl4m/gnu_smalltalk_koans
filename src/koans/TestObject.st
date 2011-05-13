@@ -1,3 +1,5 @@
 Koan subclass: TestObject [
-
+  testEverythingIsAnObject [
+    
+  ]
 ]

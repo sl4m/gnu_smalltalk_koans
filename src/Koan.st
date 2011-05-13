@@ -1,4 +1,20 @@
 Object subclass: Koan [
+  | tracker |
+
+  Koan class >> create: newTracker [
+    ^self new
+          tracker: newTracker;
+          yourself
+  ]
+
+  tracker: newTracker [
+    tracker := newTracker
+  ]
+
+  tracker [
+    ^tracker
+  ]
+
   fillMeIn [
     ^'FILL ME IN'.
   ]
@@ -16,6 +32,10 @@ Object subclass: Koan [
       ifTrue: [
         ^value asString, ' (an instance of ', value class name, ')'
       ].
+    (value class = True)
+      ifTrue: [ ^'true' ].
+    (value class = False)
+      ifTrue: [ ^'false' ].
     ^'(an instance of ', value class name, ')'
   ]
 
@@ -32,52 +52,67 @@ Object subclass: Koan [
   ]
 
   expectToBeTrue: expression [
-    (expression) ifFalse: [
-      Transcript cr;
-                 show: self zenMessage, '  It is false, but SHOULD be true.';
-                 cr; cr.
-      ^false
-    ].
-    ^true
+    (expression)
+      ifFalse: [
+        Transcript cr;
+                   show: self zenMessage, '  It is false, but SHOULD be true.';
+                   cr; cr.
+        self tracker status: false.
+      ]
+      ifTrue: [
+        self tracker status: true.
+      ].
   ]
 
   expectToBeFalse: expression [
-    (expression) ifTrue: [
-      Transcript cr;
-                 show: self zenMessage, '  It is true, but SHOULD be false.';
-                 cr; cr.
-      ^false
-    ].
-    ^true
+    (expression)
+      ifTrue: [
+        Transcript cr;
+                   show: self zenMessage, '  It is true, but SHOULD be false.';
+                   cr; cr.
+        self tracker status: false.
+      ]
+      ifFalse: [
+        self tracker status: true.
+      ].
   ]
 
   expect: expectedValue toEqual: actualValue [
-    (expectedValue = actualValue) ifFalse: [
-      self diff value: 'Expected value should equal actual value.'
-                value: expectedValue
-                value: actualValue.
-      ^false
-    ].
-    ^true
+    (expectedValue = actualValue)
+      ifFalse: [
+        self diff value: 'Expected value should equal actual value.'
+                  value: expectedValue
+                  value: actualValue.
+        self tracker status: false.
+      ]
+      ifTrue: [
+        self tracker status: true.
+      ].
   ]
 
   expect: expectedValue toNotEqual: actualValue [
-    (expectedValue = actualValue) ifTrue: [
-      self diff value: 'Expected value should not equal actual value.'
-                value: expectedValue
-                value: actualValue.
-      ^false
-    ].
-    ^true
+    (expectedValue = actualValue)
+      ifTrue: [
+        self diff value: 'Expected value should not equal actual value.'
+                  value: expectedValue
+                  value: actualValue.
+        self tracker status: false.
+      ]
+      ifFalse: [
+        self tracker status: true.
+      ].
   ]
 
   expect: expectedValue toBeLike: actualValue [
-    (expectedValue class = actualValue class) ifFalse: [
-      self diff value: 'Expected value is not similar to actual value.'
-                value: expectedValue
-                value: actualValue.
-      ^false
-    ].
-    ^true
+    (expectedValue class = actualValue class)
+      ifFalse: [
+        self diff value: 'Expected value is not like actual value.'
+                  value: expectedValue
+                  value: actualValue.
+        self tracker status: false.
+      ]
+      ifTrue: [
+        self tracker status: true.
+      ].
   ]
 ]
