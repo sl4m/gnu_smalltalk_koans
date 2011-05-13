@@ -1,6 +1,0 @@
-#!/bin/sh
-
-echo "\nBuilding GNU Smalltalk Koans package..."
-gst-package -t ~/.st src/koans/package.xml
-echo "Running koans...\n"
-gst-sunit -p GNUSmalltalkKoans

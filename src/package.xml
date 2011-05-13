@@ -1,0 +1,24 @@
+<package>
+  <name>GNUSmalltalk</name>
+  <namespace>GNUSmalltalk</namespace>
+  <test>
+    <sunit>GNUSmalltalk.Test*</sunit>
+    <filein>Test.st</filein>
+    <filein>ZenTest.st</filein>
+  </test>
+  <filein>Koan.st</filein>
+  <filein>Zen.st</filein>
+  <filein>koans/TestAssert.st</filein>
+  <filein>koans/TestNil.st</filein>
+  <filein>koans/TestString.st</filein>
+  <filein>koans/TestNumber.st</filein>
+  <file>Koan.st</file>
+  <file>Zen.st</file>
+  <file>koans/TestAssert.st</file>
+  <file>koans/TestNil.st</file>
+  <file>koans/TestString.st</file>
+  <file>koans/TestNumber.st</file>
+  <file>Test.st</file>
+  <file>ZenTest.st</file>
+</package>
+
