@@ -24,19 +24,4 @@ Koan subclass: TestAssert [
     value := 'some value'.  "make this not equal"
     ^self expect: value toNotEqual: 'some value'
   ]
-
-  "testString"
-  "testStringConcatenation"
-  "testArithmeticPrecedence"
-  "testMessageTypes"
-  "testMessagePrecedence"
-  "testMessageSending"
-  "testMessageChaining"
-  "testMessageCascading"
-  "testTrueFalseClasses"
-  "testBlocks"
-  "testLoops"
-  "testClasses"
-  "testInheritance"
-  "testMetaclass"
 ]

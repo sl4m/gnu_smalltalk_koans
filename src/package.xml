@@ -10,14 +10,34 @@
   <filein>Zen.st</filein>
   <filein>koans/TestAssert.st</filein>
   <filein>koans/TestNil.st</filein>
-  <filein>koans/TestString.st</filein>
+  <filein>koans/TestObject.st</filein>
+  <filein>koans/TestMessage.st</filein>
   <filein>koans/TestNumber.st</filein>
+  <filein>koans/TestArray.st</filein>
+  <filein>koans/TestString.st</filein>
+  <filein>koans/TestCharacter.st</filein>
+  <filein>koans/TestSymbol.st</filein>
+  <filein>koans/TestBoolean.st</filein>
+  <filein>koans/TestSet.st</filein>
+  <filein>koans/TestBlock.st</filein>
+  <filein>koans/TestClass.st</filein>
+  <filein>koans/TestMetaclass.st</filein>
   <file>Koan.st</file>
   <file>Zen.st</file>
   <file>koans/TestAssert.st</file>
   <file>koans/TestNil.st</file>
-  <file>koans/TestString.st</file>
+  <file>koans/TestObject.st</file>
+  <file>koans/TestMessage.st</file>
   <file>koans/TestNumber.st</file>
+  <file>koans/TestArray.st</file>
+  <file>koans/TestString.st</file>
+  <file>koans/TestCharacter.st</file>
+  <file>koans/TestSymbol.st</file>
+  <file>koans/TestBoolean.st</file>
+  <file>koans/TestSet.st</file>
+  <file>koans/TestBlock.st</file>
+  <file>koans/TestClass.st</file>
+  <file>koans/TestMetaclass.st</file>
   <file>Test.st</file>
   <file>ZenTest.st</file>
 </package>

@@ -24,11 +24,70 @@ Object subclass: Zen [
     self tally: #testNilChecking.
   ]
 
+  testObject [
+
+  ]
+
+  testMessage [
+
+  ]
+
+  testNumber [
+
+  ]
+
+  testArray [
+
+  ]
+
+  testString [
+
+  ]
+
+  testCharacter [
+
+  ]
+
+  testSymbol [
+
+  ]
+
+  testBoolean [
+
+  ]
+
+  testSet [
+
+  ]
+
+  testBlock [
+
+  ]
+
+  testClass [
+
+  ]
+
+  testMetaclass [
+
+  ]
+
   runKoans [
-    | test |
 
     "self testAssert."
     "self testNil."
+    self testObject.
+    self testMessage.    "three types of messages, order of precedence, sending, chaining, cascading"
+    self testNumber.     "arithmetic precedence"
+    self testArray.
+    self testString.     "concatenation"
+    self testCharacter.
+    self testSymbol.
+    self testBoolean.
+    self testSet.
+    self testBlock.      "array each, select, inject, ifTrue/ifFalse, loops"
+    self testClass.      "inheritance, cool methods"
+    self testMetaclass.  "metaprogramming"
 
     self displayEndMessage: 0.
   ]

@@ -1,0 +1,3 @@
+Koan subclass: TestSymbol [
+
+]
