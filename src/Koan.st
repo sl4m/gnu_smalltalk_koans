@@ -40,6 +40,10 @@ Object subclass: Koan [
       ifTrue: [
         ^value asString, ' (an instance of ', value class name, ')'
       ].
+    (value class name = #UndefinedObject)
+      ifTrue: [
+        ^'nil (an instance of UndefinedObject)'
+      ].
     ^'(an instance of ', value class name, ')'
   ]
 

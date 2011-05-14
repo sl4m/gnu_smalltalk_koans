@@ -80,6 +80,11 @@ Object subclass: Zen [
 
   testArray [
     currentTest := TestArray create: (self tracker).
+    self tally: #testCreatingArray.
+    self tally: #testCreatingArrayWithSpecifiedSize.
+    self tally: #testCreatingConstantArray.
+    self tally: #testIncludesElement.
+    self tally: #testOccurrences.
   ]
 
   testString [
