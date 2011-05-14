@@ -124,12 +124,12 @@ Object subclass: Zen [
   ]
 
   runKoans [
-    "self testAssert."
-    "self testBasic."
-    "self testNil."
-    "self testObject."
-    "self testMessage."    "three types of messages, order of precedence, sending, chaining, cascading, parentheses"
-    "self testNumber."     "arithmetic precedence, fractions"
+    self testAssert
+    self testBasic.
+    self testNil.
+    self testObject.
+    self testMessage.    "three types of messages, order of precedence, sending, chaining, cascading, parentheses"
+    self testNumber.     "arithmetic precedence, fractions"
     self testArray.
     self testString.     "concatenation"
     self testCharacter.
