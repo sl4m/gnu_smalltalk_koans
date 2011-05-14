@@ -27,6 +27,28 @@ Object subclass: Zen [
     ^tracker
   ]
 
+  runKoans [
+    self testAssert.
+    self testBasic.
+    self testNil.
+    self testObject.
+    self testMessage.
+    self testNumber.
+    self testArray.
+    self testString.         "concatenation"
+    self testCharacter.
+    self testSymbol.
+    self testRegex.
+    self testBoolean.
+    self testSet.
+    self testBlock.          "ifTrue/ifFalse, loops"
+    self testArrayRevisited.  "array each, select, inject"
+    self testClass.          "inheritance, cool methods"
+    self testMetaclass.      "metaprogramming"
+
+    self displayEndMessage: 0.
+  ]
+
   testAssert [
     currentTest := TestAssert create: (self tracker).
     self tally: #testTruth.
@@ -121,27 +143,6 @@ Object subclass: Zen [
 
   testMetaclass [
     currentTest := TestMetaclass create: (self tracker).
-  ]
-
-  runKoans [
-    self testAssert
-    self testBasic.
-    self testNil.
-    self testObject.
-    self testMessage.    "three types of messages, order of precedence, sending, chaining, cascading, parentheses"
-    self testNumber.     "arithmetic precedence, fractions"
-    self testArray.
-    self testString.     "concatenation"
-    self testCharacter.
-    self testSymbol.
-    self testRegex.
-    self testBoolean.
-    self testSet.
-    self testBlock.      "array each, select, inject, ifTrue/ifFalse, loops"
-    self testClass.      "inheritance, cool methods"
-    self testMetaclass.  "metaprogramming"
-
-    self displayEndMessage: 0.
   ]
 
   tally: testName [

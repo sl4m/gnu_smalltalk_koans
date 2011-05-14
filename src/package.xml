@@ -17,11 +17,12 @@
   <filein>koans/TestArray.st</filein>
   <filein>koans/TestString.st</filein>
   <filein>koans/TestCharacter.st</filein>
-  <filein>koans/TestRegex.st</filein>
   <filein>koans/TestSymbol.st</filein>
+  <filein>koans/TestRegex.st</filein>
   <filein>koans/TestBoolean.st</filein>
   <filein>koans/TestSet.st</filein>
   <filein>koans/TestBlock.st</filein>
+  <filein>koans/TestArrayRevisited.st</filein>
   <filein>koans/TestClass.st</filein>
   <filein>koans/TestMetaclass.st</filein>
   <file>Koan.st</file>
@@ -35,11 +36,12 @@
   <file>koans/TestArray.st</file>
   <file>koans/TestString.st</file>
   <file>koans/TestCharacter.st</file>
-  <file>koans/TestRegex.st</file>
   <file>koans/TestSymbol.st</file>
+  <file>koans/TestRegex.st</file>
   <file>koans/TestBoolean.st</file>
   <file>koans/TestSet.st</file>
   <file>koans/TestBlock.st</file>
+  <file>koans/TestArrayRevisited.st</file>
   <file>koans/TestClass.st</file>
   <file>koans/TestMetaclass.st</file>
   <file>Test.st</file>
