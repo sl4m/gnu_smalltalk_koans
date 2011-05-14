@@ -15,3 +15,4 @@ in the root directory, type:
 * TestMessage
 * TestNumber
 * TestArray
+* TestString

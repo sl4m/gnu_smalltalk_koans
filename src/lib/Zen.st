@@ -35,7 +35,7 @@ Object subclass: Zen [
     self testMessage.
     self testNumber.
     self testArray.
-    self testString.         "concatenation"
+    self testString.
     self testCharacter.
     self testSymbol.
     self testRegex.
@@ -111,6 +111,16 @@ Object subclass: Zen [
 
   testString [
     currentTest := TestString create: (self tracker).
+    self tally: #testStringsCanOnlyBeCreatedUsingSingleQuotes.
+    self tally: #testUseSingleQuotesInStrings.
+    self tally: #testStringConcatenation.
+    self tally: #testStringConcatenationWillLeaveOriginalStringsUnmodified.
+    self tally: #testStringInterpolation.
+    self tally: #testSmalltalkExpressionMayBeInterpolated.
+    self tally: #testSubstring.
+    self tally: #testItWillRaiseExceptionIfIndexIsOutOfBounds.
+    self tally: #testSingleCharacterFromString.
+    self tally: #testUniquenessOfStringObjects.
   ]
 
   testCharacter [
@@ -134,6 +144,10 @@ Object subclass: Zen [
   ]
 
   testBlock [
+    currentTest := TestBlock create: (self tracker).
+  ]
+  
+  testArrayRevisited [
     currentTest := TestBlock create: (self tracker).
   ]
 

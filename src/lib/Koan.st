@@ -32,6 +32,14 @@ Object subclass: Koan [
       ifTrue: [ ^'true' ].
     (value class = False)
       ifTrue: [ ^'false' ].
+    (value class = UndefinedObject)
+      ifTrue: [
+        ^'nil (an instance of UndefinedObject)'
+      ].
+    (value class = Character)
+      ifTrue: [
+        ^'$', value asString, ' (an instance of ', value class name, ')'
+      ].
     (value respondsTo: #selectors)
       ifTrue: [
         ^value name asString
@@ -39,10 +47,6 @@ Object subclass: Koan [
     (value respondsTo: #asString)
       ifTrue: [
         ^value asString, ' (an instance of ', value class name, ')'
-      ].
-    (value class name = #UndefinedObject)
-      ifTrue: [
-        ^'nil (an instance of UndefinedObject)'
       ].
     ^'(an instance of ', value class name, ')'
   ]
