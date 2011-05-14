@@ -73,6 +73,9 @@ Object subclass: Zen [
 
   testNumber [
     currentTest := TestNumber create: (self tracker).
+    self tally: #testDifferentNumbers.
+    self tally: #testSomeInterestingMessages.
+    self tally: #testNumberIsAnAbstractClass.
   ]
 
   testArray [
@@ -120,8 +123,8 @@ Object subclass: Zen [
     "self testBasic."
     "self testNil."
     "self testObject."
-    self testMessage.    "three types of messages, order of precedence, sending, chaining, cascading, parentheses"
-    self testNumber.     "arithmetic precedence, fractions"
+    "self testMessage."    "three types of messages, order of precedence, sending, chaining, cascading, parentheses"
+    "self testNumber."     "arithmetic precedence, fractions"
     self testArray.
     self testString.     "concatenation"
     self testCharacter.
