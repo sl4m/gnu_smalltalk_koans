@@ -9,6 +9,7 @@
   <filein>Koan.st</filein>
   <filein>Zen.st</filein>
   <filein>koans/TestAssert.st</filein>
+  <filein>koans/TestBasic.st</filein>
   <filein>koans/TestNil.st</filein>
   <filein>koans/TestObject.st</filein>
   <filein>koans/TestMessage.st</filein>
@@ -26,6 +27,7 @@
   <file>Koan.st</file>
   <file>Zen.st</file>
   <file>koans/TestAssert.st</file>
+  <file>koans/TestBasic.st</file>
   <file>koans/TestNil.st</file>
   <file>koans/TestObject.st</file>
   <file>koans/TestMessage.st</file>
@@ -43,4 +45,3 @@
   <file>Test.st</file>
   <file>ZenTest.st</file>
 </package>
-

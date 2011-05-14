@@ -17,12 +17,10 @@ Koan subclass: TestObject [
   ]
 
   testObjectsCanBeInspected [
-    " purely informational
-
+    "
     1234 inspect.
     'qwerty' inspect.
     nil inspect.
-
     "
   ]
 
@@ -30,9 +28,7 @@ Koan subclass: TestObject [
     | object |
     object := Object new.
 
-    "I have no idea why it's called asOop"
-
-    self expect: (self fillMeIn) toEqual: (object asOop class).
+    self expect: (self fillMeIn) toEqual: (object hash class).
   ]
 
   testEveryObjectHasADifferentId [
@@ -40,7 +36,19 @@ Koan subclass: TestObject [
     object := Object new.
     anotherObject := Object new.
 
-    self expect: (self fillMeIn) toEqual: (object asOop ~= anotherObject asOop).
+    self expect: (self fillMeIn) toEqual: (object hash ~= anotherObject hash).
+  ]
+
+  testSomeSystemObjectsAlwaysHaveTheSameId [
+    self expect: (self fillMeIn) toEqual: (false hash).
+    self expect: (self fillMeIn) toEqual: (true  hash).
+    self expect: (self fillMeIn) toEqual: (nil   hash).
+  ]
+
+  testMostIntegersHaveFixedIds [
+    self expect: (self fillMeIn) toEqual: (0      hash).
+    self expect: (self fillMeIn) toEqual: (1      hash).
+    self expect: (self fillMeIn) toEqual: (100000 hash).
   ]
 
   testCopyCreatesADifferentObject [
@@ -49,6 +57,6 @@ Koan subclass: TestObject [
     objectCopy := object copy.
     
     self expect: (self fillMeIn) toEqual: (object = objectCopy).
-    self expect: (self fillMeIn) toEqual: (object asOop ~= objectCopy asOop)
+    self expect: (self fillMeIn) toEqual: (object hash ~= objectCopy hash).
   ]
 ]

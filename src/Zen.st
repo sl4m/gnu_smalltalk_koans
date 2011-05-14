@@ -35,6 +35,13 @@ Object subclass: Zen [
     self tally: #testInequality.
   ]
 
+  testBasic [
+    currentTest := TestBasic create: (self tracker).
+    self tally: #testDeclarationAndAssignment.
+    self tally: #testEquals.
+    self tally: #testNotEquals.
+  ]
+
   testNil [
     currentTest := TestNil create: (self tracker).
     self tally: #testNilIsAnObject.
@@ -47,14 +54,21 @@ Object subclass: Zen [
     currentTest := TestObject create: (self tracker).
     self tally: #testEverythingIsAnObject.
     self tally: #testSomeObjectsCanBeConvertedToStrings.
-    self tally: #testObjectsCanBeInspected.
     self tally: #testEveryObjectHasAnId.
     self tally: #testEveryObjectHasADifferentId.
+    self tally: #testSomeSystemObjectsAlwaysHaveTheSameId.
+    self tally: #testMostIntegersHaveFixedIds.
     self tally: #testCopyCreatesADifferentObject.
   ]
 
   testMessage [
     currentTest := TestMessage create: (self tracker).
+    self tally: #testUnaryMessage.
+    self tally: #testBinaryMessage.
+    self tally: #testKeywordMessage.
+    self tally: #testMessagePrecedence.
+    self tally: #testArithmeticPrecedence.
+    self tally: #testMessageChaining.
   ]
 
   testNumber [
@@ -102,10 +116,10 @@ Object subclass: Zen [
   ]
 
   runKoans [
-
     "self testAssert."
+    "self testBasic."
     "self testNil."
-    self testObject.
+    "self testObject."
     self testMessage.    "three types of messages, order of precedence, sending, chaining, cascading, parentheses"
     self testNumber.     "arithmetic precedence, fractions"
     self testArray.

@@ -10,7 +10,7 @@ Koan subclass: TestNil [
   ]
 
   testNilInstancesAreNotTheSame [
-    "expect:toBeLike: selector checks for exact class name"
+    "expect:toBeLike: checks for exact class name"
 
     self expect: (self fillMeIn) toBeLike: UndefinedObject new.
   ]
