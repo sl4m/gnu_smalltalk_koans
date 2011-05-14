@@ -20,7 +20,7 @@ Object subclass: Koan [
   ]
 
   zenMessage [
-    ^'Whoops!'
+    ^'@dhh > Whoops!'
   ]
 
   prettify: value [
@@ -28,14 +28,18 @@ Object subclass: Koan [
 
     (value = self fillMeIn)
       ifTrue: [ ^value ].
-    (value respondsTo: #asString)
-      ifTrue: [
-        ^value asString, ' (an instance of ', value class name, ')'
-      ].
     (value class = True)
       ifTrue: [ ^'true' ].
     (value class = False)
       ifTrue: [ ^'false' ].
+    (value respondsTo: #selectors)
+      ifTrue: [
+        ^value name asString
+      ].
+    (value respondsTo: #asString)
+      ifTrue: [
+        ^value asString, ' (an instance of ', value class name, ')'
+      ].
     ^'(an instance of ', value class name, ')'
   ]
 
@@ -52,6 +56,8 @@ Object subclass: Koan [
   ]
 
   expectToBeTrue: expression [
+    (self tracker status)
+      ifFalse: [ ^false ].
     (expression)
       ifFalse: [
         Transcript cr;
@@ -65,6 +71,8 @@ Object subclass: Koan [
   ]
 
   expectToBeFalse: expression [
+    (self tracker status)
+      ifFalse: [ ^false ].
     (expression)
       ifTrue: [
         Transcript cr;
@@ -78,6 +86,8 @@ Object subclass: Koan [
   ]
 
   expect: expectedValue toEqual: actualValue [
+    (self tracker status)
+      ifFalse: [ ^false ].
     (expectedValue = actualValue)
       ifFalse: [
         self diff value: 'Expected value should equal actual value.'
@@ -91,6 +101,8 @@ Object subclass: Koan [
   ]
 
   expect: expectedValue toNotEqual: actualValue [
+    (self tracker status)
+      ifFalse: [ ^false ].
     (expectedValue = actualValue)
       ifTrue: [
         self diff value: 'Expected value should not equal actual value.'
@@ -104,11 +116,30 @@ Object subclass: Koan [
   ]
 
   expect: expectedValue toBeLike: actualValue [
+    (self tracker status)
+      ifFalse: [ ^false ].
     (expectedValue class = actualValue class)
       ifFalse: [
         self diff value: 'Expected value is not like actual value.'
                   value: expectedValue
                   value: actualValue.
+        self tracker status: false.
+      ]
+      ifTrue: [
+        self tracker status: true.
+      ].
+  ]
+
+  expect: blockExpression toRaise: expectedException [
+    | actualException |
+    (self tracker status)
+      ifFalse: [ ^false ].
+    actualException := blockExpression on: Exception do: [ :signal | signal return: signal class ].
+    (expectedException = actualException)
+      ifFalse: [
+        self diff value: 'Expected exception was not given.'
+                  value: expectedException
+                  value: actualException.
         self tracker status: false.
       ]
       ifTrue: [

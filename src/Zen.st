@@ -20,6 +20,7 @@ Object subclass: Zen [
   initialize [
     passed := 0.
     tracker := Tracker new.
+    tracker status: true.
   ]
 
   tracker [
@@ -44,6 +45,12 @@ Object subclass: Zen [
 
   testObject [
     currentTest := TestObject create: (self tracker).
+    self tally: #testEverythingIsAnObject.
+    self tally: #testSomeObjectsCanBeConvertedToStrings.
+    self tally: #testObjectsCanBeInspected.
+    self tally: #testEveryObjectHasAnId.
+    self tally: #testEveryObjectHasADifferentId.
+    self tally: #testCopyCreatesADifferentObject.
   ]
 
   testMessage [
