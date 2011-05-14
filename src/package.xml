@@ -3,11 +3,11 @@
   <namespace>GNUSmalltalk</namespace>
   <test>
     <sunit>GNUSmalltalk.Test*</sunit>
-    <filein>Test.st</filein>
-    <filein>ZenTest.st</filein>
+    <filein>lib/Test.st</filein>
+    <filein>lib/ZenTest.st</filein>
   </test>
-  <filein>Koan.st</filein>
-  <filein>Zen.st</filein>
+  <filein>lib/Koan.st</filein>
+  <filein>lib/Zen.st</filein>
   <filein>koans/TestAssert.st</filein>
   <filein>koans/TestBasic.st</filein>
   <filein>koans/TestNil.st</filein>
@@ -25,8 +25,8 @@
   <filein>koans/TestArrayRevisited.st</filein>
   <filein>koans/TestClass.st</filein>
   <filein>koans/TestMetaclass.st</filein>
-  <file>Koan.st</file>
-  <file>Zen.st</file>
+  <file>lib/Koan.st</file>
+  <file>lib/Zen.st</file>
   <file>koans/TestAssert.st</file>
   <file>koans/TestBasic.st</file>
   <file>koans/TestNil.st</file>
@@ -44,6 +44,6 @@
   <file>koans/TestArrayRevisited.st</file>
   <file>koans/TestClass.st</file>
   <file>koans/TestMetaclass.st</file>
-  <file>Test.st</file>
-  <file>ZenTest.st</file>
+  <file>lib/Test.st</file>
+  <file>lib/ZenTest.st</file>
 </package>

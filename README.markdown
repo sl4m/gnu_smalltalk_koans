@@ -1,6 +1,12 @@
 ## GNU Smalltalk Koans
 
-### Currently working koans
+### Running koans (only on Mac OS X, for now)
+
+in the root directory, type:
+
+`script/run`
+
+### Koans supported right now
 
 * TestAssert
 * TestBasic
@@ -9,7 +15,3 @@
 * TestMessage
 * TestNumber
 * TestArray
-
-### Running koans (only on Mac OS X, for now)
-
-* in the root directory, type `script/run`
