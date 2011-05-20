@@ -1,10 +1,6 @@
 Koan subclass: TestBasic [
   <comment: 'A collection of introductory tests.'>
 
-  testComment [
-    "Look at me, I'm a comment!  All comments are wrapped in double quotes."
-  ]
-
   testDeclarationAndAssignment [
     | declaration anotherDeclaration |
 
@@ -12,7 +8,7 @@ Koan subclass: TestBasic [
     "Variables are separated by a single space"
 
     declaration _ 1.  "old way to assign value"
-    anotherDeclaration := 'string'.  "common way"
+    anotherDeclaration := 'string'.  "modern way to assign value"
 
     self expect: (self fillMeIn) toEqual: declaration.
     self expect: (self fillMeIn) toEqual: anotherDeclaration.
@@ -25,11 +21,13 @@ Koan subclass: TestBasic [
     value := variableA = variableB.  "equal is not assignment"
 
     self expect: (self fillMeIn) toEqual: (variableA = variableB).
-    "#== checks identity"
+    
+    "#== checks if identity is equal.  More about messages in the TestMessage koan"
   ]
 
   testNotEquals [
     self expect: (self fillMeIn) toEqual: ('hello' ~= 'world').
-    "#~~ checks if identity is not equal"
+
+    "#~~ checks if identity is not equal.  More about messages in the TestMessage koan"
   ]
 ]

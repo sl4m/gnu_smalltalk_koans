@@ -7,6 +7,7 @@
     <filein>lib/ZenTest.st</filein>
   </test>
   <filein>lib/Koan.st</filein>
+  <filein>lib/Tracker.st</filein>
   <filein>lib/Zen.st</filein>
   <filein>koans/TestAssert.st</filein>
   <filein>koans/TestBasic.st</filein>
@@ -26,6 +27,7 @@
   <filein>koans/TestClass.st</filein>
   <filein>koans/TestMetaclass.st</filein>
   <file>lib/Koan.st</file>
+  <file>lib/Tracker.st</file>
   <file>lib/Zen.st</file>
   <file>koans/TestAssert.st</file>
   <file>koans/TestBasic.st</file>

@@ -13,6 +13,7 @@ Koan subclass: TestString [
     string := 'Bob''s Bakery'.
 
     self expect: (self fillMeIn) toEqual: string.
+    "No quote escaping or character escaping of any kind"
   ]
 
   testStringConcatenation [
@@ -26,7 +27,7 @@ Koan subclass: TestString [
   testStringConcatenationWillLeaveOriginalStringsUnmodified [
     | stringA stringB stringC |
 
-    stringA := 'Good day,'.
+    stringA := 'Good day, '.
     stringB := 'sir!'.
     stringC := stringA, stringB.
 

@@ -17,7 +17,8 @@ Koan subclass: TestObject [
   ]
 
   testObjectsCanBeInspected [
-    "
+    " Examples:
+
     1234 inspect.
     'qwerty' inspect.
     nil inspect.

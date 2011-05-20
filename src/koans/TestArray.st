@@ -19,7 +19,7 @@ Koan subclass: TestArray [
 
     self expect: (self fillMeIn) toEqual: (array isEmpty).
 
-    "Array index starts at 1, not 0, like most languages"
+    "Array index starts at 1, not 0 like most languages"
 
     self expect: (self fillMeIn) toEqual: (array at: 1).
 
@@ -38,6 +38,15 @@ Koan subclass: TestArray [
 
     array := #('a' 'b' 'c').
     anotherArray := (Array with: 'a' with: 'b' with: 'c').
+
+    self expect: (self fillMeIn) toEqual: (array = anotherArray).
+  ]
+
+  testCreatingAnotherConstantArray [
+    | array anotherArray |
+
+    array := { 1 . 2 . 3 }.
+    anotherArray := #('a' 'b' 'c').
 
     self expect: (self fillMeIn) toEqual: (array = anotherArray).
   ]

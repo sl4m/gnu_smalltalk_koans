@@ -1,15 +1,3 @@
-Object subclass: Tracker [
-  |status|
-
-  status [
-    ^status
-  ]
-
-  status: newStatus [
-    status := newStatus
-  ]
-]
-
 Object subclass: Zen [
   | passed tracker currentTest |
 
@@ -91,6 +79,7 @@ Object subclass: Zen [
     self tally: #testMessagePrecedence.
     self tally: #testArithmeticPrecedence.
     self tally: #testMessageChaining.
+    self tally: #testControllingPrecedenceWithParentheses.
   ]
 
   testNumber [

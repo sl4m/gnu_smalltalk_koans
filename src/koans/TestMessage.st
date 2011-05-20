@@ -41,7 +41,7 @@ Koan subclass: TestMessage [
   testMessagePrecedence [
     | value |
 
-    "Unary > Binary > Keyword, use parentheses to control order"
+    "Unary > Binary > Keyword"
 
     value := 7 - 1 between: 'hello' size and: 1 * 9.
 
@@ -54,10 +54,8 @@ Koan subclass: TestMessage [
     "There is no such thing as arithmetic precedence in Smalltalk"
 
     value := 1 + 7 * 8.
-    anotherValue := 1 + (7 * 8).
 
     self expect: (self fillMeIn) toEqual: value.
-    self expect: (self fillMeIn) toEqual: anotherValue.
   ]
 
   testMessageChaining [
@@ -66,6 +64,14 @@ Koan subclass: TestMessage [
     value := 1 class name asString.  "message chaining of #class, #name, #asString"
 
     self expect: (self fillMeIn) toEqual: value.
+  ]
+
+  testControllingPrecedenceWithParentheses [
+   | value |
+
+   value := 7 - 1 * 'hello world' size - 2 sqrt asInteger.  "use parentheses to control order of precedence"
+
+   self expect: 4 toEqual: value.
   ]
 
   testMessageCascading [
