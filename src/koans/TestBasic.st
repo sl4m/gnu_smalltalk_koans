@@ -14,7 +14,7 @@ Koan subclass: TestBasic [
     self expect: (self fillMeIn) toEqual: anotherDeclaration.
   ]
 
-  testEquals [
+  testEqualSignIsNotAnAssignmentOperator [
     | variableA variableB value |
 
     variableA := variableB := 1234.
@@ -23,6 +23,17 @@ Koan subclass: TestBasic [
     self expect: (self fillMeIn) toEqual: (variableA = variableB).
     
     "#== checks if identity is equal.  More about messages in the TestMessage koan"
+  ]
+
+  testMultipleStatements [
+    | variableA variableB variableC |
+
+    "Multiple statements are separated by periods"
+    variableA := 1. variableB := 2. variableC := 3.
+
+    self expect: (self fillMeIn) toEqual: (variableA).
+    self expect: (self fillMeIn) toEqual: (variableB).
+    self expect: (self fillMeIn) toEqual: (variableC).
   ]
 
   testNotEquals [

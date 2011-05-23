@@ -2,4 +2,4 @@
 
 #echo "\nBuilding GNU Smalltalk Koans package...\n"
 gst-package -t ~/.st src/package.xml > /dev/null
-gst script/run.st
+gst --no-gc-message script/run.st

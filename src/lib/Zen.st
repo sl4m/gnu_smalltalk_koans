@@ -48,7 +48,8 @@ Object subclass: Zen [
   testBasic [
     currentTest := TestBasic create: (self tracker).
     self tally: #testDeclarationAndAssignment.
-    self tally: #testEquals.
+    self tally: #testEqualSignIsNotAnAssignmentOperator.
+    self tally: #testMultipleStatements.
     self tally: #testNotEquals.
   ]
 

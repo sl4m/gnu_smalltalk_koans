@@ -2,9 +2,36 @@
 
 Hey there and welcome!
 
+### Supported GNU Smalltalk Versions
+
+Currently, only GNU Smalltalk version `3.2.2` on Mac OS X is supported right now.  It should work on Linux and support for Windows is on its way.  Until I can get `3.2.3` or `3.2.4` installed, no support for these versions are available at this time.
+
+The simplest way to install GNU Smalltalk on your Mac is via brew:
+
+`brew install gnu-smalltalk`
+
+### Running koans
+
+In the root directory, type:
+
+`script/run`
+
+You will see a message similar to this:
+
+`TestAssert#testTruth needs your attention.`
+
+This means you will need to open `TestAssert.st` under `src/koans` and solve the test, `testTruth`.
+
 All koan files contain a set of tests, each starting with 'test'.  Solve each test one by one, running `script/run` in between.
 
-### GNU Smalltalk Syntax and Notation Conventions
+### Editors with Smalltalk support
+
+* [redcar](https://github.com/redcar/redcar)
+* vim
+* emacs
+* Textmate
+
+### Things You Should Know Before Starting
 
 `| variable1 variable2 |` is to declare variable1 and variable2 separate by a space.  At least one space must be used to separate variables.  Commas are not used.
 
@@ -14,15 +41,11 @@ All koan files contain a set of tests, each starting with 'test'.  Solve each te
 
 `'this is a string'`
 
-`#speak` is the notation used to describe the message 'speak'.
+`#speak` is the notation used to describe the method (message) 'speak'.
+
+Words wrapped in `<>` are called pragmas and define class comments, category, imported namespaces, and the shape of indexed instance variables.  More information [here](http://www.gnu.org/software/smalltalk/manual/gst.html#Syntax).
 
 Ok, have at it!
-
-### Running koans (only on Mac OS X, for now)
-
-In the root directory, type:
-
-`script/run`
 
 ### Koans supported right now
 
@@ -34,3 +57,9 @@ In the root directory, type:
 * TestNumber
 * TestArray
 * TestString
+* TestCharacter
+* TestSymbol
+
+### Credits
+
+Big thanks to Matt Yoho (@mattyoho) of Ruby Koans team for letting me port tests over.
