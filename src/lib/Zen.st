@@ -94,6 +94,7 @@ Object subclass: Zen [
     self tally: #testCreatingArray.
     self tally: #testCreatingArrayWithSpecifiedSize.
     self tally: #testCreatingConstantArray.
+    self tally: #testCreatingAnotherConstantArray.
     self tally: #testIncludesElement.
     self tally: #testOccurrences.
   ]
@@ -114,10 +115,28 @@ Object subclass: Zen [
 
   testCharacter [
     currentTest := TestCharacter create: (self tracker).
+    self tally: #testCharactersBeCompared.
+    self tally: #testCharacterAsciiValue.
+    self tally: #testUnprintableCharacters.
+    self tally: #testDigitAndLetter.
+    self tally: #testLetterCase.
+    self tally: #testLetterCaseConversion.
+    self tally: #testWhitespace.
+    self tally: #testPunctuation.
+    self tally: #testRepeatingCharacters.
+    self tally: #testIdenticalCharactersAreASingleInternalObject.
   ]
 
   testSymbol [
     currentTest := TestSymbol create: (self tracker).
+    self tally: #testSymbolsStartWithHash.
+    self tally: #testSymbolsInheritFromString.
+    self tally: #testSymbolsCanBeCompared.
+    self tally: #testIdenticalSymbolsAreASingleInternalObject.
+    self tally: #testMethodNamesBecomeSymbols.
+    self tally: #testStringToSymbolConversion.
+    self tally: #testSymbolConversionWhenStringContainsNonAlphaNumerics.
+    self tally: #testSymbolsHaveStringMethodsThroughInheritance.
   ]
 
   testRegex [

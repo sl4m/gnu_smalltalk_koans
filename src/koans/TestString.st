@@ -1,4 +1,6 @@
 Koan subclass: TestString [
+  <comment: 'A collection of string tests.'>
+
   testStringsCanOnlyBeCreatedUsingSingleQuotes [
     | string |
 
@@ -19,9 +21,12 @@ Koan subclass: TestString [
   testStringConcatenation [
     | string |
 
-    string := 'Hello, ', 'World'.
+    string := 'Hello ', 'World'.
 
     self expect: (self fillMeIn) toEqual: string.
+
+    "Concatenation does not quite work this way..."
+    self expect: ['Hello ' + 'World'] toRaise: (self fillMeIn).
   ]
 
   testStringConcatenationWillLeaveOriginalStringsUnmodified [
