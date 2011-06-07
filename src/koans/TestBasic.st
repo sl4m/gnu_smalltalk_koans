@@ -22,7 +22,7 @@ Koan subclass: TestBasic [
 
     self expect: (self fillMeIn) toEqual: (variableA = variableB).
     
-    "#== checks if identity is equal.  More about messages in the TestMessage koan"
+    "#== is a message that checks if identity is equal.  More about messages in the TestMessage koan"
   ]
 
   testMultipleStatements [
@@ -36,9 +36,29 @@ Koan subclass: TestBasic [
     self expect: (self fillMeIn) toEqual: (variableC).
   ]
 
-  testNotEquals [
+  testInequality [
     self expect: (self fillMeIn) toEqual: ('hello' ~= 'world').
 
-    "#~~ checks if identity is not equal.  More about messages in the TestMessage koan"
+    "#~~ is a message that checks if identity is not equal.  More about messages in the TestMessage koan"
+  ]
+
+  testLogicalOr [
+    | expression |
+
+    expression := (3 > 4) | (5 < 6).
+
+    self expect: (self fillMeIn) toEqual: (expression).
+  ]
+
+  testLogicalAnd [
+    | expression |
+
+    expression := (2 > 1) & ('a' < 'b').
+
+    self expect: (self fillMeIn) toEqual: (expression).
+  ]
+
+  testNot [
+    self expect: (self fillMeIn) toEqual: (true not).
   ]
 ]

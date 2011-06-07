@@ -26,10 +26,10 @@ Object subclass: Zen [
     self testString.
     self testCharacter.
     self testSymbol.
-    self testRegex.
-    self testBoolean.
-    self testSet.
     self testBlock.          "ifTrue/ifFalse, loops"
+    self testBoolean.
+    self testRegex.
+    self testSet.
     self testArrayRevisited.  "array each, select, inject"
     self testClass.          "inheritance, cool methods"
     self testMetaclass.      "metaprogramming"
@@ -42,7 +42,7 @@ Object subclass: Zen [
     self tally: #testTruth.
     self tally: #testEquality.
     self tally: #testStringEquality.
-    self tally: #testInequality.
+    self tally: #testNotEqual.
   ]
 
   testBasic [
@@ -50,14 +50,17 @@ Object subclass: Zen [
     self tally: #testDeclarationAndAssignment.
     self tally: #testEqualSignIsNotAnAssignmentOperator.
     self tally: #testMultipleStatements.
-    self tally: #testNotEquals.
+    self tally: #testInequality.
+    self tally: #testLogicalOr.
+    self tally: #testLogicalAnd.
+    self tally: #testNot.
   ]
 
   testNil [
     currentTest := TestNil create: (self tracker).
     self tally: #testNilIsAnObject.
     self tally: #testNilIsTheSameInstance.
-    self tally: #testNilInstancesAreNotTheSame.
+    self tally: #testUndefinedObjectInstancesAreNotTheSame.
     self tally: #testNilChecking.
   ]
 
@@ -110,6 +113,7 @@ Object subclass: Zen [
     self tally: #testSmalltalkExpressionMayBeInterpolated.
     self tally: #testSubstring.
     self tally: #testItWillRaiseExceptionIfIndexIsOutOfBounds.
+    self tally: #testStringClass.
     self tally: #testSingleCharacterFromString.
     self tally: #testUniquenessOfStringObjects.
   ]
@@ -140,22 +144,50 @@ Object subclass: Zen [
     self tally: #testSymbolsHaveStringMethodsThroughInheritance.
   ]
 
-  testRegex [
-    currentTest := TestRegex create: (self tracker).
+  testBlock [
+    currentTest := TestBlock create: (self tracker).
   ]
 
   testBoolean [
     currentTest := TestBoolean create: (self tracker).
   ]
 
+  testRegex [
+    currentTest := TestRegex create: (self tracker).
+    self tally: #testSearchRegex.
+    self tally: #testUsingPerlSyntax.
+    self tally: #testUsingTilde.
+    self tally: #testIfMatchedBlock.
+    self tally: #testControlCaseSensitivityWithInlineModifier.
+    self tally: #testQuestionMark.
+    self tally: #testLeftMostMatchWins.
+    self tally: #testCharacterClasses.
+    self tally: #testDigits.
+    self tally: #testDigitRange.
+    self tally: #testWhitespaces.
+    self tally: #testWords.
+    self tally: #testPeriod.
+    self tally: #testNegation.
+    self tally: #testCharacterClassNegation.
+    self tally: #testStartOfString.
+    self tally: #testEndOfString.
+    self tally: #testStartOfLine.
+    self tally: #testEndOfLine.
+    self tally: #testWordBoundary.
+    self tally: #testGroupingWithParentheses.
+    self tally: #testParenthesesAlsoCaptureMatchedContentByNumber.
+    self tally: #testPipeCharacter.
+    self tally: #testAllOccurrencesOfRegex.
+    self tally: #testReplacingRegex.
+    self tally: #testReplacingAllRegex.
+    self tally: #testMatchingRegexResults.
+    self tally: #testFailedMatchRegexResults.
+  ]
+
   testSet [
     currentTest := TestSet create: (self tracker).
   ]
 
-  testBlock [
-    currentTest := TestBlock create: (self tracker).
-  ]
-  
   testArrayRevisited [
     currentTest := TestBlock create: (self tracker).
   ]

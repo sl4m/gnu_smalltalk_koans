@@ -13,7 +13,7 @@ Koan subclass: TestAssert [
 
     self expect: expectedValue toEqual: (5 + 5).
 
-    "self is not implicit in Smalltalk."
+    "self is not implicit in Smalltalk.  More on this in a future koan."
   ]
 
   testStringEquality [
@@ -23,7 +23,7 @@ Koan subclass: TestAssert [
     self expect: expectedValue toEqual: ('hello world!').  "Strings are wrapped in single quotes"
   ]
 
-  testInequality [
+  testNotEqual [
     | value |
     value := 'some value'.  "make this a different value"
 
