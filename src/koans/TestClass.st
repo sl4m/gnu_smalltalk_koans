@@ -6,4 +6,8 @@ Koan subclass: TestClass [
   "Class variables are defined the same as variable assignments."
 
   "Pragmas define class comment, class category, imported namespaces, and the shape of indexed instance variables."
+
+  "superclass"
+  "allInstances"
+  "allSuperclasses"
 ]

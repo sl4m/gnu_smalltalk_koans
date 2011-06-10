@@ -2,7 +2,7 @@ Koan subclass: TestRegex [
   <comment: 'A collection of regular expression tests.'>
 
   "Regular expression was added to GNU Smalltalk and
-   was not originally part of the ANSI Smalltalk implementation"
+   was not originally part of the ANSI Smalltalk implementation."
 
   testSearchRegex [
     | string |

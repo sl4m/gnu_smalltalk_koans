@@ -13,13 +13,13 @@ Koan subclass: TestArray [
   testCreatingArrayWithSpecifiedSize [
     | array |
 
-    "Arrays are not dynamic, size needs to be specified"
+    "Arrays are not dynamic, size needs to be specified."
 
     array := Array new: 3.
 
     self expect: (self fillMeIn) toEqual: (array isEmpty).
 
-    "Array index starts at 1, not 0 like most languages"
+    "Array index starts at 1, not 0 like most languages."
 
     self expect: (self fillMeIn) toEqual: (array at: 1).
 
@@ -40,15 +40,28 @@ Koan subclass: TestArray [
     anotherArray := (Array with: 'a' with: 'b' with: 'c').
 
     self expect: (self fillMeIn) toEqual: (array = anotherArray).
+
+    "#() only accepts literal values."
   ]
 
-  testCreatingAnotherConstantArray [
-    | array anotherArray |
+  testCreatingAnArrayThatEvaluatesExpressions [
+    | array |
 
-    array := { 1 . 2 . 3 }.
-    anotherArray := #('a' 'b' 'c').
+    array := { 1-1 . 2*2 . 3+4 }.
 
-    self expect: (self fillMeIn) toEqual: (array = anotherArray).
+    self expect: (self fillMeIn) toEqual: (array).
+  ]
+
+  testAccessingElements [
+    | array |
+
+    array := #(0 1 2 3).
+
+    self expect: (self fillMeIn) toEqual: (array at: 1).
+    self expect: (self fillMeIn) toEqual: (array first).
+    self expect: (self fillMeIn) toEqual: (array second).
+    self expect: (self fillMeIn) toEqual: (array third).
+    self expect: (self fillMeIn) toEqual: (array fourth).
   ]
 
   testIncludesElement [

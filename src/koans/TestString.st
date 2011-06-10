@@ -15,7 +15,7 @@ Koan subclass: TestString [
     string := 'Bob''s Bakery'.
 
     self expect: (self fillMeIn) toEqual: string.
-    "No quote escaping or character escaping of any kind"
+    "No quote escaping or character escaping of any kind exist."
   ]
 
   testStringConcatenation [
@@ -84,7 +84,7 @@ Koan subclass: TestString [
     self expect: (self fillMeIn) toEqual: (string at: 1).
     self expect: (self fillMeIn) toEqual: (string at: 6).
 
-    "Characters will be covered in another koan"
+    "Characters will be covered in another koan."
   ]
 
   testUniquenessOfStringObjects [

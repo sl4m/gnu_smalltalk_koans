@@ -26,13 +26,13 @@ Koan subclass: TestCharacter [
   testUnprintableCharacters [
     | character anotherCharacter |
 
-    "Smalltalk provides messages for 'unprintable' characters"
+    "Smalltalk provides messages for 'unprintable' characters."
 
     character := Character tab.
     anotherCharacter := Character backspace.
 
     self expect: (self fillMeIn) toEqual: (character = (Character value: 9)).
-    "Imma let you finish, but 'Unprintable' characters can actually be printed"
+    "Imma let you finish, but 'Unprintable' characters can actually be printed."
     self expect: (self fillMeIn) toEqual: (anotherCharacter = ($<8>)).
   ]
 

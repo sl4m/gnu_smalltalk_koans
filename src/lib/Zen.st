@@ -16,6 +16,7 @@ Object subclass: Zen [
   ]
 
   runKoans [
+  "
     self testAssert.
     self testBasic.
     self testNil.
@@ -26,11 +27,12 @@ Object subclass: Zen [
     self testString.
     self testCharacter.
     self testSymbol.
+  "
     self testBlock.          "ifTrue/ifFalse, loops"
+    self testArrayRevisited. "array each, select, inject"
     self testBoolean.
     self testRegex.
     self testSet.
-    self testArrayRevisited.  "array each, select, inject"
     self testClass.          "inheritance, cool methods"
     self testMetaclass.      "metaprogramming"
 
@@ -49,7 +51,7 @@ Object subclass: Zen [
     currentTest := TestBasic create: (self tracker).
     self tally: #testDeclarationAndAssignment.
     self tally: #testEqualSignIsNotAnAssignmentOperator.
-    self tally: #testMultipleStatements.
+    self tally: #testMultipleStatementsInASingleLine.
     self tally: #testInequality.
     self tally: #testLogicalOr.
     self tally: #testLogicalAnd.
@@ -68,6 +70,7 @@ Object subclass: Zen [
     currentTest := TestObject create: (self tracker).
     self tally: #testEverythingIsAnObject.
     self tally: #testSomeObjectsCanBeConvertedToStrings.
+    self tally: #testNilObjectCannotBeConvertedToString.
     self tally: #testEveryObjectHasAnId.
     self tally: #testEveryObjectHasADifferentId.
     self tally: #testSomeSystemObjectsAlwaysHaveTheSameId.
@@ -82,23 +85,29 @@ Object subclass: Zen [
     self tally: #testKeywordMessage.
     self tally: #testMessagePrecedence.
     self tally: #testArithmeticPrecedence.
-    self tally: #testMessageChaining.
     self tally: #testControllingPrecedenceWithParentheses.
+    self tally: #testMessageChaining.
+    self tally: #testMessageCascading.
   ]
 
   testNumber [
     currentTest := TestNumber create: (self tracker).
     self tally: #testDifferentNumbers.
-    self tally: #testSomeInterestingMessages.
-    self tally: #testNumberIsAnAbstractClass.
+    self tally: #testNumberParts.
+    self tally: #testSigns.
+    self tally: #testNegation.
+    self tally: #testRounding.
+    self tally: #testMinMaxOfTwoNumbers.
+    self tally: #testNumberAndMagnitudeAreAbstractClasses.
   ]
 
   testArray [
     currentTest := TestArray create: (self tracker).
-    self tally: #testCreatingArray.
+    self tally: #testCreatingArrays.
     self tally: #testCreatingArrayWithSpecifiedSize.
     self tally: #testCreatingConstantArray.
-    self tally: #testCreatingAnotherConstantArray.
+    self tally: #testCreatingAnArrayThatEvaluatesExpressions.
+    self tally: #testAccessingElements.
     self tally: #testIncludesElement.
     self tally: #testOccurrences.
   ]
@@ -146,6 +155,24 @@ Object subclass: Zen [
 
   testBlock [
     currentTest := TestBlock create: (self tracker).
+    "
+    self tally: #testBlockCreation.
+    self tally: #testSendingValueMessageExecutesBlocks.
+    self tally: #testBlocksReturnAnyKindOfValue.
+    self tally: #testPassingArgumentsToBlocks.
+    self tally: #testBlockArgumentLimit.
+    self tally: #testPassingMoreThanThreeArguments.
+    self tally: #testPassingMoreArgumentsThanExpected.
+    self tally: #testIntegerLoop.
+    self tally: #testClosure.
+    self tally: #testRealClosure.
+    "
+    self tally: #testCull.
+    self tally: #testEachBlockIsAUniqueObject.
+  ]
+
+  testArrayRevisited [
+    currentTest := TestBlock create: (self tracker).
   ]
 
   testBoolean [
@@ -186,10 +213,6 @@ Object subclass: Zen [
 
   testSet [
     currentTest := TestSet create: (self tracker).
-  ]
-
-  testArrayRevisited [
-    currentTest := TestBlock create: (self tracker).
   ]
 
   testClass [

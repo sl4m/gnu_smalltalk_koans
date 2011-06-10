@@ -13,11 +13,15 @@ Koan subclass: TestObject [
   testSomeObjectsCanBeConvertedToStrings [
     self expect: (self fillMeIn) toEqual: (12345 asString).
     self expect: (self fillMeIn) toEqual: ((5/8) asString).
+  ]
+
+  testNilObjectCannotBeConvertedToString [
     self expect: [nil asString] toRaise: (self fillMeIn).
   ]
 
   testObjectsCanBeInspected [
-    " Examples:
+    "
+    Try out these examples on GNU Smalltalk (gst) REPL:
 
     1234 inspect.
     'qwerty' inspect.

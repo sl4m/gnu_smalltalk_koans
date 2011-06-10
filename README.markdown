@@ -59,7 +59,13 @@ Ok, have at it!
 * TestString
 * TestCharacter
 * TestSymbol
+* TestRegex
 
 ### Credits
 
-Big thanks to Matt Yoho (@mattyoho) of Ruby Koans team for letting me port tests over.
+Big thanks to Matt Yoho (@mattyoho) of the Ruby Koans team for letting me port koans over.
+
+Other thanks:
+
+* Craig Demyanovich
+* Chris Rathman

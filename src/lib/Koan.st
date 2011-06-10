@@ -44,6 +44,10 @@ Object subclass: Koan [
       ifTrue: [
         ^'#', value displayString, ' (an instance of ', value class name, ')'
       ].
+    (Exception allSubclasses asArray includes: value)
+      ifTrue: [
+        ^value displayString
+      ].
     (value respondsTo: #selectors)
       ifTrue: [
         ^value name asString

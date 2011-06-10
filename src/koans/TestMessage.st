@@ -4,7 +4,8 @@ Koan subclass: TestMessage [
   testUnaryMessage [
     | number |
 
-    "A unary message consists of:
+    "
+    A unary message consists of:
       * an alphanumeric selector
       * no arguments
     "
@@ -16,7 +17,8 @@ Koan subclass: TestMessage [
   testBinaryMessage [
     | sum |
 
-    "A binary message consists of:
+    "
+    A binary message consists of:
       * non-alphanumeric selector (e.g., +, -) of 1 to 2 characters in length
       * exactly one argument
     "
@@ -26,9 +28,10 @@ Koan subclass: TestMessage [
   ]
 
   testKeywordMessage [
-    "A keyword message consists of:
-      * an alphanumeric selector ending with a colon
-      * one or more arguments
+    "
+    A keyword message consists of:
+      * one or more alphanumeric selectors, each ending with a colon
+      * each selector will have an argument
     "
     self expect: (self fillMeIn) toEqual: (1.02 min: 1.01).
     "#min is the selector, 1.01 is the argument"
@@ -41,7 +44,11 @@ Koan subclass: TestMessage [
   testMessagePrecedence [
     | value |
 
-    "Unary > Binary > Keyword"
+    "
+    Unary > Binary > Keyword
+
+    Unary wins followed by Binary, then Keyword.
+    "
 
     value := 7 - 1 between: 'hello' size and: 1 * 9.
 
@@ -51,11 +58,22 @@ Koan subclass: TestMessage [
   testArithmeticPrecedence [
     | value anotherValue |
 
-    "There is no such thing as arithmetic precedence in Smalltalk"
+    "
+    Arithmetic precedence does not exist in Smalltalk.
+    It follows message precedence like everything else.
+    "
 
     value := 1 + 7 * 8.
 
     self expect: (self fillMeIn) toEqual: value.
+  ]
+
+  testControllingPrecedenceWithParentheses [
+   | value |
+
+   value := 7 - 1 * 'hello world' size - 2 sqrt asInteger.  "use parentheses to control order of precedence"
+
+   self expect: (self fillMeIn) toEqual: value.
   ]
 
   testMessageChaining [
@@ -66,15 +84,8 @@ Koan subclass: TestMessage [
     self expect: (self fillMeIn) toEqual: value.
   ]
 
-  testControllingPrecedenceWithParentheses [
-   | value |
-
-   value := 7 - 1 * 'hello world' size - 2 sqrt asInteger.  "use parentheses to control order of precedence"
-
-   self expect: 4 toEqual: value.
-  ]
-
   testMessageCascading [
+    | value |
     "
     Sending multiple messages to the same receiver.
 
@@ -82,5 +93,9 @@ Koan subclass: TestMessage [
                show: 'world!';
                cr.
     "
+
+    value := 3 + 2; * 100.
+
+    self expect: (self fillMeIn) toEqual: value.
   ]
 ]
