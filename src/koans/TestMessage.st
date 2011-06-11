@@ -71,9 +71,11 @@ Koan subclass: TestMessage [
   testControllingPrecedenceWithParentheses [
    | value |
 
-   value := 7 - 1 * 'hello world' size - 2 sqrt asInteger.  "use parentheses to control order of precedence"
+   value := 7 - 1 * 'hello world' size - 2 sqrt asInteger.
+   
+   "Hint: use multiple parentheses to control order of precedence."
 
-   self expect: (self fillMeIn) toEqual: value.
+   self expect: (4) toEqual: value.
   ]
 
   testMessageChaining [
