@@ -16,23 +16,22 @@ Object subclass: Zen [
   ]
 
   runKoans [
-  "
     self testAssert.
     self testBasic.
     self testNil.
     self testObject.
     self testMessage.
     self testNumber.
-    self testArray.
     self testString.
     self testCharacter.
     self testSymbol.
-  "
-    self testBlock.          "ifTrue/ifFalse, loops"
-    self testArrayRevisited. "array each, select, inject"
+    self testArray.
+    self testOrderedCollection.
+    self testSet.
+    self testBlock.
+    self testArrayRevisited.
     self testBoolean.
     self testRegex.
-    self testSet.
     self testClass.          "inheritance, cool methods"
     self testMetaclass.      "metaprogramming"
 
@@ -101,17 +100,6 @@ Object subclass: Zen [
     self tally: #testNumberAndMagnitudeAreAbstractClasses.
   ]
 
-  testArray [
-    currentTest := TestArray create: (self tracker).
-    self tally: #testCreatingArrays.
-    self tally: #testCreatingArrayWithSpecifiedSize.
-    self tally: #testCreatingConstantArray.
-    self tally: #testCreatingAnArrayThatEvaluatesExpressions.
-    self tally: #testAccessingElements.
-    self tally: #testIncludesElement.
-    self tally: #testOccurrences.
-  ]
-
   testString [
     currentTest := TestString create: (self tracker).
     self tally: #testStringsCanOnlyBeCreatedUsingSingleQuotes.
@@ -129,7 +117,7 @@ Object subclass: Zen [
 
   testCharacter [
     currentTest := TestCharacter create: (self tracker).
-    self tally: #testCharactersBeCompared.
+    self tally: #testCharactersCanBeCompared.
     self tally: #testCharacterAsciiValue.
     self tally: #testUnprintableCharacters.
     self tally: #testDigitAndLetter.
@@ -153,9 +141,28 @@ Object subclass: Zen [
     self tally: #testSymbolsHaveStringMethodsThroughInheritance.
   ]
 
+  testArray [
+    currentTest := TestArray create: (self tracker).
+    self tally: #testCreatingAnEmptyArray.
+    self tally: #testCreatingArrayWithSpecifiedSize.
+    self tally: #testConstantArraysAreImmutable.
+    self tally: #testCreatingAnArrayThatEvaluatesExpressions.
+    self tally: #testAccessingElements.
+    self tally: #testIncludesElement.
+    self tally: #testOccurrences.
+  ]
+
+  testOrderedCollection [
+    currentTest := TestOrderedCollection create: (self tracker).
+    self tally: #testCreatingAnOrderedCollection.
+  ]
+
+  testSet [
+    currentTest := TestSet create: (self tracker).
+  ]
+
   testBlock [
     currentTest := TestBlock create: (self tracker).
-    "
     self tally: #testBlockCreation.
     self tally: #testSendingValueMessageExecutesBlocks.
     self tally: #testBlocksReturnAnyKindOfValue.
@@ -163,20 +170,27 @@ Object subclass: Zen [
     self tally: #testBlockArgumentLimit.
     self tally: #testPassingMoreThanThreeArguments.
     self tally: #testPassingMoreArgumentsThanExpected.
-    self tally: #testIntegerLoop.
+    self tally: #testIterateUsingInterval.
     self tally: #testClosure.
     self tally: #testRealClosure.
-    "
     self tally: #testCull.
     self tally: #testEachBlockIsAUniqueObject.
   ]
 
   testArrayRevisited [
-    currentTest := TestBlock create: (self tracker).
+    currentTest := TestArrayRevisited create: (self tracker).
+    self tally: #testDo.
+    self tally: #testConform.
+    self tally: #testSelect.
+    self tally: #testReject.
+    self tally: #testCollect.
+    self tally: #testDetect.
+    self tally: #testInject.
   ]
 
   testBoolean [
     currentTest := TestBoolean create: (self tracker).
+    self tally: #testIfTrueAndIfFalse.
   ]
 
   testRegex [
@@ -187,6 +201,8 @@ Object subclass: Zen [
     self tally: #testIfMatchedBlock.
     self tally: #testControlCaseSensitivityWithInlineModifier.
     self tally: #testQuestionMark.
+    self tally: #testPlus.
+    self tally: #testAsterisk.
     self tally: #testLeftMostMatchWins.
     self tally: #testCharacterClasses.
     self tally: #testDigits.
@@ -209,10 +225,6 @@ Object subclass: Zen [
     self tally: #testReplacingAllRegex.
     self tally: #testMatchingRegexResults.
     self tally: #testFailedMatchRegexResults.
-  ]
-
-  testSet [
-    currentTest := TestSet create: (self tracker).
   ]
 
   testClass [

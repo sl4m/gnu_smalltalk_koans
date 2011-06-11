@@ -55,17 +55,23 @@ Ok, have at it!
 * TestObject
 * TestMessage
 * TestNumber
-* TestArray
 * TestString
 * TestCharacter
 * TestSymbol
+* TestArray
+
+
+* TestBlock
+* TestArrayRevisited
 * TestRegex
 
 ### Credits
 
-Big thanks to Matt Yoho (@mattyoho) of the Ruby Koans team for letting me port koans over.
+Thanks to Matt Yoho (@mattyoho) of the Ruby Koans team for letting me port some of the koans over.
 
 Other thanks:
 
-* Craig Demyanovich
-* Chris Rathman
+* [8th Light](http://8thlight.com/)
+* [Craig Demyanovich](http://twitter.com/demmer12) (contributor)
+* [Chris Rathman](http://squeak.joyful.com/LanguageNotes)
+* Jayden Sung for being the first person to run through the koans.

@@ -103,6 +103,6 @@ Koan subclass: TestCharacter [
     character := $K.
     anotherCharacter := $K.
 
-    self expect: (self fillMeIn) toEqual: (character hash = anotherCharacter).
+    self expect: (self fillMeIn) toEqual: (character hash = anotherCharacter hash).
   ]
 ]

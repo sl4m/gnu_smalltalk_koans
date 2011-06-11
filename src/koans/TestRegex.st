@@ -258,7 +258,7 @@ Koan subclass: TestRegex [
 
     string := 'Hello, World!'.
 
-    self expect: (self fillMeIn) toEqual: (string =~ '\w+') isMemberOf: Kernel.MatchingRegexResults.
+    self expect: (self fillMeIn) toEqual: ((string =~ '\w+') isMemberOf: Kernel.MatchingRegexResults).
   ]
 
   testFailedMatchRegexResults [
@@ -266,6 +266,6 @@ Koan subclass: TestRegex [
 
     string := 'Hello, World!'.
 
-    self expect: (self fillMeIn) toEqual: (string =~ '\d+') isMemberOf: Kernel.FailedMatchRegexResults.
+    self expect: (self fillMeIn) toEqual: ((string =~ '\d+') isMemberOf: Kernel.FailedMatchRegexResults).
   ]
 ]

@@ -69,7 +69,7 @@ Koan subclass: TestBlock [
     self expect: [block value: 1 value: 2] toRaise: (self fillMeIn).
   ]
 
-  testIntegerLoop [
+  testIterateUsingInterval [
     | counter |
 
     counter := 0.
