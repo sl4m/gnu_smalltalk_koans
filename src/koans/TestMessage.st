@@ -64,8 +64,10 @@ Koan subclass: TestMessage [
     "
 
     value := 1 + 7 * 8.
+    anotherValue := 1 + (7 * 8).
 
     self expect: (self fillMeIn) toEqual: value.
+    self expect: (self fillMeIn) toEqual: anotherValue.
   ]
 
   testControllingPrecedenceWithParentheses [
@@ -75,7 +77,8 @@ Koan subclass: TestMessage [
    
    "Hint: use multiple parentheses to control order of precedence."
 
-   self expect: (4) toEqual: value.
+   self expect: (value) toEqual: 4.
+   "You should not be changing the value '4'."
   ]
 
   testMessageChaining [
