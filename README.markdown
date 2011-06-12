@@ -4,7 +4,7 @@ Hey there and welcome!
 
 ### Supported GNU Smalltalk Versions
 
-Currently, only GNU Smalltalk version `3.2.2` on Mac OS X is supported right now.  It should work on Linux and support for Windows is on its way.  Until I can get `3.2.3` or `3.2.4` installed, no support for these versions are available at this time.
+Currently, only GNU Smalltalk version `3.2.2` on Mac OS X is supported right now.  It should work on Linux and support for Windows is on its way.  Until I can get `3.2.3` or `3.2.4` installed on Mac OS X, no support for these versions are available at this time, although you're more than welcome to try it out and report back.
 
 The simplest way to install GNU Smalltalk on your Mac is via brew:
 

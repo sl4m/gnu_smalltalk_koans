@@ -29,7 +29,7 @@ Object subclass: Zen [
     self testOrderedCollection.
     self testSet.
     self testBlock.
-    self testArrayRevisited.
+    self testCollectionsRevisited.
     self testBoolean.
     self testRegex.
     self testClass.          "inheritance, cool methods"
@@ -110,9 +110,9 @@ Object subclass: Zen [
     self tally: #testSmalltalkExpressionMayBeInterpolated.
     self tally: #testSubstring.
     self tally: #testItWillRaiseExceptionIfIndexIsOutOfBounds.
-    self tally: #testStringClass.
     self tally: #testSingleCharacterFromString.
     self tally: #testUniquenessOfStringObjects.
+    self tally: #testStringClass.
   ]
 
   testCharacter [
@@ -144,7 +144,8 @@ Object subclass: Zen [
   testArray [
     currentTest := TestArray create: (self tracker).
     self tally: #testCreatingAnEmptyArray.
-    self tally: #testCreatingArrayWithSpecifiedSize.
+    self tally: #testCreatingAnArrayWithSpecifiedSize.
+    self tally: #testCreatingAnArrayWithUpToFiveInitialValues.
     self tally: #testConstantArraysAreImmutable.
     self tally: #testCreatingAnArrayThatEvaluatesExpressions.
     self tally: #testAccessingElements.
@@ -154,7 +155,12 @@ Object subclass: Zen [
 
   testOrderedCollection [
     currentTest := TestOrderedCollection create: (self tracker).
-    self tally: #testCreatingAnOrderedCollection.
+    self tally: #testOrderedCollectionActsLikeAnExpandableArray.
+    self tally: #testCreatingAnOrderedCollectionWithUpToFiveInitialValues.
+    self tally: #testCreatingAnOrderedCollectionFromAConstantArray.
+    self tally: #testAddElements.
+    self tally: #testRemoveElements.
+    self tally: #testAccessingElements.
   ]
 
   testSet [
@@ -177,8 +183,8 @@ Object subclass: Zen [
     self tally: #testEachBlockIsAUniqueObject.
   ]
 
-  testArrayRevisited [
-    currentTest := TestArrayRevisited create: (self tracker).
+  testCollectionsRevisited [
+    currentTest := TestCollectionsRevisited create: (self tracker).
     self tally: #testDo.
     self tally: #testConform.
     self tally: #testSelect.

@@ -1,10 +1,10 @@
-Koan subclass: TestArrayRevisited [
-  <comment: 'A collection of advanced array tests.'>
+Koan subclass: TestCollectionsRevisited [
+  <comment: 'A collection of advanced collection tests.'>
 
   testDo [
     | array sum |
 
-    "Iterate over array."
+    "Iterate over collection."
 
     array := #(1 2 3 4).
     sum := 0.

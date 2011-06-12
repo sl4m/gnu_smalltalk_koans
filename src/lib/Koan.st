@@ -40,7 +40,7 @@ Object subclass: Koan [
       ifTrue: [
         ^'$', value asString, ' (an instance of ', value class name, ')'
       ].
-    (value class = Array)
+    ({Array . OrderedCollection . HashCollection . Dictionary . Set . Bag} includes: (value class))
       ifTrue: [
         ^'#', value displayString, ' (an instance of ', value class name, ')'
       ].

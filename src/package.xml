@@ -22,7 +22,7 @@
   <filein>koans/TestOrderedCollection.st</filein>
   <filein>koans/TestSet.st</filein>
   <filein>koans/TestBlock.st</filein>
-  <filein>koans/TestArrayRevisited.st</filein>
+  <filein>koans/TestCollectionsRevisited.st</filein>
   <filein>koans/TestBoolean.st</filein>
   <filein>koans/TestRegex.st</filein>
   <filein>koans/TestClass.st</filein>
@@ -43,7 +43,7 @@
   <file>koans/TestOrderedCollection.st</file>
   <file>koans/TestSet.st</file>
   <file>koans/TestBlock.st</file>
-  <file>koans/TestArrayRevisited.st</file>
+  <file>koans/TestCollectionsRevisited.st</file>
   <file>koans/TestBoolean.st</file>
   <file>koans/TestRegex.st</file>
   <file>koans/TestClass.st</file>
