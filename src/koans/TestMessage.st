@@ -103,4 +103,9 @@ Koan subclass: TestMessage [
 
     self expect: (self fillMeIn) toEqual: value.
   ]
+
+  testRespondsTo [
+    self expect: (self fillMeIn) toEqual: (3 respondsTo: #+).
+    self expect: (self fillMeIn) toEqual: ('hello' respondsTo: #size).
+  ]
 ]

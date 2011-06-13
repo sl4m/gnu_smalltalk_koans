@@ -72,6 +72,10 @@ Ok, have at it!
 
 Please create a GitHub issue or find me on Twitter (@skim), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
 
+### Future Plans
+
+I plan to port these koans over to Pharo, Squeak, and redline Smalltalk implementations.
+
 ### Credits
 
 Thanks to Matt Yoho (@mattyoho) of the Ruby Koans team for letting me port some of the koans over.

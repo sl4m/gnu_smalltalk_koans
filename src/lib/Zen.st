@@ -29,9 +29,11 @@ Object subclass: Zen [
     self testOrderedCollection.
     self testSortedCollection.
     self testBag.
+    self testDictionary.
     self testSet.
     self testBlock.
     self testCollectionsRevisited.
+    self testIteration.
     self testBoolean.
     self testRegex.
     self testClass.          "inheritance, cool methods"
@@ -90,6 +92,7 @@ Object subclass: Zen [
     self tally: #testControllingPrecedenceWithParentheses.
     self tally: #testMessageChaining.
     self tally: #testMessageCascading.
+    self tally: #testRespondsTo.
   ]
 
   testNumber [
@@ -179,6 +182,10 @@ Object subclass: Zen [
     self tally: #testComparingBags.
   ]
 
+  testDictionary [
+    currentTest := TestDictionary create: (self tracker).
+  ]
+
   testSet [
     currentTest := TestSet create: (self tracker).
     self tally: #testDuplicateObjectsNotAllowed.
@@ -214,6 +221,10 @@ Object subclass: Zen [
     self tally: #testDetect.
     self tally: #testInject.
     self tally: #testCollectionConversion.
+  ]
+
+  testIteration [
+     currentTest := TestIteration create: (self tracker).
   ]
 
   testBoolean [
