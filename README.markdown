@@ -60,10 +60,12 @@ Ok, have at it!
 * TestSymbol
 * TestArray
 * TestOrderedCollection
-
-
+* TestSortedCollection
+* TestBag
+* TestSet
 * TestBlock
-* TestArrayRevisited
+* TestCollectionsRevisited
+
 * TestRegex
 
 ### Pull Requests and Feedback are Welcome!

@@ -213,6 +213,7 @@ Object subclass: Zen [
     self tally: #testCollect.
     self tally: #testDetect.
     self tally: #testInject.
+    self tally: #testCollectionConversion.
   ]
 
   testBoolean [
