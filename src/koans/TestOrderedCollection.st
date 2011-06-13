@@ -1,7 +1,7 @@
 Koan subclass: TestOrderedCollection [
   <comment: 'A collection of ordered collection tests.'>
 
-  testOrderedCollectionActsLikeAnExpandableArray [
+  testActsLikeAnExpandableArray [
     | orderedCollection |
 
     orderedCollection := OrderedCollection new.
@@ -45,17 +45,29 @@ Koan subclass: TestOrderedCollection [
     orderedCollection addLast: 3.
 
     self expect: (self fillMeIn) toEqual: (orderedCollection).
+
+    orderedCollection add: 4 afterIndex: 2.
+
+    self expect: (self fillMeIn) toEqual: (orderedCollection).
+
+    orderedCollection add: 5 beforeIndex: 2.
+
+    self expect: (self fillMeIn) toEqual: (orderedCollection).
   ]
 
   testRemoveElements [
     | orderedCollection |
 
-    orderedCollection := OrderedCollection with: 1 with: 2 with: 3.
+    orderedCollection := OrderedCollection with: 1 with: 2 with: 3 with: 4.
     orderedCollection removeFirst.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
+    self expect: (OrderedCollection new addAll: #(2 3 4); yourself) toEqual: (orderedCollection).
 
     orderedCollection removeLast.
+
+    self expect: (OrderedCollection new addAll: #(2 3); yourself) toEqual: (orderedCollection).
+
+    orderedCollection removeAtIndex: 1.
 
     self expect: (self fillMeIn) toEqual: (orderedCollection).
   ]
@@ -70,5 +82,14 @@ Koan subclass: TestOrderedCollection [
     self expect: (self fillMeIn) toEqual: (orderedCollection second).
     self expect: (self fillMeIn) toEqual: (orderedCollection third).
     self expect: (self fillMeIn) toEqual: (orderedCollection fourth).
+  ]
+
+  testComparingOrderedCollections [
+    | orderedCollection anotherOrderedCollection |
+
+    orderedCollection := OrderedCollection with: 1 with: 2.
+    anotherOrderedCollection := OrderedCollection with: 2 with: 1.
+
+    self expect: (self fillMeIn) toEqual: (orderedCollection = anotherOrderedCollection).
   ]
 ]

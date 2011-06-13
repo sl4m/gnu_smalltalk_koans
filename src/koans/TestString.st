@@ -93,8 +93,4 @@ Koan subclass: TestString [
     self expect: (self fillMeIn) toEqual: (a == b).
     self expect: (self fillMeIn) toEqual: (a hash = b hash).
   ]
-
-  testStringClass [
-    self expect: (self fillMeIn) toEqual: (String superclass).
-  ]
 ]

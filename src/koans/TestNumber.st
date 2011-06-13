@@ -32,9 +32,4 @@ Koan subclass: TestNumber [
     self expect: (self fillMeIn) toEqual: (10 min: 5).
     self expect: (self fillMeIn) toEqual: (20 max: 15).
   ]
-
-  testNumberAndMagnitudeAreAbstractClasses [
-    self expect: (self fillMeIn) toEqual: (1234 isKindOf: Number).
-    self expect: (self fillMeIn) toEqual: (1234 isKindOf: Magnitude).
-  ]
 ]

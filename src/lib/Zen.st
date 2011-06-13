@@ -27,12 +27,15 @@ Object subclass: Zen [
     self testSymbol.
     self testArray.
     self testOrderedCollection.
+    self testSortedCollection.
+    self testBag.
     self testSet.
     self testBlock.
     self testCollectionsRevisited.
     self testBoolean.
     self testRegex.
     self testClass.          "inheritance, cool methods"
+    self testClassHierarchy.
     self testMetaclass.      "metaprogramming"
 
     self displayEndMessage: 0.
@@ -97,7 +100,6 @@ Object subclass: Zen [
     self tally: #testNegation.
     self tally: #testRounding.
     self tally: #testMinMaxOfTwoNumbers.
-    self tally: #testNumberAndMagnitudeAreAbstractClasses.
   ]
 
   testString [
@@ -112,7 +114,6 @@ Object subclass: Zen [
     self tally: #testItWillRaiseExceptionIfIndexIsOutOfBounds.
     self tally: #testSingleCharacterFromString.
     self tally: #testUniquenessOfStringObjects.
-    self tally: #testStringClass.
   ]
 
   testCharacter [
@@ -155,16 +156,36 @@ Object subclass: Zen [
 
   testOrderedCollection [
     currentTest := TestOrderedCollection create: (self tracker).
-    self tally: #testOrderedCollectionActsLikeAnExpandableArray.
+    self tally: #testActsLikeAnExpandableArray.
     self tally: #testCreatingAnOrderedCollectionWithUpToFiveInitialValues.
     self tally: #testCreatingAnOrderedCollectionFromAConstantArray.
     self tally: #testAddElements.
     self tally: #testRemoveElements.
     self tally: #testAccessingElements.
+    self tally: #testComparingOrderedCollections.
+  ]
+
+  testSortedCollection [
+    currentTest := TestSortedCollection create: (self tracker).
+    self tally: #testDefaultSortCriteria.
+    self tally: #testSpecifySortCriteria.
+    self tally: #testComparingSortedCollections.
+  ]
+
+  testBag [
+    currentTest := TestBag create: (self tracker).
+    self tally: #testAddingMultiplesCopiesToCollection.
+    self tally: #testCollectionIsNotIndexable.
+    self tally: #testComparingBags.
   ]
 
   testSet [
     currentTest := TestSet create: (self tracker).
+    self tally: #testDuplicateObjectsNotAllowed.
+    self tally: #testAddingSets.
+    self tally: #testSubtractingSets.
+    self tally: #testIntersectionOfSets.
+    self tally: #testComparingSets.
   ]
 
   testBlock [
@@ -235,6 +256,10 @@ Object subclass: Zen [
 
   testClass [
     currentTest := TestClass create: (self tracker).
+  ]
+
+  testClassHierarchy [
+    currentTest := TestClassHierarchy create: (self tracker).
   ]
 
   testMetaclass [

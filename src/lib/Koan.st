@@ -19,6 +19,10 @@ Object subclass: Koan [
     ^'FILL ME IN'.
   ]
 
+  collections [
+    ^{Array . ArrayedCollection . OrderedCollection . SortedCollection . HashCollection . Dictionary . Set . Bag}
+  ]
+
   zenMessage [
     ^'@dhh > Whoops!'
   ]
@@ -40,7 +44,7 @@ Object subclass: Koan [
       ifTrue: [
         ^'$', value asString, ' (an instance of ', value class name, ')'
       ].
-    ({Array . OrderedCollection . HashCollection . Dictionary . Set . Bag} includes: (value class))
+    (self collections includes: (value class))
       ifTrue: [
         ^'#', value displayString, ' (an instance of ', value class name, ')'
       ].

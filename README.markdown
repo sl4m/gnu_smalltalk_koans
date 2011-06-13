@@ -59,11 +59,16 @@ Ok, have at it!
 * TestCharacter
 * TestSymbol
 * TestArray
+* TestOrderedCollection
 
 
 * TestBlock
 * TestArrayRevisited
 * TestRegex
+
+### Pull Requests and Feedback are Welcome!
+
+Please create a GitHub issue or find me on Twitter (@skim), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
 
 ### Credits
 
@@ -73,5 +78,5 @@ Other thanks:
 
 * [8th Light](http://8thlight.com/)
 * [Craig Demyanovich](http://twitter.com/demmer12) (contributor)
-* [Chris Rathman](http://squeak.joyful.com/LanguageNotes)
+* [Chris Rathman](http://squeak.joyful.com/LanguageNotes) for the awesome language notes.
 * Jayden Sung for being the first person to run through the koans.
