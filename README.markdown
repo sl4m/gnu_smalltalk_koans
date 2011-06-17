@@ -62,11 +62,17 @@ Ok, have at it!
 * TestOrderedCollection
 * TestSortedCollection
 * TestBag
+\* TestAssociation
+\* TestDictionary
 * TestSet
 * TestBlock
 * TestCollectionsRevisited
-
+\* TestIteration
+\* TestBoolean
 * TestRegex
+\* TestClass
+\* TestClassHierarchy
+\* TestMetaclass
 
 ### Pull Requests and Feedback are Welcome!
 

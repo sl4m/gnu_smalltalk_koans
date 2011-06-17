@@ -29,6 +29,7 @@ Object subclass: Zen [
     self testOrderedCollection.
     self testSortedCollection.
     self testBag.
+    self testAssociation.
     self testDictionary.
     self testSet.
     self testBlock.
@@ -182,8 +183,17 @@ Object subclass: Zen [
     self tally: #testComparingBags.
   ]
 
+  testAssociation [
+    currentTest := TestAssociation create: (self tracker).
+  ]
+
   testDictionary [
     currentTest := TestDictionary create: (self tracker).
+    self tally: #testCreatingANewDictionary.
+    self tally: #testAddingKeysAndValuesUsingAssociations.
+    self tally: #testAddingKeysAndValuesUsingAtPut.
+    self tally: #testReplaceValueAtKey.
+    self tally: #testRetrievingKeysAndValues.
   ]
 
   testSet [

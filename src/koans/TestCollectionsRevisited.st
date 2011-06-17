@@ -18,7 +18,7 @@ Koan subclass: TestCollectionsRevisited [
 
     self expect: (self fillMeIn) toEqual: (sum).
 
-    "#do: also works on SortedCollection, Bag, and Set."
+    "#do: also works on SortedCollection, Bag, Dictionary, and Set."
   ]
 
   testConform [
@@ -36,7 +36,7 @@ Koan subclass: TestCollectionsRevisited [
 
     self expect: (self fillMeIn) toEqual: (result).
 
-    "#conform: also works on OrderedCollection, Bag, and Set."
+    "#conform: also works on OrderedCollection, Bag, Dictionary, and Set."
   ]
 
   testSelect [
@@ -54,11 +54,11 @@ Koan subclass: TestCollectionsRevisited [
 
     self expect: (self fillMeIn) toEqual: (result).
 
-    "#select: also works on OrderedCollection, SortedCollection, and Set."
+    "#select: also works on OrderedCollection, SortedCollection, Dictionary, and Set."
   ]
 
   testReject [
-    | array result set |
+    | array result dictionary |
 
     "Return collection of elements that do not meet condition(s)."
 
@@ -67,16 +67,23 @@ Koan subclass: TestCollectionsRevisited [
 
     self expect: (self fillMeIn) toEqual: (result).
 
-    set := Set new addAll: array; yourself.
-    result := set reject: [ :number | number even ].
+    dictionary := Dictionary new
+      add: #a -> 1;
+      add: #b -> 2;
+      add: #c -> 3;
+      add: #d -> 4;
+      add: #e -> 5;
+      yourself.
+
+    result := dictionary reject: [ :number | number even ].
 
     self expect: (self fillMeIn) toEqual: (result).
 
-    "#reject: also works on OrderedCollection, SortedCollection, and Bag."
+    "#reject: also works on OrderedCollection, SortedCollection, Bag, and Set."
   ]
 
   testCollect [
-    | array result |
+    | array result set |
 
     "Transform each element and return in a new collection."
 
@@ -85,7 +92,12 @@ Koan subclass: TestCollectionsRevisited [
 
     self expect: (self fillMeIn) toEqual: (result).
 
-    "#collect: also works on OrderedCollection, SortedCollection, Bag, and Set"
+    set := Set new addAll: array; yourself.
+    result := set collect: [ :character | character asUppercase ].
+
+    self expect: (self fillMeIn) toEqual: (result).
+
+    "#collect: also works on OrderedCollection, SortedCollection, Bag, and Dictionary."
   ]
 
   testDetect [
@@ -96,7 +108,7 @@ Koan subclass: TestCollectionsRevisited [
 
     self expect: (self fillMeIn) toEqual: (result).
 
-    "#detect: also works on OrderedCollection, SortedCollection, Bag, and Set"
+    "#detect: also works on OrderedCollection, SortedCollection, Bag, Dictionary, and Set."
   ]
 
   testInject [
@@ -107,22 +119,28 @@ Koan subclass: TestCollectionsRevisited [
 
     self expect: (self fillMeIn) toEqual: (result).
 
-    "#inject: also works on OrderedCollection, SortedCollection, Bag, and Set"
+    "#inject: also works on OrderedCollection, SortedCollection, Bag, Dictionary, and Set."
   ]
 
   testCollectionConversion [
-    | array orderedCollection sortedCollection bag set |
+    | array orderedCollection sortedCollection bag set dictionary |
 
     array := Array with: 1 with: 2 with: 3.
     orderedCollection := OrderedCollection with: 1 with: 2 with: 3.
     sortedCollection := SortedCollection with: 1 with: 2 with: 3.
     bag := Bag with: 1 with: 2 with: 3.
     set := Set with: 1 with: 2 with: 3.
+    dictionary := Dictionary new;
+      add: #a -> 1;
+      add: #b -> 2;
+      add: #c -> 3;
+      yourself.
 
-    self expect: (true) toEqual: (array = orderedCollection asArray).
-    self expect: (true) toEqual: (array = sortedCollection asArray).
-    self expect: (true) toEqual: (array = bag asArray).
-    self expect: (true) toEqual: (array = set asArray).
+    self expect: (self fillMeIn) toEqual: (array = orderedCollection asArray).
+    self expect: (self fillMeIn) toEqual: (array = sortedCollection asArray).
+    self expect: (self fillMeIn) toEqual: (array = bag asArray).
+    self expect: (self fillMeIn) toEqual: (array = set asArray).
+    self expect: (self fillMeIn) toEqual: (array = dictionary asArray).
 
     "
     The following messages also can be used to convert from one collection to another:

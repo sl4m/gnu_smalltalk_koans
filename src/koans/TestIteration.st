@@ -1,3 +1,3 @@
-Koan subclass TestIteration [
+Koan subclass: TestIteration [
 
 ]
