@@ -6,7 +6,7 @@ Hey there and welcome!
 
 Currently, only GNU Smalltalk version `3.2.2` on Mac OS X is supported right now.  It should work on Linux and support for Windows is on its way.  Until I can get `3.2.3` or `3.2.4` installed on Mac OS X, no support for these versions are available at this time, although you're more than welcome to try it out and report back.
 
-The simplest way to install GNU Smalltalk on your Mac is via brew:
+The simplest way to install GNU Smalltalk on your Mac OS X is via brew:
 
 `brew install gnu-smalltalk`
 
@@ -69,6 +69,7 @@ Ok, have at it!
 * TestCollectionsRevisited
 \* TestIteration
 \* TestBoolean
+\* TestException
 * TestRegex
 \* TestClass
 \* TestClassHierarchy
@@ -78,17 +79,25 @@ Ok, have at it!
 
 Please create a GitHub issue or find me on Twitter (@skim), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
 
-### Future Plans
+### (Near) Future Plans
 
-I plan to port these koans over to Pharo, Squeak, and redline Smalltalk implementations.
+* Rewrite the runner (make it smarter, faster, stronger)
+* Give user option to hide answers
+* Add an answer sheet
+
+There is no set time, but I plan to port these koans over to the following Smalltalk dialects:
+
+* Pharo/Squeak
+* redline?
+* Jtalk?
 
 ### Credits
 
-Thanks to Matt Yoho (@mattyoho) of the Ruby Koans team for letting me port some of the koans over.
+Thanks to [Matt Yoho](http://twitter.com/#!/mattyoho) of the Ruby Koans team for letting me port some of the koans over.
 
 Other thanks:
 
 * [8th Light](http://8thlight.com/)
-* [Craig Demyanovich](http://twitter.com/demmer12) (contributor)
+* [Craig Demyanovich](http://twitter.com/#!/demmer12) (contributor)
 * [Chris Rathman](http://squeak.joyful.com/LanguageNotes) for the awesome language notes.
-* Jayden Sung for being the first person to run through the koans.
+* Jayden for being the first person to run through the koans.
