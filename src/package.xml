@@ -29,6 +29,7 @@
   <filein>koans/TestCollectionsRevisited.st</filein>
   <filein>koans/TestIteration.st</filein>
   <filein>koans/TestBoolean.st</filein>
+  <filein>koans/TestException.st</filein>
   <filein>koans/TestRegex.st</filein>
   <filein>koans/TestClass.st</filein>
   <filein>koans/TestClassHierarchy.st</filein>
@@ -56,6 +57,7 @@
   <file>koans/TestCollectionsRevisited.st</file>
   <file>koans/TestIteration.st</file>
   <file>koans/TestBoolean.st</file>
+  <file>koans/TestException.st</file>
   <file>koans/TestRegex.st</file>
   <file>koans/TestClass.st</file>
   <file>koans/TestClassHierarchy.st</file>
