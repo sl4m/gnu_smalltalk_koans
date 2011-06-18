@@ -12,30 +12,21 @@ Koan subclass: TestDictionary [
     | dictionary |
 
     dictionary := Dictionary new.
-    dictionary add: #a -> 1.
+    dictionary
+      add: #a   -> 1;
+      add: 'b'  -> 2;
+      add: 100  -> 3;
+      add: true -> 4;
+      add: nil  -> 5.
 
     self expect: (self fillMeIn) toEqual: (dictionary at: #a).
-
-    "Keys do not have to be symbols."
-
-    dictionary add: 'b' -> 2.
-
     self expect: (self fillMeIn) toEqual: (dictionary at: 'b').
-
-    dictionary add: 100 -> 3.
-
     self expect: (self fillMeIn) toEqual: (dictionary at: 100).
-
-    dictionary add: true -> 4.
-
     self expect: (self fillMeIn) toEqual: (dictionary at: true).
-
-    dictionary add: nil -> 5.
-
     self expect: (self fillMeIn) toEqual: (dictionary at: nil).
   ]
 
-  testAddingKeysAndValuesUsingAtPut [
+  testAddingAssociationsUsingAtPut [
     | dictionary |
 
     dictionary := Dictionary new.
@@ -58,7 +49,7 @@ Koan subclass: TestDictionary [
     self expect: (self fillMeIn) toEqual: (dictionary at: #a).
   ]
 
-  testRetrievingKeysAndValues [
+  testRetrievingCollectionOfKeysAndValues [
     | dictionary |
 
     dictionary := Dictionary new.
@@ -72,5 +63,7 @@ Koan subclass: TestDictionary [
 
     self expect: (self fillMeIn) toEqual: (dictionary keys).
     self expect: (self fillMeIn) toEqual: (dictionary values).
+    self expect: (self fillMeIn) toEqual: (dictionary keys class).
+    self expect: (self fillMeIn) toEqual: (dictionary values class).
   ]
 ]

@@ -50,6 +50,15 @@ Koan subclass: TestArray [
     self expect: [Array with: 1 with: 3 with: 5 with: 7 with: 9 with: 11] toRaise: (self fillMeIn).
   ]
 
+  testReplaceValueAtElement [
+    | array |
+
+    array := (Array new: 4) at: 1 put: 1; yourself.
+    array at: 1 put: 2.
+
+    self expect: (self fillMeIn) toEqual: (array at: 1).
+  ]
+
   testConstantArraysAreImmutable [
     | array |
 

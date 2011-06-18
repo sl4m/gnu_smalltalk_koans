@@ -36,6 +36,10 @@ Koan subclass: TestAssociation [
     association := nil -> 3.
 
     self expect: (self fillMeIn) toEqual: (association key).
+
+    association := $b -> 4.
+
+    self expect: (self fillMeIn) toEqual: (association key).
   ]
 
   testComparingAssociations [

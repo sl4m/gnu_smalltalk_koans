@@ -36,6 +36,7 @@ Object subclass: Zen [
     self testCollectionsRevisited.
     self testIteration.
     self testBoolean.
+    self testException.
     self testRegex.
     self testClass.          "inheritance, cool methods"
     self testClassHierarchy.
@@ -93,6 +94,7 @@ Object subclass: Zen [
     self tally: #testControllingPrecedenceWithParentheses.
     self tally: #testMessageChaining.
     self tally: #testMessageCascading.
+    self tally: #testYourselfIsReferenceToSelf.
     self tally: #testRespondsTo.
   ]
 
@@ -151,6 +153,7 @@ Object subclass: Zen [
     self tally: #testCreatingAnEmptyArray.
     self tally: #testCreatingAnArrayWithSpecifiedSize.
     self tally: #testCreatingAnArrayWithUpToFiveInitialValues.
+    self tally: #testReplaceValueAtElement.
     self tally: #testConstantArraysAreImmutable.
     self tally: #testCreatingAnArrayThatEvaluatesExpressions.
     self tally: #testAccessingElements.
@@ -185,15 +188,19 @@ Object subclass: Zen [
 
   testAssociation [
     currentTest := TestAssociation create: (self tracker).
+    self tally: #testCreatingAssociationThreeDifferentWays.
+    self tally: #testAssociationKeysCanBeAnyObject.
+    self tally: #testComparingAssociations.
+    self tally: #testAssociationsActLikeSingletons.
   ]
 
   testDictionary [
     currentTest := TestDictionary create: (self tracker).
     self tally: #testCreatingANewDictionary.
     self tally: #testAddingKeysAndValuesUsingAssociations.
-    self tally: #testAddingKeysAndValuesUsingAtPut.
+    self tally: #testAddingAssociationsUsingAtPut.
     self tally: #testReplaceValueAtKey.
-    self tally: #testRetrievingKeysAndValues.
+    self tally: #testRetrievingCollectionOfKeysAndValues.
   ]
 
   testSet [
@@ -231,6 +238,8 @@ Object subclass: Zen [
     self tally: #testDetect.
     self tally: #testInject.
     self tally: #testCollectionConversion.
+    self tally: #testFailSafeAccessToElements.
+    self tally: #testFailSafeRemoveElementsFromCollection.
   ]
 
   testIteration [
@@ -240,6 +249,10 @@ Object subclass: Zen [
   testBoolean [
     currentTest := TestBoolean create: (self tracker).
     self tally: #testIfTrueAndIfFalse.
+  ]
+
+  testException [
+    currentTest := TestException create: (self tracker).
   ]
 
   testRegex [

@@ -84,6 +84,8 @@ Koan subclass: TestMessage [
   testMessageChaining [
     | value |
 
+    "Sending multiple messages to the same receiver."
+
     value := 1 class name asString.  "message chaining of #class, #name, #asString"
 
     self expect: (self fillMeIn) toEqual: value.
@@ -91,17 +93,31 @@ Koan subclass: TestMessage [
 
   testMessageCascading [
     | value |
-    "
-    Sending multiple messages to the same receiver.
-
-    Transcript show: 'hello';
-               show: 'world!';
-               cr.
-    "
 
     value := 3 + 2; * 100.
 
     self expect: (self fillMeIn) toEqual: value.
+
+    "Think about it: we're sending multiple messages to '3'."
+  ]
+
+  testYourselfIsReferenceToSelf [
+    | object anotherObject |
+
+    "yourself is a reference to self."
+
+    object := OrderedCollection new
+                add: 1;
+                add: 2.
+    anotherObject := OrderedCollection new
+                      add: 1;
+                      add: 2;
+                      yourself.
+
+    self expect: (self fillMeIn) toEqual: (object class).
+    self expect: (self fillMeIn) toEqual: (anotherObject class).
+
+    "yourself often used with message cascading."
   ]
 
   testRespondsTo [
