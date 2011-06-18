@@ -62,7 +62,7 @@ Ok, have at it!
 * TestOrderedCollection
 * TestSortedCollection
 * TestBag
-\* TestAssociation
+* TestAssociation
 \* TestDictionary
 * TestSet
 * TestBlock
