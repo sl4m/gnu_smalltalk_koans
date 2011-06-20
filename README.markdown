@@ -82,7 +82,7 @@ Ok, have at it!
 
 Please create a GitHub issue or find me on Twitter (@skim), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
 
-### (Near) Future Plans
+### Future Plans
 
 * Rewrite the runner (make it smarter, faster, stronger)
 * Give user option to hide answers
@@ -96,9 +96,9 @@ There is no set time, but I plan to port these koans over to the following Small
 
 ### Inspiration and Credits
 
-GNU Smalltalk Koans were inspired by Edgecase's Ruby Koans and Aaron Bedra's Clojure Koans (now maintained by Colin Jones).
+GNU Smalltalk Koans were inspired by Edgecase's Ruby Koans and [Aaron Bedra's](http://twitter.com/#!/abedra) Clojure Koans (now maintained by [Colin Jones](http://twitter.com/#!/trptcolin)).
 
-Thanks to [Matt Yoho](http://twitter.com/#!/mattyoho) of the Ruby Koans team for letting me port some of the koans over.
+Thanks to [Matt Yoho](http://twitter.com/#!/mattyoho) at Edgecase for letting me port some of the koans over.
 
 Other thanks:
 
