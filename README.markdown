@@ -10,6 +10,8 @@ The simplest way to install GNU Smalltalk on your Mac OS X is via brew:
 
 `brew install gnu-smalltalk`
 
+You can also install it via MacPorts.
+
 ### Running koans
 
 In the root directory, type:
