@@ -26,7 +26,7 @@ Koan subclass: TestString [
     self expect: (self fillMeIn) toEqual: string.
 
     "Concatenation does not quite work this way..."
-    self expect: ['Hello ' + 'World'] toRaise: (self fillMeIn).
+    self expect: [ 'Hello ' + 'World' ] toRaise: (self fillMeIn).
   ]
 
   testStringConcatenationWillLeaveOriginalStringsUnmodified [
@@ -69,7 +69,7 @@ Koan subclass: TestString [
 
     string := 'Smalltalk'.
 
-    self expect: [string copyFrom: 6 to: 10] toRaise: (self fillMeIn).
+    self expect: [ string copyFrom: 6 to: 10 ] toRaise: (self fillMeIn).
   ]
 
   testSingleCharacterFromString [

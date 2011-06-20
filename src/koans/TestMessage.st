@@ -98,7 +98,7 @@ Koan subclass: TestMessage [
 
     self expect: (self fillMeIn) toEqual: value.
 
-    "Think about it: we're sending multiple messages to '3'."
+    "Think about it: we are sending multiple messages to '3'."
   ]
 
   testYourselfIsReferenceToSelf [
@@ -106,12 +106,12 @@ Koan subclass: TestMessage [
 
     "yourself is a reference to self."
 
-    object := OrderedCollection new
-                add: 1;
-                add: 2.
-    anotherObject := OrderedCollection new
-                      add: 1;
-                      add: 2;
+    object := (Array new: 2)
+                at: 1 put: 'a';
+                at: 2 put: 'b'.
+    anotherObject := (Array new: 2)
+                      at: 1 put: 'a';
+                      at: 2 put: 'b';
                       yourself.
 
     self expect: (self fillMeIn) toEqual: (object class).

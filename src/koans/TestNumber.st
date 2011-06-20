@@ -32,4 +32,16 @@ Koan subclass: TestNumber [
     self expect: (self fillMeIn) toEqual: (10 min: 5).
     self expect: (self fillMeIn) toEqual: (20 max: 15).
   ]
+
+  testPositiveAndNegative [
+    self expect: (self fillMeIn) toEqual: (5 positive).
+    self expect: (self fillMeIn) toEqual: (-5 negative).
+    self expect: (self fillMeIn) toEqual: (5 strictlyPositive).
+    self expect: (self fillMeIn) toEqual: (0 strictlyPositive).
+  ]
+
+  testEvenAndOdd [
+    self expect: (self fillMeIn) toEqual: (2 even).
+    self expect: (self fillMeIn) toEqual: (1 odd).
+  ]
 ]

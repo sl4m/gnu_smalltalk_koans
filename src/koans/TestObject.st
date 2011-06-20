@@ -16,7 +16,7 @@ Koan subclass: TestObject [
   ]
 
   testNilObjectCannotBeConvertedToString [
-    self expect: [nil asString] toRaise: (self fillMeIn).
+    self expect: [ nil asString ] toRaise: (self fillMeIn).
   ]
 
   testObjectsCanBeInspected [

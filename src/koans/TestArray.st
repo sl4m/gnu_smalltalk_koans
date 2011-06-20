@@ -47,7 +47,7 @@ Koan subclass: TestArray [
     array := Array with: 2 with: 4 with: 6 with: 8 with: 10.
 
     self expect: (self fillMeIn) toEqual: (array).
-    self expect: [Array with: 1 with: 3 with: 5 with: 7 with: 9 with: 11] toRaise: (self fillMeIn).
+    self expect: [ Array with: 1 with: 3 with: 5 with: 7 with: 9 with: 11 ] toRaise: (self fillMeIn).
   ]
 
   testReplaceValueAtElement [
@@ -64,7 +64,7 @@ Koan subclass: TestArray [
 
     array := #('a' 'b' 'c').
 
-    self expect: [array at: 1 put: 'd'] toRaise: (self fillMeIn).
+    self expect: [ array at: 1 put: 'd' ] toRaise: (self fillMeIn).
 
     "#() only accepts literal values."
   ]

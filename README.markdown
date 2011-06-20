@@ -63,17 +63,20 @@ Ok, have at it!
 * TestSortedCollection
 * TestBag
 * TestAssociation
-\* TestDictionary
+* TestDictionary
 * TestSet
 * TestBlock
 * TestCollectionsRevisited
-\* TestIteration
-\* TestBoolean
-\* TestException
+* TestIteration
+* TestBoolean
+* TestException
 * TestRegex
-\* TestClass
-\* TestClassHierarchy
-\* TestMetaclass
+* TestClass
+
+### Koans that still need to be written
+
+* TestClassHierarchy
+* TestMetaclass
 
 ### Pull Requests and Feedback are Welcome!
 
@@ -91,7 +94,9 @@ There is no set time, but I plan to port these koans over to the following Small
 * redline?
 * Jtalk?
 
-### Credits
+### Inspiration and Credits
+
+GNU Smalltalk Koans were inspired by Edgecase's Ruby Koans and Aaron Bedra's Clojure Koans (now maintained by Colin Jones).
 
 Thanks to [Matt Yoho](http://twitter.com/#!/mattyoho) of the Ruby Koans team for letting me port some of the koans over.
 

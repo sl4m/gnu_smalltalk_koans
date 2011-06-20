@@ -21,7 +21,7 @@ Koan subclass: TestBag [
     bag add: 1 withOccurrences: 3.
     bag add: 2.
 
-    self expect: [bag at: 1] toRaise: (self fillMeIn).
+    self expect: [ bag at: 1 ] toRaise: (self fillMeIn).
   ]
 
   testComparingBags [

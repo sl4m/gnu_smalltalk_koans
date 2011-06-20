@@ -1,4 +1,6 @@
 Koan subclass: TestDictionary [
+  <comment: 'A collection of dictionary tests.'>
+
   testCreatingANewDictionary [
     | dictionary |
 
@@ -11,13 +13,13 @@ Koan subclass: TestDictionary [
   testAddingKeysAndValuesUsingAssociations [
     | dictionary |
 
-    dictionary := Dictionary new.
-    dictionary
-      add: #a   -> 1;
-      add: 'b'  -> 2;
-      add: 100  -> 3;
-      add: true -> 4;
-      add: nil  -> 5.
+    dictionary := Dictionary new
+                    add: #a   -> 1;
+                    add: 'b'  -> 2;
+                    add: 100  -> 3;
+                    add: true -> 4;
+                    add: nil  -> 5;
+                    yourself.
 
     self expect: (self fillMeIn) toEqual: (dictionary at: #a).
     self expect: (self fillMeIn) toEqual: (dictionary at: 'b').
@@ -29,10 +31,10 @@ Koan subclass: TestDictionary [
   testAddingAssociationsUsingAtPut [
     | dictionary |
 
-    dictionary := Dictionary new.
-    dictionary
-      at: #a put: 1;
-      at: #b put: 2.
+    dictionary := Dictionary new
+                    at: #a put: 1;
+                    at: #b put: 2;
+                    yourself.
 
     self expect: (self fillMeIn) toEqual: (dictionary at: #a).
     self expect: (self fillMeIn) toEqual: (dictionary at: #b).
@@ -65,5 +67,104 @@ Koan subclass: TestDictionary [
     self expect: (self fillMeIn) toEqual: (dictionary values).
     self expect: (self fillMeIn) toEqual: (dictionary keys class).
     self expect: (self fillMeIn) toEqual: (dictionary values class).
+
+    "Why do you think the classes are different?"
+  ]
+
+  testRemoveKey [
+    | dictionary value |
+
+    dictionary := Dictionary new
+                    add: #a -> 1;
+                    add: #b -> 3;
+                    yourself.
+
+    value := dictionary removeKey: #a.
+
+    self expect: (self fillMeIn) toEqual: value.
+    self expect: (self fillMeIn) toEqual: (dictionary keys).
+
+    self expect: [ dictionary removeKey: #c ] toRaise: (self fillMeIn).
+
+    value := dictionary removeKey: #c ifAbsent: [0].
+
+    self expect: (self fillMeIn) toEqual: value.
+  ]
+
+  testIncludesKey [
+    | dictionary |
+
+    dictionary := Dictionary new
+                    add: #daft -> 5;
+                    add: #duck -> 55;
+                    yourself.
+
+    self expect: (self fillMeIn) toEqual: (dictionary includesKey: #daft).
+    self expect: (self fillMeIn) toEqual: (dictionary includesKey: #monk).
+    self expect: (self fillMeIn) toEqual: (dictionary includesKey: 'daft').
+  ]
+
+  testIteratingKeys [
+    | dictionary array counter |
+
+    dictionary := Dictionary new
+                    add: #a -> 2;
+                    add: #c -> 4;
+                    add: #e -> 6;
+                    yourself.
+    array := Array new: dictionary size.
+    counter := 1.
+
+    dictionary keysDo: [ :key |
+      array at: counter put: key.
+      counter := counter + 1.
+    ].
+
+    self expect: (self fillMeIn) toEqual: array.
+  ]
+
+  testIteratingAssociations [
+    | dictionary array counter |
+
+    dictionary := Dictionary new
+                    add: #a -> 1;
+                    add: #b -> 2;
+                    add: #c -> 3;
+                    yourself.
+    array := Array new: dictionary size.
+    counter := 1.
+
+    dictionary associationsDo: [ :association |
+      array at: counter put: association.
+      counter := counter + 1.
+    ].
+    array sort.
+
+    self expect: (self fillMeIn) toEqual: array.
+    "Be careful how you craft the array."
+  ]
+
+  testIteratingKeysAndValues [
+    | dictionary array counter |
+
+    dictionary := Dictionary new
+                    add: #a -> 1;
+                    add: #b -> 2;
+                    add: #c -> 3;
+                    yourself.
+    array := Array new: dictionary size.
+    counter := 1.
+
+    dictionary keysAndValuesDo: [ :key :value |
+      array at: counter put: (key -> value).
+      counter := counter + 1.
+    ].
+
+    self expect: (self fillMeIn) toEqual: array.
+  ]
+
+  testSmalltalkDictionary [
+    self expect: (self fillMeIn) toEqual: (Smalltalk class).
+    self expect: (self fillMeIn) toEqual: (Smalltalk isKindOf: Dictionary).
   ]
 ]

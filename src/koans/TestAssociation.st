@@ -1,4 +1,6 @@
 Koan subclass: TestAssociation [
+  <comment: 'A collection of association tests.'>
+
   testCreatingAssociationThreeDifferentWays [
     | association anotherAssociation andAnotherAssociation |
 

@@ -38,7 +38,7 @@ Object subclass: Zen [
     self testBoolean.
     self testException.
     self testRegex.
-    self testClass.          "inheritance, cool methods"
+    self testClass.
     self testClassHierarchy.
     self testMetaclass.      "metaprogramming"
 
@@ -106,6 +106,8 @@ Object subclass: Zen [
     self tally: #testNegation.
     self tally: #testRounding.
     self tally: #testMinMaxOfTwoNumbers.
+    self tally: #testPositiveAndNegative.
+    self tally: #testEvenAndOdd.
   ]
 
   testString [
@@ -201,6 +203,12 @@ Object subclass: Zen [
     self tally: #testAddingAssociationsUsingAtPut.
     self tally: #testReplaceValueAtKey.
     self tally: #testRetrievingCollectionOfKeysAndValues.
+    self tally: #testRemoveKey.
+    self tally: #testIncludesKey.
+    self tally: #testIteratingKeys.
+    self tally: #testIteratingAssociations.
+    self tally: #testIteratingKeysAndValues.
+    self tally: #testSmalltalkDictionary.
   ]
 
   testSet [
@@ -244,15 +252,28 @@ Object subclass: Zen [
 
   testIteration [
      currentTest := TestIteration create: (self tracker).
+     self tally: #testWhileTrue.
+     self tally: #testWhileFalse.
+     self tally: #testTimesRepeat.
   ]
 
   testBoolean [
     currentTest := TestBoolean create: (self tracker).
-    self tally: #testIfTrueAndIfFalse.
+    self tally: #testTrueIsTreatedAsTrue.
+    self tally: #testFalseIsTreatedAsFalse.
+    self tally: #testNilIsNotTreatedAsABoolean.
+    self tally: #testIfTrueAndIfFalseOnlyRespondsToBooleans.
+    self tally: #testAndShortCircuit.
+    self tally: #testOrShortCircuit.
+    self tally: #testEqv.
+    self tally: #testXor.
   ]
 
   testException [
     currentTest := TestException create: (self tracker).
+    self tally: #testHaltAndError.
+    self tally: #testSignal.
+    self tally: #testCatchingExceptionsWithOnDo.
   ]
 
   testRegex [
@@ -291,6 +312,14 @@ Object subclass: Zen [
 
   testClass [
     currentTest := TestClass create: (self tracker).
+    self tally: #testName.
+    self tally: #testPragmas.
+    self tally: #testInstanceVariableCollection.
+    self tally: #testClassInstanceVariableCollection.
+    self tally: #testMessageCollection.
+    self tally: #testAllInstances.
+    self tally: #testSuperclass.
+    self tally: #testAllSubclasses.
   ]
 
   testClassHierarchy [

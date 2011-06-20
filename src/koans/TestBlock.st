@@ -66,7 +66,7 @@ Koan subclass: TestBlock [
 
     block := [ :x | x ].
 
-    self expect: [block value: 1 value: 2] toRaise: (self fillMeIn).
+    self expect: [ block value: 1 value: 2 ] toRaise: (self fillMeIn).
   ]
 
   testIterateUsingInterval [
@@ -116,7 +116,7 @@ Koan subclass: TestBlock [
     block := [].
 
     self expect: (self fillMeIn) toEqual: (block cull: 1).
-    self expect: [block value: 1] toRaise: (self fillMeIn).
+    self expect: [ block value: 1 ] toRaise: (self fillMeIn).
   ]
 
   testEachBlockIsAUniqueObject [

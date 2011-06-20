@@ -157,7 +157,7 @@ Koan subclass: TestCollectionsRevisited [
     array := #(0 1 2 3).
 
     self expect: (self fillMeIn) toEqual: (array at: 0 ifAbsent: [nil]).
-    self expect: [array at: 0] toRaise: (self fillMeIn).
+    self expect: [ array at: 0 ] toRaise: (self fillMeIn).
 
     "#at:ifAbsent: also works on OrderedCollection, SortedCollection, and Dictionary."
   ]
@@ -168,6 +168,6 @@ Koan subclass: TestCollectionsRevisited [
     orderedCollection := OrderedCollection new addAll: #(0 1 2 3); yourself.
 
     self expect: (self fillMeIn) toEqual: (orderedCollection remove: 4 ifAbsent: [nil]).
-    self expect: [orderedCollection remove: 4] toRaise: (self fillMeIn).
+    self expect: [ orderedCollection remove: 4 ] toRaise: (self fillMeIn).
   ]
 ]

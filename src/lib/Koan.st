@@ -20,15 +20,23 @@ Object subclass: Koan [
   ]
 
   collections [
-    ^{Array . ArrayedCollection . OrderedCollection . SortedCollection . HashCollection . Dictionary . Set . Bag}
+    ^{Array . WeakArray . ArrayedCollection . OrderedCollection . SortedCollection . HashCollection . IdentityDictionary . Dictionary . IdentitySet . Set . Bag}
   ]
 
   zenMessage [
     ^'@dhh > Whoops!'
   ]
 
+  className: value [
+    ^value class name asString
+  ]
+
+  anInstanceOf: value [
+    ^' (an instance of ', (self className: value), ')'
+  ]
+
   prettify: value [
-    | prettyValue |
+    | message |
 
     (value = self fillMeIn)
       ifTrue: [ ^value ].
@@ -42,11 +50,12 @@ Object subclass: Koan [
       ].
     (value class = Character)
       ifTrue: [
-        ^'$', value asString, ' (an instance of ', value class name, ')'
+        ^'$', value asString, ' ', (self anInstanceOf: value)
       ].
     (self collections includes: (value class))
       ifTrue: [
-        ^'#', value displayString, ' (an instance of ', value class name, ')'
+        message := value displayString replacingRegex: ((self className: value), ' ') with: ''.
+        ^message, (self anInstanceOf: value)
       ].
     (Exception allSubclasses asArray includes: value)
       ifTrue: [
@@ -58,9 +67,9 @@ Object subclass: Koan [
       ].
     (value respondsTo: #asString)
       ifTrue: [
-        ^value asString, ' (an instance of ', value class name, ')'
+        ^value asString, ' ', (self anInstanceOf: value)
       ].
-    ^'(an instance of ', value class name, ')'
+    ^self anInstanceOf: value
   ]
 
   diff [
