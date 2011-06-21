@@ -16,33 +16,42 @@ Object subclass: Zen [
   ]
 
   runKoans [
-    self testAssert.
-    self testBasic.
-    self testNil.
-    self testObject.
-    self testMessage.
-    self testNumber.
-    self testString.
-    self testCharacter.
-    self testSymbol.
-    self testArray.
-    self testOrderedCollection.
-    self testSortedCollection.
-    self testBag.
-    self testAssociation.
-    self testDictionary.
-    self testSet.
-    self testBlock.
-    self testCollectionsRevisited.
-    self testIteration.
-    self testBoolean.
-    self testException.
-    self testRegex.
-    self testClass.
-    self testClassHierarchy.
-    self testMetaclass.      "metaprogramming"
+    | koans |
 
-    self displayEndMessage: 0.
+    koans := #(
+      #testAssert
+      #testBasic
+      #testNil
+      #testObject
+      #testMessage
+      #testNumber
+      #testString
+      #testCharacter
+      #testSymbol
+      #testArray
+      #testOrderedCollection
+      #testSortedCollection
+      #testBag
+      #testAssociation
+      #testDictionary
+      #testSet
+      #testBlock
+      #testCollectionsRevisited
+      #testIteration
+      #testBoolean
+      #testException
+      #testRegex
+      #testClass
+      #testClassHierarchy
+      #testMetaclass
+    ).
+
+    koans do: [ :koan |
+      (self tracker status) ifFalse: [^nil].
+      self perform: koan.
+    ].
+
+    (self tracker status) ifTrue: [self displayEndMessage: 0].
   ]
 
   testAssert [
@@ -331,18 +340,23 @@ Object subclass: Zen [
   ]
 
   tally: testName [
+    (self tracker status) ifFalse: [^nil].
     currentTest perform: testName.
     (self tracker status)
       ifTrue: [ passed:= (passed + 1). ]
       ifFalse: [
         self displayClass: currentTest class test: testName.
         self displayEndMessage: 1.
-        self halt.
       ].
   ]
 
   displayClass: klass test: testName [
-    Transcript show: klass name asString, '#', testName asString, ' needs your attention.';
+    | klassName |
+
+    klassName := klass name asString.
+    Transcript show: klassName, '#', testName asString, ' has damaged your karma.';
+               cr;
+               show: '(in src/koans/', klassName, '.st)';
                cr; cr.
   ]
 

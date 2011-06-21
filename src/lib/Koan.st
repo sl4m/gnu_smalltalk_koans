@@ -1,6 +1,10 @@
 Object subclass: Koan [
   | tracker |
 
+  ZenMessages := #(
+    'Do not lose hope.'
+  ).
+
   Koan class >> create: newTracker [
     ^self new
           tracker: newTracker;
@@ -19,12 +23,14 @@ Object subclass: Koan [
     ^'FILL ME IN'.
   ]
 
-  collections [
-    ^{Array . WeakArray . ArrayedCollection . OrderedCollection . SortedCollection . HashCollection . IdentityDictionary . Dictionary . IdentitySet . Set . Bag}
+  zenMessageCollection [
+    ^#(
+        'Do not lose hope.'
+      )
   ]
 
   zenMessage [
-    ^'@dhh > Whoops!'
+    ^self zenMessageCollection at: (Random between: 1 and: self zenMessageCollection size)
   ]
 
   className: value [
@@ -45,14 +51,12 @@ Object subclass: Koan [
     (value class = False)
       ifTrue: [ ^'false' ].
     (value class = UndefinedObject)
-      ifTrue: [
-        ^'nil (an instance of UndefinedObject)'
-      ].
+      ifTrue: [ ^'nil (an instance of UndefinedObject)' ].
     (value class = Character)
       ifTrue: [
         ^'$', value asString, ' ', (self anInstanceOf: value)
       ].
-    (self collections includes: (value class))
+    ((value isKindOf: Collection) & (value class ~~ String) & (value class ~~ Symbol))
       ifTrue: [
         message := value displayString replacingRegex: ((self className: value), ' ') with: ''.
         ^message, (self anInstanceOf: value)
