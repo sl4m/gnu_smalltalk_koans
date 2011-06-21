@@ -73,7 +73,7 @@ Koan subclass: TestMessage [
   testControllingPrecedenceWithParentheses [
    | value |
 
-   value := 7 - 1 * 'hello world' size - 2 sqrt asInteger.
+   value := 7 - 1 * 11 - 2 / 3.
    
    "Hint: use multiple parentheses to control order of precedence."
 
