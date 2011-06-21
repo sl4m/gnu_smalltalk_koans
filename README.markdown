@@ -4,25 +4,50 @@ Hey there and welcome!
 
 ### Supported GNU Smalltalk Versions
 
-Currently, only GNU Smalltalk version `3.2.2` on Mac OS X is supported right now.  It should work on Linux and support for Windows is on its way.  Until I can get `3.2.3` or `3.2.4` installed on Mac OS X, no support for these versions are available at this time, although you're more than welcome to try it out and report back.
+GNU Smalltalk versions `3.2.2` or higher should work on Mac OS X and Linux.  I have written these koans on `3.2.2`, Mac OS X 10.6.
 
-The simplest way to install GNU Smalltalk on your Mac OS X is via brew:
+Support for Windows is on its way (once I figure out how to build it successfully).
+
+### Installing GNU Smalltalk on Mac OS X
+
+The simplest way to install GNU Smalltalk is via homebrew:
 
 `brew install gnu-smalltalk`
 
 You can also install it via MacPorts.
 
+### Installing GNU Smalltalk on Linux
+
+Make sure you have the following tools installed:
+
+* Autoconf 2.68 or later
+* Automake 1.11 or later
+* Libtool 2.2 or later
+* Bison 2.0 or later
+* Flex 2.5.x
+
+Grab GNU Smalltalk `3.2.4` source from [ftp://ftp.gnu.org/gnu/smalltalk](ftp://ftp.gnu.org/gnu/smalltalk).
+
+<pre>
+autoreconf -vi
+./configure
+make
+sudo make install
+</pre>
+
+Test by running `gst` and interact with the REPL.
+
 ### Running koans
 
-In the root directory, type:
+In the root directory of the project, type:
 
 `script/run`
 
 You will see a message similar to this:
 
-`TestAssert#testTruth needs your attention.`
+`TestAssert#testTruth has damaged your karma.`
 
-This means you will need to open `TestAssert.st` under `src/koans` and solve the test, `testTruth`.
+This means you will need to open the `TestAssert.st` file under `src/koans` and solve the test under `testTruth` method (aka message).
 
 All koan files contain a set of tests, each starting with 'test'.  Solve each test one by one, running `script/run` in between.
 
@@ -43,7 +68,7 @@ All koan files contain a set of tests, each starting with 'test'.  Solve each te
 
 `'this is a string'`
 
-`#speak` is the notation used to describe the method (message) 'speak'.
+`#speak` is the notation used to describe the message 'speak'.
 
 Words wrapped in `<>` are called pragmas and define class comments, category, imported namespaces, and the shape of indexed instance variables.  More information [here](http://www.gnu.org/software/smalltalk/manual/gst.html#Syntax).
 
