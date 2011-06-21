@@ -10,7 +10,7 @@ Koan subclass: TestCollectionsRevisited [
     sum := 0.
     array do: [ :number | sum := sum + number ].
 
-    self expect: (10) toEqual: (sum).
+    self expect: (self fillMeIn) toEqual: (sum).
 
     orderedCollection := OrderedCollection new addAll: array; yourself.
     sum := 0.

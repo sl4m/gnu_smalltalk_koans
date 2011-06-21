@@ -61,11 +61,11 @@ Koan subclass: TestOrderedCollection [
     orderedCollection := OrderedCollection with: 1 with: 2 with: 3 with: 4.
     orderedCollection removeFirst.
 
-    self expect: (OrderedCollection new addAll: #(2 3 4); yourself) toEqual: (orderedCollection).
+    self expect: (self fillMeIn) toEqual: (orderedCollection).
 
     orderedCollection removeLast.
 
-    self expect: (OrderedCollection new addAll: #(2 3); yourself) toEqual: (orderedCollection).
+    self expect: (self fillMeIn) toEqual: (orderedCollection).
 
     orderedCollection removeAtIndex: 1.
 
