@@ -65,6 +65,10 @@ Object subclass: Koan [
       ifTrue: [
         ^value displayString
       ].
+    (value isKindOf: Metaclass)
+      ifTrue: [
+        ^value displayString
+      ].
     (value respondsTo: #selectors)
       ifTrue: [
         ^value name asString

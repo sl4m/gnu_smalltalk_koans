@@ -94,7 +94,7 @@ Koan subclass: TestMessage [
   testMessageCascading [
     | value |
 
-    value := 3 + 2; * 100.
+    value := 3 + 2; * 100.  "';' separates each message sent to '3'"
 
     self expect: (self fillMeIn) toEqual: value.
 
