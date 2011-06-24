@@ -6,6 +6,8 @@ Hey there and welcome!
 
 GNU Smalltalk versions `3.2.2` or higher should work on Mac OS X and Linux.  I have written these koans on `3.2.2`, Mac OS X 10.6.
 
+Note: I am certain that `3.0.x` does not work and it will complain about not understanding `#asString`.
+
 Support for Windows is on its way (once I figure out how to build it successfully).
 
 ### Installing GNU Smalltalk on Mac OS X
@@ -20,7 +22,7 @@ You can also install it via MacPorts.
 
 Make sure you have the following tools installed:
 
-* Autoconf 2.68 or later
+* Autoconf 2.65 or later
 * Automake 1.11 or later
 * Libtool 2.2 or later
 * Bison 2.0 or later
@@ -133,3 +135,4 @@ Other thanks:
 * [Craig Demyanovich](http://twitter.com/#!/demmer12) (contributor)
 * [Chris Rathman](http://squeak.joyful.com/LanguageNotes) for the awesome language notes.
 * Jayden for being the first person to run through the koans.
+* [Anita Kuno](https://twitter.com/#!/anteaya) (contributor)
