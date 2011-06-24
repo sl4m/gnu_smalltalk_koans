@@ -136,3 +136,11 @@ Other thanks:
 * [Chris Rathman](http://squeak.joyful.com/LanguageNotes) for the awesome language notes.
 * Jayden for being the first person to run through the koans.
 * [Anita Kuno](https://twitter.com/#!/anteaya) (contributor)
+
+### License
+
+![cc-license](http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)
+
+GNU Smalltalk Koans shares the same license as Ruby Koans and is released under a Creative Commons,
+Attribution-NonCommercial-ShareAlike, Version 3.0
+([http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/)) License.
