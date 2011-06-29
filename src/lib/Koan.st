@@ -1,10 +1,6 @@
 Object subclass: Koan [
   | tracker |
 
-  ZenMessages := #(
-    'Do not lose hope.'
-  ).
-
   Koan class >> create: newTracker [
     ^self new
           tracker: newTracker;
@@ -26,6 +22,8 @@ Object subclass: Koan [
   zenMessageCollection [
     ^#(
         'Do not lose hope.'
+        'Believe in yourself.'
+        'Heroes have no fears.'
       )
   ]
 
