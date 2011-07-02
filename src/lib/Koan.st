@@ -1,5 +1,5 @@
 Object subclass: Koan [
-  | tracker fillMeIn |
+  | tracker fillMeIn zenMessageCollection |
 
   Koan class >> create: newTracker [
     ^self new initialize: newTracker;
@@ -7,20 +7,17 @@ Object subclass: Koan [
   ]
 
   initialize: newTracker [
-    fillMeIn := 'FILL ME IN'.
     tracker := newTracker.
-  ]
-
-  zenMessageCollection [
-    ^#(
-        'Do not lose hope.'
-        'Believe in yourself.'
-        'Heroes have no fears.'
-      )
+    fillMeIn := 'FILL ME IN'.
+    zenMessageCollection := #(
+      'Do not lose hope.'
+      'Believe in yourself.'
+      'Heroes have no fears.'
+    ).
   ]
 
   zenMessage [
-    ^self zenMessageCollection at: (Random between: 1 and: self zenMessageCollection size)
+    ^zenMessageCollection at: (Random between: 1 and: zenMessageCollection size)
   ]
 
   className: value [
