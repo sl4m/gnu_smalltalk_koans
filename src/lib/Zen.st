@@ -7,12 +7,7 @@ Object subclass: Zen [
 
   initialize [
     passed := 0.
-    tracker := Tracker new.
-    tracker status: true.
-  ]
-
-  tracker [
-    ^tracker
+    tracker := Tracker create.
   ]
 
   runKoans [
@@ -47,15 +42,15 @@ Object subclass: Zen [
     ).
 
     koans do: [ :koan |
-      (self tracker status) ifFalse: [^nil].
+      tracker status ifFalse: [^nil].
       self perform: koan.
     ].
 
-    (self tracker status) ifTrue: [self displayEndMessage: 0].
+    tracker status ifTrue: [self displayEndMessage: 0].
   ]
 
   testAssert [
-    currentTest := TestAssert create: (self tracker).
+    currentTest := TestAssert create: tracker.
     self tally: #testTruth.
     self tally: #testEquality.
     self tally: #testStringEquality.
@@ -63,7 +58,7 @@ Object subclass: Zen [
   ]
 
   testBasic [
-    currentTest := TestBasic create: (self tracker).
+    currentTest := TestBasic create: tracker.
     self tally: #testDeclarationAndAssignment.
     self tally: #testEqualSignIsNotAnAssignmentOperator.
     self tally: #testMultipleStatementsInASingleLine.
@@ -74,7 +69,7 @@ Object subclass: Zen [
   ]
 
   testNil [
-    currentTest := TestNil create: (self tracker).
+    currentTest := TestNil create: tracker.
     self tally: #testNilIsAnObject.
     self tally: #testNilIsTheSameInstance.
     self tally: #testUndefinedObjectInstancesAreNotTheSame.
@@ -82,7 +77,7 @@ Object subclass: Zen [
   ]
 
   testObject [
-    currentTest := TestObject create: (self tracker).
+    currentTest := TestObject create: tracker.
     self tally: #testEverythingIsAnObject.
     self tally: #testSomeObjectsCanBeConvertedToStrings.
     self tally: #testNilObjectCannotBeConvertedToString.
@@ -94,7 +89,7 @@ Object subclass: Zen [
   ]
 
   testMessage [
-    currentTest := TestMessage create: (self tracker).
+    currentTest := TestMessage create: tracker.
     self tally: #testUnaryMessage.
     self tally: #testBinaryMessage.
     self tally: #testKeywordMessage.
@@ -108,7 +103,7 @@ Object subclass: Zen [
   ]
 
   testNumber [
-    currentTest := TestNumber create: (self tracker).
+    currentTest := TestNumber create: tracker.
     self tally: #testDifferentNumbers.
     self tally: #testNumberParts.
     self tally: #testSigns.
@@ -120,7 +115,7 @@ Object subclass: Zen [
   ]
 
   testString [
-    currentTest := TestString create: (self tracker).
+    currentTest := TestString create: tracker.
     self tally: #testStringsCanOnlyBeCreatedUsingSingleQuotes.
     self tally: #testUseSingleQuotesInStrings.
     self tally: #testStringConcatenation.
@@ -134,7 +129,7 @@ Object subclass: Zen [
   ]
 
   testCharacter [
-    currentTest := TestCharacter create: (self tracker).
+    currentTest := TestCharacter create: tracker.
     self tally: #testCharactersCanBeCompared.
     self tally: #testCharacterAsciiValue.
     self tally: #testUnprintableCharacters.
@@ -148,7 +143,7 @@ Object subclass: Zen [
   ]
 
   testSymbol [
-    currentTest := TestSymbol create: (self tracker).
+    currentTest := TestSymbol create: tracker.
     self tally: #testSymbolsStartWithHash.
     self tally: #testSymbolsInheritFromString.
     self tally: #testSymbolsCanBeCompared.
@@ -160,7 +155,7 @@ Object subclass: Zen [
   ]
 
   testArray [
-    currentTest := TestArray create: (self tracker).
+    currentTest := TestArray create: tracker.
     self tally: #testCreatingAnEmptyArray.
     self tally: #testCreatingAnArrayWithSpecifiedSize.
     self tally: #testCreatingAnArrayWithUpToFiveInitialValues.
@@ -173,7 +168,7 @@ Object subclass: Zen [
   ]
 
   testOrderedCollection [
-    currentTest := TestOrderedCollection create: (self tracker).
+    currentTest := TestOrderedCollection create: tracker.
     self tally: #testActsLikeAnExpandableArray.
     self tally: #testCreatingAnOrderedCollectionWithUpToFiveInitialValues.
     self tally: #testCreatingAnOrderedCollectionFromAConstantArray.
@@ -184,21 +179,21 @@ Object subclass: Zen [
   ]
 
   testSortedCollection [
-    currentTest := TestSortedCollection create: (self tracker).
+    currentTest := TestSortedCollection create: tracker.
     self tally: #testDefaultSortCriteria.
     self tally: #testSpecifySortCriteria.
     self tally: #testComparingSortedCollections.
   ]
 
   testBag [
-    currentTest := TestBag create: (self tracker).
+    currentTest := TestBag create: tracker.
     self tally: #testAddingMultiplesCopiesToCollection.
     self tally: #testCollectionIsNotIndexable.
     self tally: #testComparingBags.
   ]
 
   testAssociation [
-    currentTest := TestAssociation create: (self tracker).
+    currentTest := TestAssociation create: tracker.
     self tally: #testCreatingAssociationThreeDifferentWays.
     self tally: #testAssociationKeysCanBeAnyObject.
     self tally: #testComparingAssociations.
@@ -206,7 +201,7 @@ Object subclass: Zen [
   ]
 
   testDictionary [
-    currentTest := TestDictionary create: (self tracker).
+    currentTest := TestDictionary create: tracker.
     self tally: #testCreatingANewDictionary.
     self tally: #testAddingKeysAndValuesUsingAssociations.
     self tally: #testAddingAssociationsUsingAtPut.
@@ -221,7 +216,7 @@ Object subclass: Zen [
   ]
 
   testSet [
-    currentTest := TestSet create: (self tracker).
+    currentTest := TestSet create: tracker.
     self tally: #testDuplicateObjectsNotAllowed.
     self tally: #testAddingSets.
     self tally: #testSubtractingSets.
@@ -230,7 +225,7 @@ Object subclass: Zen [
   ]
 
   testBlock [
-    currentTest := TestBlock create: (self tracker).
+    currentTest := TestBlock create: tracker.
     self tally: #testBlockCreation.
     self tally: #testSendingValueMessageExecutesBlocks.
     self tally: #testBlocksReturnAnyKindOfValue.
@@ -246,7 +241,7 @@ Object subclass: Zen [
   ]
 
   testCollectionsRevisited [
-    currentTest := TestCollectionsRevisited create: (self tracker).
+    currentTest := TestCollectionsRevisited create: tracker.
     self tally: #testDo.
     self tally: #testConform.
     self tally: #testSelect.
@@ -260,14 +255,14 @@ Object subclass: Zen [
   ]
 
   testIteration [
-     currentTest := TestIteration create: (self tracker).
+     currentTest := TestIteration create: tracker.
      self tally: #testWhileTrue.
      self tally: #testWhileFalse.
      self tally: #testTimesRepeat.
   ]
 
   testBoolean [
-    currentTest := TestBoolean create: (self tracker).
+    currentTest := TestBoolean create: tracker.
     self tally: #testTrueIsTreatedAsTrue.
     self tally: #testFalseIsTreatedAsFalse.
     self tally: #testNilIsNotTreatedAsABoolean.
@@ -279,14 +274,14 @@ Object subclass: Zen [
   ]
 
   testException [
-    currentTest := TestException create: (self tracker).
+    currentTest := TestException create: tracker.
     self tally: #testHaltAndError.
     self tally: #testSignal.
     self tally: #testCatchingExceptionsWithOnDo.
   ]
 
   testRegex [
-    currentTest := TestRegex create: (self tracker).
+    currentTest := TestRegex create: tracker.
     self tally: #testSearchRegex.
     self tally: #testUsingPerlSyntax.
     self tally: #testUsingTilde.
@@ -320,7 +315,7 @@ Object subclass: Zen [
   ]
 
   testClass [
-    currentTest := TestClass create: (self tracker).
+    currentTest := TestClass create: tracker.
     self tally: #testName.
     self tally: #testPragmas.
     self tally: #testInstanceVariableCollection.
@@ -332,17 +327,17 @@ Object subclass: Zen [
   ]
 
   testClassHierarchy [
-    currentTest := TestClassHierarchy create: (self tracker).
+    currentTest := TestClassHierarchy create: tracker.
   ]
 
   testMetaclass [
-    currentTest := TestMetaclass create: (self tracker).
+    currentTest := TestMetaclass create: tracker.
   ]
 
   tally: testName [
-    (self tracker status) ifFalse: [^nil].
+    tracker status ifFalse: [^nil].
     currentTest perform: testName.
-    (self tracker status)
+    tracker status
       ifTrue: [ passed:= (passed + 1). ]
       ifFalse: [
         self displayClass: currentTest class test: testName.

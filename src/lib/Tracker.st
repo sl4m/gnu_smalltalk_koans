@@ -1,6 +1,12 @@
 Object subclass: Tracker [
   |status|
 
+  Tracker class >> create [
+    ^self new
+      status: true;
+      yourself
+  ]
+
   status [
     ^status
   ]
