@@ -11,7 +11,7 @@ Koan subclass: TestMessage [
     "
     number := 'hello' size.  "#size is the selector"
 
-    self expect: (self fillMeIn) toEqual: (number).
+    self expect: fillMeIn toEqual: number.
   ]
 
   testBinaryMessage [
@@ -24,7 +24,7 @@ Koan subclass: TestMessage [
     "
     sum := 100 + 50.  "#+ is the selector, 50 is the argument"
 
-    self expect: (self fillMeIn) toEqual: (sum).
+    self expect: fillMeIn toEqual: sum.
   ]
 
   testKeywordMessage [
@@ -33,10 +33,10 @@ Koan subclass: TestMessage [
       * one or more alphanumeric selectors, each ending with a colon
       * each selector will have an argument
     "
-    self expect: (self fillMeIn) toEqual: (1.02 min: 1.01).
+    self expect: fillMeIn toEqual: (1.02 min: 1.01).
     "#min is the selector, 1.01 is the argument"
 
-    self expect: (self fillMeIn) toEqual: (20 between: 10 and: 15).
+    self expect: fillMeIn toEqual: (20 between: 10 and: 15).
     "#between:and: are the keyword selectors, with respective arguments,
      10 and 15"
   ]
@@ -52,7 +52,7 @@ Koan subclass: TestMessage [
 
     value := 7 - 1 between: 'hello' size and: 1 * 9.
 
-    self expect: (self fillMeIn) toEqual: value.
+    self expect: fillMeIn toEqual: value.
   ]
 
   testArithmeticPrecedence [
@@ -66,15 +66,15 @@ Koan subclass: TestMessage [
     value := 1 + 7 * 8.
     anotherValue := 1 + (7 * 8).
 
-    self expect: (self fillMeIn) toEqual: value.
-    self expect: (self fillMeIn) toEqual: anotherValue.
+    self expect: fillMeIn toEqual: value.
+    self expect: fillMeIn toEqual: anotherValue.
   ]
 
   testControllingPrecedenceWithParentheses [
    | value |
 
    value := 7 - 1 * 11 - 2 / 3.
-   
+
    "Hint: use multiple parentheses to control order of precedence."
 
    self expect: (value) toEqual: 4.
@@ -88,7 +88,7 @@ Koan subclass: TestMessage [
 
     value := 1 class name asString.  "message chaining of #class, #name, #asString"
 
-    self expect: (self fillMeIn) toEqual: value.
+    self expect: fillMeIn toEqual: value.
   ]
 
   testMessageCascading [
@@ -96,7 +96,7 @@ Koan subclass: TestMessage [
 
     value := 3 + 2; * 100.  "';' separates each message sent to '3'"
 
-    self expect: (self fillMeIn) toEqual: value.
+    self expect: fillMeIn toEqual: value.
 
     "Think about it: we are sending multiple messages to '3'."
   ]
@@ -114,14 +114,14 @@ Koan subclass: TestMessage [
                       at: 2 put: 'b';
                       yourself.
 
-    self expect: (self fillMeIn) toEqual: (object class).
-    self expect: (self fillMeIn) toEqual: (anotherObject class).
+    self expect: fillMeIn toEqual: object class.
+    self expect: fillMeIn toEqual: anotherObject class.
 
     "yourself often used with message cascading."
   ]
 
   testRespondsTo [
-    self expect: (self fillMeIn) toEqual: (3 respondsTo: #+).
-    self expect: (self fillMeIn) toEqual: ('hello' respondsTo: #size).
+    self expect: fillMeIn toEqual: (3 respondsTo: #+).
+    self expect: fillMeIn toEqual: ('hello' respondsTo: #size).
   ]
 ]

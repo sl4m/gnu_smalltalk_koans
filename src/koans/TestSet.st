@@ -11,8 +11,8 @@ Koan subclass: TestSet [
       add: 1;
       add: 2.
 
-    self expect: (self fillMeIn) toEqual: (set occurrencesOf: 1).
-    self expect: (self fillMeIn) toEqual: (set occurrencesOf: 2).
+    self expect: fillMeIn toEqual: (set occurrencesOf: 1).
+    self expect: fillMeIn toEqual: (set occurrencesOf: 2).
   ]
 
   testAddingSets [
@@ -21,8 +21,8 @@ Koan subclass: TestSet [
     set := Set with: 1 with: 2.
     anotherSet := Set with: 3 with: 4.
 
-    self expect: (self fillMeIn) toEqual: (set + anotherSet).
-    self expect: (self fillMeIn) toEqual: (set + set).
+    self expect: fillMeIn toEqual: (set + anotherSet).
+    self expect: fillMeIn toEqual: (set + set).
   ]
 
   testSubtractingSets [
@@ -31,8 +31,8 @@ Koan subclass: TestSet [
     set := Set with: 1 with: 2 with: 3.
     anotherSet := Set with: 1 with: 3.
 
-    self expect: (self fillMeIn) toEqual: (set - anotherSet).
-    self expect: (self fillMeIn) toEqual: (anotherSet - set).
+    self expect: fillMeIn toEqual: (set - anotherSet).
+    self expect: fillMeIn toEqual: (anotherSet - set).
   ]
 
   testIntersectionOfSets [
@@ -41,7 +41,7 @@ Koan subclass: TestSet [
     set := Set with: 'a' with: 'b' with: 'c'.
     anotherSet := Set with: 'a' with: 'c'.
 
-    self expect: (self fillMeIn) toEqual: (set & anotherSet).
+    self expect: fillMeIn toEqual: (set & anotherSet).
   ]
 
   testComparingSets [
@@ -50,10 +50,10 @@ Koan subclass: TestSet [
     set := Set with: 1 with: 2 with: 3.
     anotherSet := Set with: 2 with: 3 with: 1.
 
-    self expect: (self fillMeIn) toEqual: (set = anotherSet).
+    self expect: fillMeIn toEqual: (set = anotherSet).
 
     andAnotherSet := Set with: 2 with: 3 with: 1 with: 4.
 
-    self expect: (self fillMeIn) toEqual: (set < andAnotherSet).
+    self expect: fillMeIn toEqual: (set < andAnotherSet).
   ]
 ]

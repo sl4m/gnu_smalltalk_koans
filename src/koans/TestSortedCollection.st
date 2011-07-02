@@ -10,9 +10,9 @@ Koan subclass: TestSortedCollection [
       add: 3;
       add: 2.
 
-    self expect: (self fillMeIn) toEqual: (sortedCollection at: 1).
-    self expect: (self fillMeIn) toEqual: (sortedCollection at: 2).
-    self expect: (self fillMeIn) toEqual: (sortedCollection at: 3).
+    self expect: fillMeIn toEqual: (sortedCollection at: 1).
+    self expect: fillMeIn toEqual: (sortedCollection at: 2).
+    self expect: fillMeIn toEqual: (sortedCollection at: 3).
   ]
 
   testSpecifySortCriteria [
@@ -25,7 +25,7 @@ Koan subclass: TestSortedCollection [
       add: 3;
       add: 4.
 
-    self expect: (self fillMeIn) toEqual: (sortedCollection).
+    self expect: fillMeIn toEqual: sortedCollection.
   ]
 
   testComparingSortedCollections [
@@ -34,10 +34,10 @@ Koan subclass: TestSortedCollection [
     sortedCollection := SortedCollection with: 1 with: 2.
     anotherSortedCollection := SortedCollection with: 2 with: 1.
 
-    self expect: (self fillMeIn) toEqual: (sortedCollection = anotherSortedCollection).
+    self expect: fillMeIn toEqual: (sortedCollection = anotherSortedCollection).
 
     anotherSortedCollection sortBlock: [ :a :b | a > b ].
 
-    self expect: (self fillMeIn) toEqual: (sortedCollection = anotherSortedCollection).
+    self expect: fillMeIn toEqual: (sortedCollection = anotherSortedCollection).
   ]
 ]

@@ -10,9 +10,9 @@ Koan subclass: TestOrderedCollection [
       add: 2;
       add: 3.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection at: 1).
-    self expect: (self fillMeIn) toEqual: (orderedCollection at: 2).
-    self expect: (self fillMeIn) toEqual: (orderedCollection at: 3).
+    self expect: fillMeIn toEqual: (orderedCollection at: 1).
+    self expect: fillMeIn toEqual: (orderedCollection at: 2).
+    self expect: fillMeIn toEqual: (orderedCollection at: 3).
   ]
 
   testCreatingAnOrderedCollectionWithUpToFiveInitialValues [
@@ -20,8 +20,8 @@ Koan subclass: TestOrderedCollection [
 
     orderedCollection := OrderedCollection with: $a with: $b with: $c with: $d with: $e.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
-    self expect: [ OrderedCollection with: 'a' with: 'b' with: 'c' with: 'd' with: 'e' with: 'f' ] toRaise: (self fillMeIn).
+    self expect: fillMeIn toEqual: (orderedCollection).
+    self expect: [ OrderedCollection with: 'a' with: 'b' with: 'c' with: 'd' with: 'e' with: 'f' ] toRaise: fillMeIn.
 
     "OrderedCollection responds to most messages that Array responds to."
   ]
@@ -31,7 +31,7 @@ Koan subclass: TestOrderedCollection [
 
     orderedCollection := OrderedCollection new addAll: #(5 6 7); yourself.
 
-    self expect: (self fillMeIn) toEqual: orderedCollection.
+    self expect: fillMeIn toEqual: orderedCollection.
   ]
 
   testAddElements [
@@ -40,19 +40,19 @@ Koan subclass: TestOrderedCollection [
     orderedCollection := OrderedCollection with: 1.
     orderedCollection addFirst: 2.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
+    self expect: fillMeIn toEqual: orderedCollection.
 
     orderedCollection addLast: 3.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
+    self expect: fillMeIn toEqual: orderedCollection.
 
     orderedCollection add: 4 afterIndex: 2.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
+    self expect: fillMeIn toEqual: orderedCollection.
 
     orderedCollection add: 5 beforeIndex: 2.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
+    self expect: fillMeIn toEqual: orderedCollection.
   ]
 
   testRemoveElements [
@@ -61,15 +61,15 @@ Koan subclass: TestOrderedCollection [
     orderedCollection := OrderedCollection with: 1 with: 2 with: 3 with: 4.
     orderedCollection removeFirst.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
+    self expect: fillMeIn toEqual: orderedCollection.
 
     orderedCollection removeLast.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
+    self expect: fillMeIn toEqual: orderedCollection.
 
     orderedCollection removeAtIndex: 1.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection).
+    self expect: fillMeIn toEqual: orderedCollection.
   ]
 
   testAccessingElements [
@@ -77,11 +77,11 @@ Koan subclass: TestOrderedCollection [
 
     orderedCollection := #(5 6 7 8) asOrderedCollection.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection at: 1).
-    self expect: (self fillMeIn) toEqual: (orderedCollection first).
-    self expect: (self fillMeIn) toEqual: (orderedCollection second).
-    self expect: (self fillMeIn) toEqual: (orderedCollection third).
-    self expect: (self fillMeIn) toEqual: (orderedCollection fourth).
+    self expect: fillMeIn toEqual: (orderedCollection at: 1).
+    self expect: fillMeIn toEqual: orderedCollection first.
+    self expect: fillMeIn toEqual: orderedCollection second.
+    self expect: fillMeIn toEqual: orderedCollection third.
+    self expect: fillMeIn toEqual: orderedCollection fourth.
   ]
 
   testComparingOrderedCollections [
@@ -90,6 +90,6 @@ Koan subclass: TestOrderedCollection [
     orderedCollection := OrderedCollection with: 1 with: 2.
     anotherOrderedCollection := OrderedCollection with: 2 with: 1.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection = anotherOrderedCollection).
+    self expect: fillMeIn toEqual: (orderedCollection = anotherOrderedCollection).
   ]
 ]

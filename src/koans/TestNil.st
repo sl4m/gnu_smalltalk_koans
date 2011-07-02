@@ -2,11 +2,11 @@ Koan subclass: TestNil [
   <comment: 'A collection of nil tests.'>
 
   testNilIsAnObject [
-    self expect: (self fillMeIn) toEqual: (nil isMemberOf: UndefinedObject).
+    self expect: fillMeIn toEqual: (nil isMemberOf: UndefinedObject).
   ]
 
   testNilIsTheSameInstance [
-    self expect: (self fillMeIn) toEqual: nil.
+    self expect: fillMeIn toEqual: nil.
 
     "nil is a singleton instance."
   ]
@@ -14,10 +14,10 @@ Koan subclass: TestNil [
   testUndefinedObjectInstancesAreNotTheSame [
     "expect:toBeLike: checks if objects belong to same class."
 
-    self expect: (self fillMeIn) toBeLike: UndefinedObject new.
+    self expect: fillMeIn toBeLike: UndefinedObject new.
   ]
 
   testNilChecking [
-    self expect: (self fillMeIn) toEqual: nil isNil.
+    self expect: fillMeIn toEqual: nil isNil.
   ]
 ]

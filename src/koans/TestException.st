@@ -2,15 +2,15 @@ Koan subclass: TestException [
   <comment: 'A collection of exception tests.'>
 
   testHaltAndError [
-    self expect: [ self halt ] toRaise: (self fillMeIn).
-    self expect: [ self error: 'Error' ] toRaise: (self fillMeIn).
+    self expect: [ self halt ] toRaise: fillMeIn.
+    self expect: [ self error: 'Error' ] toRaise: fillMeIn.
 
     "All classes have halt and error messages."
   ]
 
   testSignal [
-    self expect: [ Exception signal ] toRaise: (self fillMeIn).
-    self expect: [ Exception signal: 'Hello World' ] toRaise: (self fillMeIn).
+    self expect: [ Exception signal ] toRaise: fillMeIn.
+    self expect: [ Exception signal: 'Hello World' ] toRaise: fillMeIn.
   ]
 
   testCatchingExceptionsWithOnDo [
@@ -20,12 +20,12 @@ Koan subclass: TestException [
                 on: SystemExceptions.MustBeBoolean
                 do: [ :e | e return: true ].
 
-    self expect: (self fillMeIn) toEqual: result.
+    self expect: fillMeIn toEqual: result.
 
     result := [ 'Hello' + ' World!' ]
                 on: MessageNotUnderstood
                 do: [ :e | e return: true ].
 
-    self expect: (self fillMeIn) toEqual: result.
+    self expect: fillMeIn toEqual: result.
   ]
 ]

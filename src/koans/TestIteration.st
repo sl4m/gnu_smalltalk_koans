@@ -8,8 +8,8 @@ Koan subclass: TestIteration [
 
     [ x > 0 ] whileTrue: [ x := x - 1. y := y * 2 ].
 
-    self expect: (self fillMeIn) toEqual: y.
-    self expect: (self fillMeIn) toEqual: x.
+    self expect: fillMeIn toEqual: y.
+    self expect: fillMeIn toEqual: x.
   ]
 
   testWhileFalse [
@@ -19,8 +19,8 @@ Koan subclass: TestIteration [
 
     [ x >= 4 ] whileFalse: [ x := x + 1. y := y * 2 ].
 
-    self expect: (self fillMeIn) toEqual: y.
-    self expect: (self fillMeIn) toEqual: x.
+    self expect: fillMeIn toEqual: y.
+    self expect: fillMeIn toEqual: x.
   ]
 
   testTimesRepeat [
@@ -30,6 +30,6 @@ Koan subclass: TestIteration [
 
     x timesRepeat: [ y := y * 2 ].
 
-    self expect: (self fillMeIn) toEqual: y.
+    self expect: fillMeIn toEqual: y.
   ]
 ]

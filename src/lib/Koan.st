@@ -1,18 +1,14 @@
 Object subclass: Koan [
-  | tracker |
+  | tracker fillMeIn |
 
   Koan class >> create: newTracker [
-    ^self new
-          tracker: newTracker;
+    ^self new initialize: newTracker;
           yourself
   ]
 
-  tracker: newTracker [
+  initialize: newTracker [
+    fillMeIn := 'FILL ME IN'.
     tracker := newTracker.
-  ]
-
-  fillMeIn [
-    ^'FILL ME IN'.
   ]
 
   zenMessageCollection [
@@ -38,7 +34,7 @@ Object subclass: Koan [
   prettify: value [
     | message |
 
-    (value = self fillMeIn)
+    (value = fillMeIn)
       ifTrue: [ ^value ].
     (value class = True)
       ifTrue: [ ^'true' ].

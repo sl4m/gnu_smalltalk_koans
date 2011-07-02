@@ -6,7 +6,7 @@ Koan subclass: TestString [
 
     string := 'Hello World'.
 
-    self expect: (self fillMeIn) toEqual: string.
+    self expect: fillMeIn toEqual: string.
   ]
 
   testUseSingleQuotesInStrings [
@@ -14,7 +14,7 @@ Koan subclass: TestString [
 
     string := 'Bob''s Bakery'.
 
-    self expect: (self fillMeIn) toEqual: string.
+    self expect: fillMeIn toEqual: string.
     "No quote escaping or character escaping of any kind exist."
   ]
 
@@ -23,10 +23,10 @@ Koan subclass: TestString [
 
     string := 'Hello ', 'World'.
 
-    self expect: (self fillMeIn) toEqual: string.
+    self expect: fillMeIn toEqual: string.
 
     "Concatenation does not quite work this way..."
-    self expect: [ 'Hello ' + 'World' ] toRaise: (self fillMeIn).
+    self expect: [ 'Hello ' + 'World' ] toRaise: fillMeIn.
   ]
 
   testStringConcatenationWillLeaveOriginalStringsUnmodified [
@@ -36,8 +36,8 @@ Koan subclass: TestString [
     stringB := 'sir!'.
     stringC := stringA, stringB.
 
-    self expect: (self fillMeIn) toEqual: stringA.
-    self expect: (self fillMeIn) toEqual: stringB.
+    self expect: fillMeIn toEqual: stringA.
+    self expect: fillMeIn toEqual: stringB.
   ]
 
   testStringInterpolation [
@@ -45,7 +45,7 @@ Koan subclass: TestString [
 
     string := '%1 is really cool'.
 
-    self expect: (self fillMeIn) toEqual: (string % { 'Smalltalk' }).
+    self expect: fillMeIn toEqual: (string % { 'Smalltalk' }).
   ]
 
   testSmalltalkExpressionMayBeInterpolated [
@@ -53,7 +53,7 @@ Koan subclass: TestString [
 
     string := 'I am %1 years old'.
 
-    self expect: (self fillMeIn) toEqual: (string % { 5 squared }).
+    self expect: fillMeIn toEqual: (string % { 5 squared }).
   ]
 
   testSubstring [
@@ -61,7 +61,7 @@ Koan subclass: TestString [
 
     string := 'Smalltalk'.
 
-    self expect: (self fillMeIn) toEqual: (string copyFrom: 6 to: 9).
+    self expect: fillMeIn toEqual: (string copyFrom: 6 to: 9).
   ]
 
   testItWillRaiseExceptionIfIndexIsOutOfBounds [
@@ -69,7 +69,7 @@ Koan subclass: TestString [
 
     string := 'Smalltalk'.
 
-    self expect: [ string copyFrom: 6 to: 10 ] toRaise: (self fillMeIn).
+    self expect: [ string copyFrom: 6 to: 10 ] toRaise: fillMeIn.
   ]
 
   testSingleCharacterFromString [
@@ -77,8 +77,8 @@ Koan subclass: TestString [
 
     string := 'Smalltalk'.
 
-    self expect: (self fillMeIn) toEqual: (string at: 1).
-    self expect: (self fillMeIn) toEqual: (string at: 6).
+    self expect: fillMeIn toEqual: (string at: 1).
+    self expect: fillMeIn toEqual: (string at: 6).
 
     "Characters will be covered in another koan."
   ]
@@ -89,8 +89,8 @@ Koan subclass: TestString [
     a := 'a string'.
     b := 'a string'.
 
-    self expect: (self fillMeIn) toEqual: (a = b).
-    self expect: (self fillMeIn) toEqual: (a == b).
-    self expect: (self fillMeIn) toEqual: (a hash = b hash).
+    self expect: fillMeIn toEqual: (a = b).
+    self expect: fillMeIn toEqual: (a == b).
+    self expect: fillMeIn toEqual: (a hash = b hash).
   ]
 ]

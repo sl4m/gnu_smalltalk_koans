@@ -11,9 +11,9 @@ Koan subclass: TestAssert [
 
   testEquality [
     | expectedValue |  "This is declaring a variable 'expectedValue'"
-    expectedValue := (self fillMeIn).  "':=' is an assignment operator"
+    expectedValue := fillMeIn.  "':=' is an assignment operator"
 
-    "Hint: replace 'self fillMeIn' with the expected value."
+    "Hint: replace 'fillMeIn' with the expected value."
 
     self expect: expectedValue toEqual: (5 + 5).
 
@@ -22,9 +22,9 @@ Koan subclass: TestAssert [
 
   testStringEquality [
     | expectedValue |
-    expectedValue := (self fillMeIn).
+    expectedValue := fillMeIn.
 
-    self expect: expectedValue toEqual: ('hello world!').
+    self expect: expectedValue toEqual: 'hello world!'.
   ]
 
   testNotEqual [

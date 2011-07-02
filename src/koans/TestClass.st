@@ -33,7 +33,7 @@ Koan subclass: TestClass [
   "allSuperclasses"
 
   testName [
-    self expect: (self fillMeIn) toEqual: HelloWorld name.
+    self expect: fillMeIn toEqual: HelloWorld name.
   ]
 
   testPragmas [
@@ -45,20 +45,20 @@ Koan subclass: TestClass [
       shape of indexed instance variables.
     "
 
-    self expect: (self fillMeIn) toEqual: HelloWorld comment.
-    self expect: (self fillMeIn) toEqual: HelloWorld category.
+    self expect: fillMeIn toEqual: HelloWorld comment.
+    self expect: fillMeIn toEqual: HelloWorld category.
   ]
 
   testInstanceVariableCollection [
-    self expect: (self fillMeIn) toEqual: HelloWorld instVarNames.
+    self expect: fillMeIn toEqual: HelloWorld instVarNames.
   ]
 
   testClassInstanceVariableCollection [
-    self expect: (self fillMeIn) toEqual: HelloWorld classVarNames asArray.
+    self expect: fillMeIn toEqual: HelloWorld classVarNames asArray.
   ]
 
   testMessageCollection [
-    self expect: (self fillMeIn) toEqual: HelloWorld selectors asArray.
+    self expect: fillMeIn toEqual: HelloWorld selectors asArray.
   ]
 
   testSourceCodeAt [
@@ -77,14 +77,14 @@ Koan subclass: TestClass [
 
     helloWorld := HelloWorld new.
 
-    self expect: (self fillMeIn) toEqual: (HelloWorld allInstances asArray).
+    self expect: fillMeIn toEqual: HelloWorld allInstances asArray.
   ]
 
   testSuperclass [
-    self expect: (self fillMeIn) toEqual: (HelloWorld superclass).
+    self expect: fillMeIn toEqual: HelloWorld superclass.
   ]
 
   testAllSubclasses [
-    self expect: (self fillMeIn) toEqual: (HelloWorld allSubclasses asArray).
+    self expect: fillMeIn toEqual: HelloWorld allSubclasses asArray.
   ]
 ]

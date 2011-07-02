@@ -10,8 +10,8 @@ Koan subclass: TestBasic [
     anotherDeclaration := 'string'.  "typical way to assign value
       (this will be used throughout the koans)"
 
-    self expect: (self fillMeIn) toEqual: declaration.
-    self expect: (self fillMeIn) toEqual: anotherDeclaration.
+    self expect: fillMeIn toEqual: declaration.
+    self expect: fillMeIn toEqual: anotherDeclaration.
   ]
 
   testEqualSignIsNotAnAssignmentOperator [
@@ -20,8 +20,8 @@ Koan subclass: TestBasic [
     variableA := variableB := 1234.  "multiple assignments work"
     value := variableA = variableB.  "equal is not used for assignment"
 
-    self expect: (self fillMeIn) toEqual: (variableA = variableB).
-    
+    self expect: fillMeIn toEqual: (variableA = variableB).
+
     "#== is a message that checks if identity is equal.  More about messages in the TestMessage koan."
   ]
 
@@ -31,13 +31,13 @@ Koan subclass: TestBasic [
     "Multiple statements are separated by periods."
     variableA := 1. variableB := 2. variableC := 3.
 
-    self expect: (self fillMeIn) toEqual: (variableA).
-    self expect: (self fillMeIn) toEqual: (variableB).
-    self expect: (self fillMeIn) toEqual: (variableC).
+    self expect: fillMeIn toEqual: variableA.
+    self expect: fillMeIn toEqual: variableB.
+    self expect: fillMeIn toEqual: variableC.
   ]
 
   testInequality [
-    self expect: (self fillMeIn) toEqual: ('hello' ~= 'world').
+    self expect: fillMeIn toEqual: ('hello' ~= 'world').
 
     "#~~ is a message that checks if identity is not equal.  More about messages in the TestMessage koan."
   ]
@@ -47,7 +47,7 @@ Koan subclass: TestBasic [
 
     expression := (3 > 4) | (5 < 6).
 
-    self expect: (self fillMeIn) toEqual: (expression).
+    self expect: fillMeIn toEqual: expression.
   ]
 
   testLogicalAnd [
@@ -55,10 +55,10 @@ Koan subclass: TestBasic [
 
     expression := (2 > 1) & ('a' < 'b').
 
-    self expect: (self fillMeIn) toEqual: (expression).
+    self expect: fillMeIn toEqual: expression.
   ]
 
   testNot [
-    self expect: (self fillMeIn) toEqual: (true not).
+    self expect: fillMeIn toEqual: true not.
   ]
 ]

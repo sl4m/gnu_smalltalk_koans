@@ -10,13 +10,13 @@ Koan subclass: TestCollectionsRevisited [
     sum := 0.
     array do: [ :number | sum := sum + number ].
 
-    self expect: (self fillMeIn) toEqual: (sum).
+    self expect: fillMeIn toEqual: sum.
 
     orderedCollection := OrderedCollection new addAll: array; yourself.
     sum := 0.
     orderedCollection do: [ :number | sum := sum + number ].
 
-    self expect: (self fillMeIn) toEqual: (sum).
+    self expect: fillMeIn toEqual: sum.
 
     "#do: also works on SortedCollection, Bag, Dictionary, and Set."
   ]
@@ -29,12 +29,12 @@ Koan subclass: TestCollectionsRevisited [
     array := #($m $n $o $p).
     result := array conform: [ :character | character > $l & character < $q ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     sortedCollection := SortedCollection new addAll: array; yourself.
     result := sortedCollection conform: [ :character | character > $l & character < $q ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     "#conform: also works on OrderedCollection, Bag, Dictionary, and Set."
   ]
@@ -47,12 +47,12 @@ Koan subclass: TestCollectionsRevisited [
     array := #(1 2 3 4 5).
     result := array select: [ :number | number even ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     bag := Bag new addAll: array; yourself.
     result := bag select: [ :number | number even ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     "#select: also works on OrderedCollection, SortedCollection, Dictionary, and Set."
   ]
@@ -65,7 +65,7 @@ Koan subclass: TestCollectionsRevisited [
     array := #(1 2 3 4 5).
     result := array reject: [ :number | number even ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     dictionary := Dictionary new
       add: #a -> 1;
@@ -77,7 +77,7 @@ Koan subclass: TestCollectionsRevisited [
 
     result := dictionary reject: [ :number | number even ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     "#reject: also works on OrderedCollection, SortedCollection, Bag, and Set."
   ]
@@ -90,12 +90,12 @@ Koan subclass: TestCollectionsRevisited [
     array := #($a $b $c $d $e).
     result := array collect: [ :character | character asUppercase ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     set := Set new addAll: array; yourself.
     result := set collect: [ :character | character asUppercase ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: (result).
 
     "#collect: also works on OrderedCollection, SortedCollection, Bag, and Dictionary."
   ]
@@ -106,7 +106,7 @@ Koan subclass: TestCollectionsRevisited [
     array := #(56 81 16 77).
     result := array detect: [ :number | number sqrt = 4 ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     "#detect: also works on OrderedCollection, SortedCollection, Bag, Dictionary, and Set."
   ]
@@ -117,7 +117,7 @@ Koan subclass: TestCollectionsRevisited [
     array := #(4 8 12 16).
     result := array inject: 0 into: [ :numOne :numTwo | numOne + numTwo ].
 
-    self expect: (self fillMeIn) toEqual: (result).
+    self expect: fillMeIn toEqual: result.
 
     "#inject: also works on OrderedCollection, SortedCollection, Bag, Dictionary, and Set."
   ]
@@ -136,11 +136,11 @@ Koan subclass: TestCollectionsRevisited [
       add: #c -> 3;
       yourself.
 
-    self expect: (self fillMeIn) toEqual: (array = orderedCollection asArray).
-    self expect: (self fillMeIn) toEqual: (array = sortedCollection asArray).
-    self expect: (self fillMeIn) toEqual: (array = bag asArray).
-    self expect: (self fillMeIn) toEqual: (array = set asArray).
-    self expect: (self fillMeIn) toEqual: (array = dictionary asArray).
+    self expect: fillMeIn toEqual: (array = orderedCollection asArray).
+    self expect: fillMeIn toEqual: (array = sortedCollection asArray).
+    self expect: fillMeIn toEqual: (array = bag asArray).
+    self expect: fillMeIn toEqual: (array = set asArray).
+    self expect: fillMeIn toEqual: (array = dictionary asArray).
 
     "
     The following messages also can be used to convert from one collection to another:
@@ -156,8 +156,8 @@ Koan subclass: TestCollectionsRevisited [
 
     array := #(0 1 2 3).
 
-    self expect: (self fillMeIn) toEqual: (array at: 0 ifAbsent: [nil]).
-    self expect: [ array at: 0 ] toRaise: (self fillMeIn).
+    self expect: fillMeIn toEqual: (array at: 0 ifAbsent: [nil]).
+    self expect: [ array at: 0 ] toRaise: fillMeIn.
 
     "#at:ifAbsent: also works on OrderedCollection, SortedCollection, and Dictionary."
   ]
@@ -167,7 +167,7 @@ Koan subclass: TestCollectionsRevisited [
 
     orderedCollection := OrderedCollection new addAll: #(0 1 2 3); yourself.
 
-    self expect: (self fillMeIn) toEqual: (orderedCollection remove: 4 ifAbsent: [nil]).
-    self expect: [ orderedCollection remove: 4 ] toRaise: (self fillMeIn).
+    self expect: fillMeIn toEqual: (orderedCollection remove: 4 ifAbsent: [nil]).
+    self expect: [ orderedCollection remove: 4 ] toRaise: fillMeIn.
   ]
 ]
