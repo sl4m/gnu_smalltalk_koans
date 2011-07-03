@@ -319,10 +319,12 @@ Object subclass: Zen [
     self tally: #testName.
     self tally: #testPragmas.
     self tally: #testInstanceVariableCollection.
+    self tally: #testInstSize.
     self tally: #testClassInstanceVariableCollection.
     self tally: #testMessageCollection.
     self tally: #testAllInstances.
     self tally: #testSuperclass.
+    self tally: #testAllSuperclasses.
     self tally: #testAllSubclasses.
   ]
 

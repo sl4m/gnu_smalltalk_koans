@@ -21,7 +21,11 @@ Object subclass: HelloWorld [
   ]
 ]
 
-HelloWorld subclass: SubHelloWorld []
+HelloWorld subclass: SubHelloWorld [
+  | instanceVariable2 instanceVariable3 |
+]
+
+SubHelloWorld subclass: SubSubHelloWorld []
 
 Koan subclass: TestClass [
   <comment: 'A collection of class tests.'>
@@ -53,6 +57,11 @@ Koan subclass: TestClass [
     self expect: fillMeIn toEqual: HelloWorld instVarNames.
   ]
 
+  testInstSize [
+    self expect: fillMeIn toEqual: HelloWorld instSize.
+    self expect: fillMeIn toEqual: SubHelloWorld instSize.
+  ]
+
   testClassInstanceVariableCollection [
     self expect: fillMeIn toEqual: HelloWorld classVarNames asArray.
   ]
@@ -82,6 +91,12 @@ Koan subclass: TestClass [
 
   testSuperclass [
     self expect: fillMeIn toEqual: HelloWorld superclass.
+  ]
+
+  testAllSuperclasses [
+    self expect: fillMeIn toEqual: SubHelloWorld allSuperclasses asArray.
+
+    "Note: GNUSmalltalk is the namespace."
   ]
 
   testAllSubclasses [
