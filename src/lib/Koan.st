@@ -18,6 +18,7 @@ Object subclass: Koan [
         tracker status: false.
         tracker error: (Dictionary new
                                    add: #message -> 'It is false, but SHOULD be true.';
+                                   add: #line -> thisContext parentContext currentLineInFile asString;
                                    yourself).
       ].
     ^nil
@@ -30,6 +31,7 @@ Object subclass: Koan [
         tracker status: false.
         tracker error: (Dictionary new
                                    add: #message -> 'It is true, but SHOULD be false.';
+                                   add: #line -> thisContext parentContext currentLineInFile asString;
                                    yourself).
       ].
   ]
@@ -41,6 +43,7 @@ Object subclass: Koan [
         tracker status: false.
         tracker error: (Dictionary new
                                    add: #message  -> 'Expected value should equal actual value.';
+                                   add: #line -> thisContext parentContext currentLineInFile asString;
                                    add: #expected -> expectedValue;
                                    add: #actual   -> actualValue;
                                    yourself).
@@ -55,6 +58,7 @@ Object subclass: Koan [
         tracker status: false.
         tracker error: (Dictionary new
                                    add: #message  -> 'Expected value should not equal actual value.';
+                                   add: #line -> thisContext parentContext currentLineInFile asString;
                                    add: #expected -> expectedValue;
                                    add: #actual   -> actualValue;
                                    yourself).
@@ -68,6 +72,7 @@ Object subclass: Koan [
         tracker status: false.
         tracker error: (Dictionary new
                                    add: #message  -> 'Expected value is not like actual value.';
+                                   add: #line -> thisContext parentContext currentLineInFile asString;
                                    add: #expected -> expectedValue;
                                    add: #actual   -> actualValue;
                                    yourself).
@@ -86,6 +91,7 @@ Object subclass: Koan [
         tracker status: false.
         tracker error: (Dictionary new
                                    add: #message  -> 'Expected exception was not given.';
+                                   add: #line -> thisContext parentContext currentLineInFile asString;
                                    add: #expected -> expectedException;
                                    add: #actual   -> actualException;
                                    yourself).

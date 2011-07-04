@@ -28,20 +28,21 @@ Object subclass: UI [
     ^' (an instance of ', (self className: value), ')'
   ]
 
-  displayClass: klass test: testName [
-    | klassName |
+  displayClass: klass test: testName line: line [
+    | klassName lineApprox |
 
     klassName := klass name asString.
+    lineApprox := (line asNumber - 1) asString, '-', line.
     output cr;
            show: klassName, '#', testName asString, ' has damaged your karma.';
            cr;
-           show: '(in src/koans/', klassName, '.st)';
+           show: '(in src/koans/', klassName, '.st:', lineApprox, ')';
            cr; cr.
   ]
 
   displayEndMessage: passed failed: failed [
     output cr;
-           show: '', passed asString, ' passed, ', failed asString, ' failed.';
+           show: passed asString, ' passed, ', failed asString, ' failed.';
            cr; cr.
   ]
 
@@ -69,14 +70,22 @@ Object subclass: UI [
   ]
 
   display: dictionary [
-    self displayClass: (dictionary at: #class) test: (dictionary at: #test).
-    output show: self randomZenMessage, '  ', (dictionary at: #message);
+    | klass test line message passed failed |
+
+    klass    := dictionary at: #class.
+    test     := dictionary at: #test.
+    line     := dictionary at: #line.
+    message  := dictionary at: #message.
+    passed   := dictionary at: #passed.
+    failed   := dictionary at: #failed.
+
+    self displayClass: klass test: test line: line.
+    output show: self randomZenMessage, '  ', message;
            cr; cr.
     (dictionary includesKey: #expected) & (dictionary includesKey: #actual)
       ifTrue: [
-        self displayExpected: (dictionary at: #expected)
-             actual: (dictionary at: #actual)
+        self displayExpected: (dictionary at: #expected) actual: (dictionary at: #actual)
       ].
-    self displayEndMessage: (dictionary at: #passed) failed: (dictionary at: #failed).
+    self displayEndMessage: passed failed: failed.
   ]
 ]

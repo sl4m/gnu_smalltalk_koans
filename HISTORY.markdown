@@ -2,6 +2,7 @@
 
 #### 2011-Jul-04
 
+* display line number of failed koan
 * do not display answers by default (use `script/run_and_reveal` to reveal answers)
 * removed ClassHierarchy (does not seem that important)
 
