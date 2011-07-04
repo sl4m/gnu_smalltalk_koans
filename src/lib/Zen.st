@@ -1,5 +1,5 @@
 Object subclass: Zen [
-  | passed tracker currentTest |
+  | passed tracker currentTest ui |
 
   Zen class >> new [
     ^super new initialize
@@ -8,6 +8,7 @@ Object subclass: Zen [
   initialize [
     passed := 0.
     tracker := Tracker create.
+    ui := UI create: Transcript.
   ]
 
   runKoans [
@@ -46,7 +47,7 @@ Object subclass: Zen [
       self perform: koan.
     ].
 
-    tracker status ifTrue: [self displayEndMessage: 0].
+    tracker status ifTrue: [ui displayEndMessage: passed failed: 0].
   ]
 
   testAssert [
@@ -342,24 +343,11 @@ Object subclass: Zen [
     tracker status
       ifTrue: [ passed:= (passed + 1). ]
       ifFalse: [
-        self displayClass: currentTest class test: testName.
-        self displayEndMessage: 1.
+        tracker error add: #class -> currentTest class;
+                      add: #test  -> testName;
+                      add: #passed -> passed;
+                      add: #failed -> 1.
+        ui display: tracker error.
       ].
-  ]
-
-  displayClass: klass test: testName [
-    | klassName |
-
-    klassName := klass name asString.
-    Transcript show: klassName, '#', testName asString, ' has damaged your karma.';
-               cr;
-               show: '(in src/koans/', klassName, '.st)';
-               cr; cr.
-  ]
-
-  displayEndMessage: failed [
-    Transcript cr;
-               show: ('', passed asString, ' passed, ', failed asString, ' failed.');
-               cr; cr.
   ]
 ]

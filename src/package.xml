@@ -4,10 +4,13 @@
   <test>
     <sunit>GNUSmalltalk.Test*</sunit>
     <filein>lib/Test.st</filein>
+    <filein>lib/KoanTest.st</filein>
+    <filein>lib/UITest.st</filein>
     <filein>lib/ZenTest.st</filein>
   </test>
   <filein>lib/Koan.st</filein>
   <filein>lib/Tracker.st</filein>
+  <filein>lib/UI.st</filein>
   <filein>lib/Zen.st</filein>
   <filein>koans/TestAssert.st</filein>
   <filein>koans/TestBasic.st</filein>
@@ -36,6 +39,7 @@
   <filein>koans/TestMetaclass.st</filein>
   <file>lib/Koan.st</file>
   <file>lib/Tracker.st</file>
+  <file>lib/UI.st</file>
   <file>lib/Zen.st</file>
   <file>koans/TestAssert.st</file>
   <file>koans/TestBasic.st</file>
@@ -63,5 +67,7 @@
   <file>koans/TestClassHierarchy.st</file>
   <file>koans/TestMetaclass.st</file>
   <file>lib/Test.st</file>
+  <file>lib/KoanTest.st</file>
+  <file>lib/UITest.st</file>
   <file>lib/ZenTest.st</file>
 </package>

@@ -1,9 +1,10 @@
 Object subclass: Tracker [
-  |status|
+  |status error |
 
   Tracker class >> create [
     ^self new
       status: true;
+      error: nil;
       yourself
   ]
 
@@ -12,6 +13,14 @@ Object subclass: Tracker [
   ]
 
   status: newStatus [
-    status := newStatus
+    status := newStatus.
+  ]
+
+  error [
+    ^error
+  ]
+
+  error: newError [
+    error := newError.
   ]
 ]

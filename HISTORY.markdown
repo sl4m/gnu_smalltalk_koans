@@ -1,10 +1,16 @@
 ### History
 
-#### July-02-2011
+#### 2011-Jul-03
+
+* refactored UI logic
+* added some much needed tests around lib classes
+* added a couple of tests to TestClass
+
+#### 2011-Jul-02
 
 * refactored tracker logic
 * remove explicit self on fillMeIn
 
-#### June-21-2011
+#### 2011-Jun-21
 
 * public release
