@@ -38,7 +38,6 @@ Object subclass: Zen [
       #testException
       #testRegex
       #testClass
-      #testClassHierarchy
       #testMetaclass
     ).
 
@@ -327,10 +326,6 @@ Object subclass: Zen [
     self tally: #testSuperclass.
     self tally: #testAllSuperclasses.
     self tally: #testAllSubclasses.
-  ]
-
-  testClassHierarchy [
-    currentTest := TestClassHierarchy create: tracker.
   ]
 
   testMetaclass [

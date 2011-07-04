@@ -1,5 +1,9 @@
 ### History
 
+#### 2011-Jul-04
+
+* removed ClassHierarchy (does not seem that important)
+
 #### 2011-Jul-03
 
 * refactored UI logic

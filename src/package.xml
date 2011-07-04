@@ -35,7 +35,6 @@
   <filein>koans/TestException.st</filein>
   <filein>koans/TestRegex.st</filein>
   <filein>koans/TestClass.st</filein>
-  <filein>koans/TestClassHierarchy.st</filein>
   <filein>koans/TestMetaclass.st</filein>
   <file>lib/Koan.st</file>
   <file>lib/Tracker.st</file>
@@ -64,7 +63,6 @@
   <file>koans/TestException.st</file>
   <file>koans/TestRegex.st</file>
   <file>koans/TestClass.st</file>
-  <file>koans/TestClassHierarchy.st</file>
   <file>koans/TestMetaclass.st</file>
   <file>lib/Test.st</file>
   <file>lib/KoanTest.st</file>

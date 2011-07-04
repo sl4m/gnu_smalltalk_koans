@@ -104,7 +104,6 @@ Ok, have at it!
 
 ### Koans that still need to be written
 
-* TestClassHierarchy
 * TestMetaclass
 
 ### Pull Requests and Feedback are Welcome!
