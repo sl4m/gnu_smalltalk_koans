@@ -26,7 +26,7 @@ Test subclass: UITestCase [
 
   setUp [
     output := FakeOutput create.
-    ui     := UI create: output.
+    ui     := UI create: output withAnswers: true.
   ]
 
   testRandomZenMessage [
@@ -43,20 +43,34 @@ Test subclass: UITestCase [
     self assert: (ui anInstanceOf: 0) = ' (an instance of SmallInteger)'.
   ]
 
-  testDisplayClass [
+  testDisplayClassTest [
     ui displayClass: Object test: 'someTest'.
+
     self assert: (output message =~ 'Object#someTest has damaged your karma.') matched.
   ]
 
-  testDisplayEndMessage [
+  testDisplayEndMessageFailed [
     ui displayEndMessage: 100 failed: 20.
+
     self assert: (output message =~ '100 passed, 20 failed.') matched.
   ]
 
-  testDisplayExpected [
+  testDisplayExpectedActual [
     ui displayExpected: $a actual: $b.
+
     self assert: (output message =~ 'Expected : \$a') matched.
     self assert: (output message =~ 'Actual   : \$b') matched.
+  ]
+
+  testDisplayExpectedWithoutActual [
+    | uiWithoutDisplayingAnswer |
+
+    uiWithoutDisplayingAnswer := UI create: output withAnswers: false.
+    uiWithoutDisplayingAnswer displayExpected: $a actual: $b.
+
+    self assert: (output message =~ 'Expected : \$a') matched.
+    self assert: (output message =~ 'Actual   : \$b') matched not.
+    self assert: (output message =~ 'Actual   : \(not revealed\)') matched.
   ]
 
   testDisplay [

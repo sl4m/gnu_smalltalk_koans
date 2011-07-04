@@ -1,13 +1,14 @@
 Object subclass: UI [
-  | zenMessageCollection output |
+  | zenMessageCollection output displayAnswer |
 
-  UI class >> create: stdOut [
-    ^self new initialize: stdOut;
+  UI class >> create: stdOut withAnswers: displayAnswer [
+    ^self new initialize: stdOut withAnswers: displayAnswer;
           yourself
   ]
 
-  initialize: stdOut [
+  initialize: stdOut withAnswers: display [
     output := stdOut.
+    displayAnswer := display.
     zenMessageCollection := #(
       'Do not lose hope.'
       'Believe in yourself.'
@@ -57,9 +58,14 @@ Object subclass: UI [
 
   displayExpected: expected actual: actual [
     output show: 'Expected : ', (self prettify: expected);
-           cr;
-           show: 'Actual   : ', (self prettify: actual);
-           cr; cr.
+           cr.
+    displayAnswer
+      ifTrue: [
+        output show: 'Actual   : ', (self prettify: actual).
+      ] ifFalse: [
+        output show: 'Actual   : (not revealed)'.
+      ].
+    output cr; cr.
   ]
 
   display: dictionary [

@@ -1,14 +1,16 @@
 Object subclass: Zen [
   | passed tracker currentTest ui |
 
-  Zen class >> new [
-    ^super new initialize
+  Zen class >> create: displayAnswer [
+    ^super new
+           initialize: displayAnswer;
+           yourself
   ]
 
-  initialize [
+  initialize: displayAnswer [
     passed := 0.
     tracker := Tracker create.
-    ui := UI create: Transcript.
+    ui := UI create: Transcript withAnswers: displayAnswer.
   ]
 
   runKoans [

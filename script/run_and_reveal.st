@@ -1,3 +1,3 @@
 PackageLoader fileInPackage: #GNUSmalltalk.
 
-(GNUSmalltalk.Zen create: false) runKoans.
+(GNUSmalltalk.Zen create: true) runKoans.

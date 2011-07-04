@@ -53,6 +53,8 @@ This means you will need to open the `TestAssert.st` file under `src/koans` and 
 
 All koan files contain a set of tests, each starting with 'test'.  Solve each test one by one, running `script/run` in between.
 
+By default, `script/run` does not reveal the answer.  If you are truly stuck in a koan, type `script/run_and_reveal` to run and reveal the answer.  Use this sparingly!
+
 ### Editors with Smalltalk support
 
 * [redcar](https://github.com/redcar/redcar)
@@ -76,7 +78,7 @@ Words wrapped in `<>` are called pragmas and define class comments, category, im
 
 Ok, have at it!
 
-### Koans supported right now
+### List of Koans
 
 * TestAssert
 * TestBasic
@@ -102,7 +104,7 @@ Ok, have at it!
 * TestRegex
 * TestClass
 
-### Koans that still need to be written
+### Future Koans
 
 * TestMetaclass
 
@@ -113,7 +115,6 @@ Please create a GitHub issue or find me on Twitter (@skim), if you have any sugg
 ### Future Plans
 
 * Rewrite the runner (make it smarter, faster, stronger)
-* Give user option to hide answers
 * Add an answer sheet
 
 There is no set time, but I plan to port these koans over to the following Smalltalk dialects:

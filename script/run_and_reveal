@@ -1,0 +1,4 @@
+#!/bin/sh
+
+gst-package -t ~/.st src/package.xml > /dev/null
+gst --no-gc-message script/run_and_reveal.st
