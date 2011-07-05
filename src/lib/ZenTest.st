@@ -2,6 +2,6 @@ Test subclass: ZenTestCase [
   | zen |
 
   setUp [
-    zen := Zen new.
+    zen := Zen create: false.
   ]
 ]
