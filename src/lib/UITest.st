@@ -44,9 +44,10 @@ Test subclass: UITestCase [
   ]
 
   testDisplayClassTest [
-    ui displayClass: Object test: 'someTest'.
+    ui displayClass: Object test: 'someTest' line: '123'.
 
     self assert: (output message =~ 'Object#someTest has damaged your karma.') matched.
+    self assert: (output message =~ 'in src/koans/Object\.st:122-123') matched.
   ]
 
   testDisplayEndMessageFailed [
@@ -78,6 +79,7 @@ Test subclass: UITestCase [
 
     dictionary := Dictionary new
                              add: #message  -> 'Hello World!';
+                             add: #line     -> '123';
                              add: #expected -> 15;
                              add: #actual   -> nil;
                              add: #class    -> Object;
