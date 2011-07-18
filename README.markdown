@@ -116,6 +116,7 @@ Please create a GitHub issue or find me on Twitter (@skim), if you have any sugg
 
 * Rewrite the runner (make it smarter, faster, stronger)
 * Add an answer sheet
+* Add color to output
 
 There is no set time, but I plan to port these koans over to the following Smalltalk dialects:
 
