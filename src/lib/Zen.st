@@ -226,8 +226,8 @@ Object subclass: Zen [
       #testCreatingAnEmptyArray
       #testCreatingAnArrayWithSpecifiedSize
       #testCreatingAnArrayWithUpToFiveInitialValues
-      #testReplaceValueAtElement
       #testConstantArraysAreImmutable
+      #testReplaceValueAtElement
       #testCreatingAnArrayThatEvaluatesExpressions
       #testAccessingElements
       #testIncludesElement
