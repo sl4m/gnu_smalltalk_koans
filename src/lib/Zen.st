@@ -1,120 +1,26 @@
 Object subclass: Zen [
-  | koans passed tracker currentTest ui |
+  | passed tracker ui |
 
-  Zen class >> create: displayAnswer [
-    ^super new
-           initialize: displayAnswer;
-           yourself
-  ]
-
-  initialize: displayAnswer [
-    koans := #(
-      #testAssert
-      #testBasic
-      #testNil
-      #testObject
-      #testMessage
-      #testNumber
-      #testString
-      #testCharacter
-      #testSymbol
-      #testArray
-      #testOrderedCollection
-      #testSortedCollection
-      #testBag
-      #testAssociation
-      #testDictionary
-      #testSet
-      #testBlock
-      #testCollectionsRevisited
-      #testIteration
-      #testBoolean
-      #testException
-      #testRegex
-      #testClass
-      #testMetaclass
-    ).
-    passed := 0.
-    tracker := Tracker create.
-    ui := UI create: Transcript withAnswers: displayAnswer.
-  ]
-
-  runKoans [
-    koans do: [ :koan |
-      tracker status ifFalse: [^nil].
-      self perform: koan.
-    ].
-
-    tracker status ifTrue: [ui displayEndMessage: passed failed: 0].
-  ]
-
-  runTests: tests [
-    tests do: [ :test |
-      self tally: test.
-    ].
-  ]
-
-  tally: testName [
-    tracker status ifFalse: [^nil].
-    currentTest perform: testName.
-    tracker status
-      ifTrue: [ passed:= (passed + 1). ]
-      ifFalse: [
-        tracker error add: #class -> currentTest class;
-                      add: #test  -> testName;
-                      add: #passed -> passed;
-                      add: #failed -> 1.
-        ui display: tracker error.
-      ].
-  ]
-
-  testAssert [
-    | tests |
-
-    currentTest := TestAssert create: tracker.
-    tests := #(
+  Koans := {
+    TestAssert -> #(
       #testTruth
       #testEquality
       #testStringEquality
-      #testNotEqual
-    ).
-    self runTests: tests.
-  ]
-
-  testBasic [
-    | tests |
-
-    currentTest := TestBasic create: tracker.
-    tests := #(
+      #testNotEqual).
+    TestBasic -> #(
       #testDeclarationAndAssignment
       #testEqualSignIsNotAnAssignmentOperator
       #testMultipleStatementsInASingleLine
       #testInequality
       #testLogicalOr
       #testLogicalAnd
-      #testNot
-    ).
-    self runTests: tests.
-  ]
-
-  testNil [
-    | tests |
-
-    currentTest := TestNil create: tracker.
-    tests := #(
+      #testNot).
+    TestNil -> #(
       #testNilIsAnObject
       #testNilIsTheSameInstance
       #testUndefinedObjectInstancesAreNotTheSame
-      #testNilChecking
-    ).
-    self runTests: tests.
-  ]
-
-  testObject [
-    | tests |
-
-    currentTest := TestObject create: tracker.
-    tests := #(
+      #testNilChecking).
+    TestObject -> #(
       #testEverythingIsAnObject
       #testSomeObjectsCanBeConvertedToStrings
       #testNilObjectCannotBeConvertedToString
@@ -122,16 +28,8 @@ Object subclass: Zen [
       #testEveryObjectHasADifferentId
       #testSomeSystemObjectsAlwaysHaveTheSameId
       #testMostIntegersHaveFixedIds
-      #testCopyCreatesADifferentObject
-    ).
-    self runTests: tests.
-  ]
-
-  testMessage [
-    | tests |
-
-    currentTest := TestMessage create: tracker.
-    tests := #(
+      #testCopyCreatesADifferentObject).
+    TestMessage -> #(
       #testUnaryMessage
       #testBinaryMessage
       #testKeywordMessage
@@ -141,16 +39,8 @@ Object subclass: Zen [
       #testMessageChaining
       #testMessageCascading
       #testYourselfIsReferenceToSelf
-      #testRespondsTo
-    ).
-    self runTests: tests.
-  ]
-
-  testNumber [
-    | tests |
-
-    currentTest := TestNumber create: tracker.
-    tests := #(
+      #testRespondsTo).
+    TestNumber -> #(
       #testDifferentNumbers
       #testNumberParts
       #testSigns
@@ -158,16 +48,8 @@ Object subclass: Zen [
       #testRounding
       #testMinMaxOfTwoNumbers
       #testPositiveAndNegative
-      #testEvenAndOdd
-    ).
-    self runTests: tests.
-  ]
-
-  testString [
-    | tests |
-
-    currentTest := TestString create: tracker.
-    tests := #(
+      #testEvenAndOdd).
+    TestString -> #(
       #testStringsCanOnlyBeCreatedUsingSingleQuotes
       #testUseSingleQuotesInStrings
       #testStringConcatenation
@@ -177,16 +59,8 @@ Object subclass: Zen [
       #testSubstring
       #testItWillRaiseExceptionIfIndexIsOutOfBounds
       #testSingleCharacterFromString
-      #testUniquenessOfStringObjects
-    ).
-    self runTests: tests.
-  ]
-
-  testCharacter [
-    | tests |
-
-    currentTest := TestCharacter create: tracker.
-    tests := #(
+      #testUniquenessOfStringObjects).
+    TestCharacter -> #(
       #testCharactersCanBeCompared
       #testCharacterAsciiValue
       #testUnprintableCharacters
@@ -196,16 +70,8 @@ Object subclass: Zen [
       #testWhitespace
       #testPunctuation
       #testRepeatingCharacters
-      #testIdenticalCharactersAreASingleInternalObject
-    ).
-    self runTests: tests.
-  ]
-
-  testSymbol [
-    | tests |
-
-    currentTest := TestSymbol create: tracker.
-    tests := #(
+      #testIdenticalCharactersAreASingleInternalObject).
+    TestSymbol -> #(
       #testSymbolsStartWithHash
       #testSymbolsInheritFromString
       #testSymbolsCanBeCompared
@@ -213,16 +79,8 @@ Object subclass: Zen [
       #testMethodNamesBecomeSymbols
       #testStringToSymbolConversion
       #testSymbolConversionWhenStringContainsNonAlphaNumerics
-      #testSymbolsHaveStringMethodsThroughInheritance
-    ).
-    self runTests: tests.
-  ]
-
-  testArray [
-    | tests |
-
-    currentTest := TestArray create: tracker.
-    tests := #(
+      #testSymbolsHaveStringMethodsThroughInheritance).
+    TestArray -> #(
       #testCreatingAnEmptyArray
       #testCreatingAnArrayWithSpecifiedSize
       #testCreatingAnArrayWithUpToFiveInitialValues
@@ -231,69 +89,29 @@ Object subclass: Zen [
       #testCreatingAnArrayThatEvaluatesExpressions
       #testAccessingElements
       #testIncludesElement
-      #testOccurrences
-    ).
-    self runTests: tests.
-  ]
-
-  testOrderedCollection [
-    | tests |
-
-    currentTest := TestOrderedCollection create: tracker.
-    tests := #(
+      #testOccurrences).
+    TestOrderedCollection -> #(
       #testActsLikeAnExpandableArray
       #testCreatingAnOrderedCollectionWithUpToFiveInitialValues
       #testCreatingAnOrderedCollectionFromAConstantArray
       #testAddElements
       #testRemoveElements
       #testAccessingElements
-      #testComparingOrderedCollections
-    ).
-    self runTests: tests.
-  ]
-
-  testSortedCollection [
-    | tests |
-
-    currentTest := TestSortedCollection create: tracker.
-    tests := #(
+      #testComparingOrderedCollections).
+    TestSortedCollection -> #(
       #testDefaultSortCriteria
       #testSpecifySortCriteria
-      #testComparingSortedCollections
-    ).
-    self runTests: tests.
-  ]
-
-  testBag [
-    | tests |
-
-    currentTest := TestBag create: tracker.
-    tests := #(
+      #testComparingSortedCollections).
+    TestBag -> #(
       #testAddingMultiplesCopiesToCollection
       #testCollectionIsNotIndexable
-      #testComparingBags
-    ).
-    self runTests: tests.
-  ]
-
-  testAssociation [
-    | tests |
-
-    currentTest := TestAssociation create: tracker.
-    tests := #(
+      #testComparingBags).
+    TestAssociation -> #(
       #testCreatingAssociationThreeDifferentWays
       #testAssociationKeysCanBeAnyObject
       #testComparingAssociations
-      #testAssociationsActLikeSingletons
-    ).
-    self runTests: tests.
-  ]
-
-  testDictionary [
-    | tests |
-
-    currentTest := TestDictionary create: tracker.
-    tests := #(
+      #testAssociationsActLikeSingletons).
+    TestDictionary -> #(
       #testCreatingANewDictionary
       #testAddingKeysAndValuesUsingAssociations
       #testAddingAssociationsUsingAtPut
@@ -304,30 +122,14 @@ Object subclass: Zen [
       #testIteratingKeys
       #testIteratingAssociations
       #testIteratingKeysAndValues
-      #testSmalltalkDictionary
-    ).
-    self runTests: tests.
-  ]
-
-  testSet [
-    | tests |
-
-    currentTest := TestSet create: tracker.
-    tests := #(
+      #testSmalltalkDictionary).
+    TestSet -> #(
       #testDuplicateObjectsNotAllowed
       #testAddingSets
       #testSubtractingSets
       #testIntersectionOfSets
-      #testComparingSets
-    ).
-    self runTests: tests.
-  ]
-
-  testBlock [
-    | tests |
-
-    currentTest := TestBlock create: tracker.
-    tests := #(
+      #testComparingSets).
+    TestBlock -> #(
       #testBlockCreation
       #testSendingValueMessageExecutesBlocks
       #testBlocksReturnAnyKindOfValue
@@ -339,16 +141,8 @@ Object subclass: Zen [
       #testClosure
       #testRealClosure
       #testCull
-      #testEachBlockIsAUniqueObject
-    ).
-    self runTests: tests.
-  ]
-
-  testCollectionsRevisited [
-    | tests |
-
-    currentTest := TestCollectionsRevisited create: tracker.
-    tests := #(
+      #testEachBlockIsAUniqueObject).
+    TestCollectionsRevisited -> #(
       #testDo
       #testConform
       #testSelect
@@ -358,28 +152,12 @@ Object subclass: Zen [
       #testInject
       #testCollectionConversion
       #testFailSafeAccessToElements
-      #testFailSafeRemoveElementsFromCollection
-    ).
-    self runTests: tests.
-  ]
-
-  testIteration [
-    | tests |
-
-    currentTest := TestIteration create: tracker.
-    tests := #(
+      #testFailSafeRemoveElementsFromCollection).
+    TestIteration -> #(
       #testWhileTrue
       #testWhileFalse
-      #testTimesRepeat
-    ).
-    self runTests: tests.
-  ]
-
-  testBoolean [
-    | tests |
-
-    currentTest := TestBoolean create: tracker.
-    tests := #(
+      #testTimesRepeat).
+    TestBoolean -> #(
       #testTrueIsTreatedAsTrue
       #testFalseIsTreatedAsFalse
       #testNilIsNotTreatedAsABoolean
@@ -387,28 +165,12 @@ Object subclass: Zen [
       #testAndShortCircuit
       #testOrShortCircuit
       #testEqv
-      #testXor
-    ).
-    self runTests: tests.
-  ]
-
-  testException [
-    | tests |
-
-    currentTest := TestException create: tracker.
-    tests := #(
+      #testXor).
+    TestException -> #(
       #testHaltAndError
       #testSignal
-      #testCatchingExceptionsWithOnDo
-    ).
-    self runTests: tests.
-  ]
-
-  testRegex [
-    | tests |
-
-    currentTest := TestRegex create: tracker.
-    tests := #(
+      #testCatchingExceptionsWithOnDo).
+    TestRegex -> #(
       #testSearchRegex
       #testUsingPerlSyntax
       #testUsingTilde
@@ -438,16 +200,8 @@ Object subclass: Zen [
       #testReplacingRegex
       #testReplacingAllRegex
       #testMatchingRegexResults
-      #testFailedMatchRegexResults
-    ).
-    self runTests: tests.
-  ]
-
-  testClass [
-    | tests |
-
-    currentTest := TestClass create: tracker.
-    tests := #(
+      #testFailedMatchRegexResults).
+    TestClass -> #(
       #testName
       #testPragmas
       #testInstanceVariableCollection
@@ -457,16 +211,47 @@ Object subclass: Zen [
       #testAllInstances
       #testSuperclass
       #testAllSuperclasses
-      #testAllSubclasses
-    ).
-    self runTests: tests.
+      #testAllSubclasses).
+    TestMetaclass -> #().
+  }.
+
+  Zen class >> create: displayAnswer [
+    ^super new
+           initialize: displayAnswer;
+           yourself
   ]
 
-  testMetaclass [
-    | tests |
+  initialize: displayAnswer [
+    passed := 0.
+    tracker := Tracker create.
+    ui := UI create: Transcript withAnswers: displayAnswer.
+  ]
 
-    currentTest := TestMetaclass create: tracker.
-    tests := #().
-    self runTests: tests.
+  runKoans [
+    | currentTest |
+
+    Zen.Koans do: [ :koan |
+      tracker status ifFalse: [^nil].
+      currentTest := koan key create: tracker.
+      koan value do: [ :testMethod |
+        tracker status ifFalse: [^nil].
+        self runKoan: currentTest method: testMethod.
+      ].
+    ].
+
+    tracker status ifTrue: [ui displayEndMessage: passed failed: 0].
+  ]
+
+  runKoan: test method: testMethod [
+    test perform: testMethod.
+    tracker status
+      ifTrue: [ passed:= (passed + 1). ]
+      ifFalse: [
+        tracker error add: #class -> test class;
+                      add: #test  -> testMethod;
+                      add: #passed -> passed;
+                      add: #failed -> 1.
+        ui display: tracker error.
+      ].
   ]
 ]

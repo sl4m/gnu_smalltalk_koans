@@ -1,31 +1,8 @@
-Object subclass: FakeOutput [
-  | message |
-
-  FakeOutput class >> create [
-    ^self new initialize;
-          yourself
-  ]
-
-  initialize [
-    message := ''.
-  ]
-
-  message [
-    ^message
-  ]
-
-  show: newMessage [
-    message := message, ' ', newMessage.
-  ]
-
-  cr []
-]
-
 Test subclass: UITestCase [
   | ui output |
 
   setUp [
-    output := FakeOutput create.
+    output := FakeOut create.
     ui     := UI create: output withAnswers: true.
   ]
 

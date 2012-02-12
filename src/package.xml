@@ -3,15 +3,13 @@
   <namespace>GNUSmalltalk</namespace>
   <test>
     <sunit>GNUSmalltalk.Test*</sunit>
-    <filein>lib/Test.st</filein>
-    <filein>lib/KoanTest.st</filein>
-    <filein>lib/UITest.st</filein>
-    <filein>lib/ZenTest.st</filein>
+    <filein>test/Test.st</filein>
+    <filein>test/FakeOut.st</filein>
+    <filein>test/KoanTest.st</filein>
+    <filein>test/UITest.st</filein>
+    <filein>test/ZenTest.st</filein>
   </test>
   <filein>lib/Koan.st</filein>
-  <filein>lib/Tracker.st</filein>
-  <filein>lib/UI.st</filein>
-  <filein>lib/Zen.st</filein>
   <filein>koans/TestAssert.st</filein>
   <filein>koans/TestBasic.st</filein>
   <filein>koans/TestNil.st</filein>
@@ -36,10 +34,10 @@
   <filein>koans/TestRegex.st</filein>
   <filein>koans/TestClass.st</filein>
   <filein>koans/TestMetaclass.st</filein>
+  <filein>lib/Tracker.st</filein>
+  <filein>lib/UI.st</filein>
+  <filein>lib/Zen.st</filein>
   <file>lib/Koan.st</file>
-  <file>lib/Tracker.st</file>
-  <file>lib/UI.st</file>
-  <file>lib/Zen.st</file>
   <file>koans/TestAssert.st</file>
   <file>koans/TestBasic.st</file>
   <file>koans/TestNil.st</file>
@@ -64,8 +62,12 @@
   <file>koans/TestRegex.st</file>
   <file>koans/TestClass.st</file>
   <file>koans/TestMetaclass.st</file>
-  <file>lib/Test.st</file>
-  <file>lib/KoanTest.st</file>
-  <file>lib/UITest.st</file>
-  <file>lib/ZenTest.st</file>
+  <file>lib/Tracker.st</file>
+  <file>lib/UI.st</file>
+  <file>lib/Zen.st</file>
+  <file>test/Test.st</file>
+  <file>test/FakeOut.st</file>
+  <file>test/KoanTest.st</file>
+  <file>test/UITest.st</file>
+  <file>test/ZenTest.st</file>
 </package>

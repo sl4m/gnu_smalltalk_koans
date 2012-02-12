@@ -45,7 +45,7 @@ Test subclass: KoanTestCase [
     koan expect: 1 toEqual: 2.
 
     self assert: tracker status = false.
-    self assert: (tracker error at: #message) = 'Expected value should equal actual value.'.
+    self assert: (tracker error at: #message) = 'Expected value SHOULD equal actual value.'.
     self assert: (tracker error at: #expected) = 1.
     self assert: (tracker error at: #actual) = 2.
   ]
@@ -61,7 +61,7 @@ Test subclass: KoanTestCase [
     koan expect: 1 toNotEqual: 1.
 
     self assert: tracker status = false.
-    self assert: (tracker error at: #message) = 'Expected value should not equal actual value.'.
+    self assert: (tracker error at: #message) = 'Expected value SHOULD NOT equal actual value.'.
     self assert: (tracker error at: #expected) = 1.
     self assert: (tracker error at: #actual) = 1.
   ]
@@ -77,7 +77,7 @@ Test subclass: KoanTestCase [
     koan expect: 1 toBeLike: $2.
 
     self assert: tracker status = false.
-    self assert: (tracker error at: #message) = 'Expected value is not like actual value.'.
+    self assert: (tracker error at: #message) = 'Expected value IS NOT LIKE actual value.'.
     self assert: (tracker error at: #expected) = 1.
     self assert: (tracker error at: #actual) = $2.
   ]
