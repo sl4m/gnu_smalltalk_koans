@@ -130,7 +130,7 @@ Koan subclass: TestCollectionsRevisited [
     sortedCollection := SortedCollection with: 1 with: 2 with: 3.
     bag := Bag with: 1 with: 2 with: 3.
     set := Set with: 1 with: 2 with: 3.
-    dictionary := Dictionary new;
+    dictionary := Dictionary new
       add: #a -> 1;
       add: #b -> 2;
       add: #c -> 3;
