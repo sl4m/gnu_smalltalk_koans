@@ -144,7 +144,6 @@ Test subclass: UITestCase [
     | collection |
 
     collection := Dictionary new
-                             add: #a   -> 1;
                              add: 2    -> 'b';
                              add: nil  -> #c;
                              add: $d   -> 3;
@@ -152,7 +151,6 @@ Test subclass: UITestCase [
                              yourself.
 
     self assert: (ui prettify: collection) = ('(
-	#a->1
 	2->''b''
 	nil->#c
 	$d->3
@@ -163,12 +161,12 @@ Test subclass: UITestCase [
   testPrettifySet [
     | array collection |
 
-    array := #(1 's' $a #b true).
+    array := #(1 #b).
     collection := Set new
                       addAll: array;
                       yourself.
 
-    self assert: (ui prettify: collection) = ('(1 #b $a true ''s'' ) (an instance of Set)').
+    self assert: (ui prettify: collection) = ('(1 #b ) (an instance of Set)').
   ]
 
   testPrettifyException [
