@@ -16,6 +16,10 @@ The simplest way to install GNU Smalltalk is via homebrew:
 
 `brew install gnu-smalltalk`
 
+This will build GNU Smalltalk `3.2.2` in 32-bits.  If you want the latest, I encourage you to try `HEAD`:
+
+`brew install gnu-smalltalk --HEAD`
+
 You can also install it via MacPorts.
 
 ### Installing GNU Smalltalk on Linux
