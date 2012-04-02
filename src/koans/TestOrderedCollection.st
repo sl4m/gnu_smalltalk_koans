@@ -20,7 +20,7 @@ Koan subclass: TestOrderedCollection [
 
     orderedCollection := OrderedCollection with: $a with: $b with: $c with: $d with: $e.
 
-    self expect: fillMeIn toEqual: (orderedCollection).
+    self expect: fillMeIn toEqual: (orderedCollection asArray).
     self expect: [ OrderedCollection with: 'a' with: 'b' with: 'c' with: 'd' with: 'e' with: 'f' ] toRaise: fillMeIn.
 
     "OrderedCollection responds to most messages that Array responds to."
