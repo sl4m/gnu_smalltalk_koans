@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>GNU Smalltalk Koans by sl4m</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>GNU Smalltalk Koans</h1>
+        <p>a set of tests to teach you Smalltalk</p>
+        <p class="view"><a href="https://github.com/sl4m/gnu_smalltalk_koans">View the Project on GitHub <small>sl4m/gnu_smalltalk_koans</small></a></p>
+        <ul>
+          <li><a href="https://github.com/sl4m/gnu_smalltalk_koans/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sl4m/gnu_smalltalk_koans/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sl4m/gnu_smalltalk_koans">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>GNU Smalltalk Koans</h2>
+
+<p>Hey there and welcome!</p>
+
+<h3>Supported GNU Smalltalk Versions</h3>
+
+<p>GNU Smalltalk versions <code>3.2.2</code> or higher should work on Mac OS X and Linux.  I have written these koans on <code>3.2.2</code>, Mac OS X 10.6.</p>
+
+<p>Note: I am certain that <code>3.0.x</code> does not work and it will complain about not understanding <code>#asString</code>.</p>
+
+<p>Support for Windows is on its way (once I figure out how to build it successfully).</p>
+
+<h3>Installing GNU Smalltalk on Mac OS X</h3>
+
+<p>The simplest way to install GNU Smalltalk is via homebrew:</p>
+
+<p><code>brew install gnu-smalltalk</code></p>
+
+<p>This will build GNU Smalltalk <code>3.2.2</code> in 32-bits.  If you want the latest, I encourage you to try <code>HEAD</code>:</p>
+
+<p><code>brew install gnu-smalltalk --HEAD</code></p>
+
+<p>You can also install it via MacPorts.</p>
+
+<h3>Installing GNU Smalltalk on Linux</h3>
+
+<p>Make sure you have the following tools installed:</p>
+
+<ul>
+<li>Autoconf 2.65 or later</li>
+<li>Automake 1.11 or later</li>
+<li>Libtool 2.2 or later</li>
+<li>Bison 2.0 or later</li>
+<li>Flex 2.5.x</li>
+</ul><p>Grab GNU Smalltalk <code>3.2.4</code> source from <a>ftp://ftp.gnu.org/gnu/smalltalk</a>.</p>
+
+<pre>
+autoreconf -vi
+./configure
+make
+sudo make install
+</pre>
+
+<p>Test by running <code>gst</code> and interact with the REPL.</p>
+
+<h3>Running koans</h3>
+
+<p>In the root directory of the project, type:</p>
+
+<p><code>script/run</code></p>
+
+<p>You will see a message similar to this:</p>
+
+<p><code>TestAssert#testTruth has damaged your karma.</code></p>
+
+<p>This means you will need to open the <code>TestAssert.st</code> file under <code>src/koans</code> and solve the test under <code>testTruth</code> method (aka message).</p>
+
+<p>All koan files contain a set of tests, each starting with 'test'.  Solve each test one by one, running <code>script/run</code> in between.</p>
+
+<p>By default, <code>script/run</code> does not reveal the answer.  If you are truly stuck in a koan, type <code>script/run_and_reveal</code> to run and reveal the answer.  Use this sparingly!</p>
+
+<h3>Editors with Smalltalk support</h3>
+
+<ul>
+<li><a href="https://github.com/redcar/redcar">redcar</a></li>
+<li>vim</li>
+<li>emacs</li>
+<li>Textmate</li>
+</ul><h3>Things You Should Know Before Starting</h3>
+
+<p><code>| variable1 variable2 |</code> is to declare variable1 and variable2 separate by a space.  At least one space must be used to separate variables.  Commas are not used.</p>
+
+<p><code>:=</code> is an assignment operator</p>
+
+<p><code>"this is a comment"</code></p>
+
+<p><code>'this is a string'</code></p>
+
+<p><code>#speak</code> is the notation used to describe the message 'speak'.</p>
+
+<p>Words wrapped in <code>&lt;&gt;</code> are called pragmas and define class comments, category, imported namespaces, and the shape of indexed instance variables.  More information <a href="http://www.gnu.org/software/smalltalk/manual/gst.html#Syntax">here</a>.</p>
+
+<p>Ok, have at it!</p>
+
+<h3>List of Koans</h3>
+
+<ul>
+<li>TestAssert</li>
+<li>TestBasic</li>
+<li>TestNil</li>
+<li>TestObject</li>
+<li>TestMessage</li>
+<li>TestNumber</li>
+<li>TestString</li>
+<li>TestCharacter</li>
+<li>TestSymbol</li>
+<li>TestArray</li>
+<li>TestOrderedCollection</li>
+<li>TestSortedCollection</li>
+<li>TestBag</li>
+<li>TestAssociation</li>
+<li>TestDictionary</li>
+<li>TestSet</li>
+<li>TestBlock</li>
+<li>TestCollectionsRevisited</li>
+<li>TestIteration</li>
+<li>TestBoolean</li>
+<li>TestException</li>
+<li>TestRegex</li>
+<li>TestClass</li>
+</ul><h3>Future Koans</h3>
+
+<ul>
+<li>TestMetaclass</li>
+</ul><h3>Pull Requests and Feedback are Welcome!</h3>
+
+<p>Please create a GitHub issue or find me on Twitter (<a href="/skim" class="user-mention">@skim</a>), if you have any suggestions on how to improve existing koans, new koans, or any other comments.</p>
+
+<h3>Future Plans</h3>
+
+<ul>
+<li>Rewrite the runner (make it smarter, faster, stronger)</li>
+<li>Add an answer sheet</li>
+<li>Add color to output</li>
+<li>Add auto runner</li>
+</ul><p>There is no set time, but I plan to port these koans over to the following Smalltalk dialects:</p>
+
+<ul>
+<li>redline</li>
+<li>Amber</li>
+</ul><h3>Inspiration and Credits</h3>
+
+<p>GNU Smalltalk Koans were inspired by Edgecase's <a href="https://github.com/edgecase/ruby_koans">Ruby Koans</a> and <a href="http://twitter.com/#!/abedra">Aaron Bedra's</a> <a href="https://github.com/functional-koans/clojure-koans">Clojure Koans</a> (now maintained by <a href="http://twitter.com/#!/trptcolin">Colin Jones</a>).</p>
+
+<p>Thanks to <a href="http://twitter.com/#!/mattyoho">Matt Yoho</a> at Edgecase for letting me port some of the koans over.</p>
+
+<p>Other thanks:</p>
+
+<ul>
+<li><a href="http://8thlight.com/">8th Light</a></li>
+<li>
+<a href="http://twitter.com/#!/demmer12">Craig Demyanovich</a> (contributor)</li>
+<li>
+<a href="http://squeak.joyful.com/LanguageNotes">Chris Rathman</a> for the awesome language notes.</li>
+<li>Jayden for being the first person to run through the koans.</li>
+<li>
+<a href="https://twitter.com/#!/anteaya">Anita Kuno</a> (contributor)</li>
+</ul><h3>License</h3>
+
+<p><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="cc-license"></p>
+
+<p>GNU Smalltalk Koans shares the same license as Ruby Koans and is released under a Creative Commons,
+Attribution-NonCommercial-ShareAlike, Version 3.0
+(<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a>) License.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sl4m">sl4m</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
