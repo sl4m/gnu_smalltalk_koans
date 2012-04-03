@@ -20,7 +20,7 @@ Koan subclass: TestOrderedCollection [
 
     orderedCollection := OrderedCollection with: $a with: $b with: $c with: $d with: $e.
 
-    self expect: fillMeIn toEqual: (orderedCollection asArray).
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
     self expect: [ OrderedCollection with: 'a' with: 'b' with: 'c' with: 'd' with: 'e' with: 'f' ] toRaise: fillMeIn.
 
     "OrderedCollection responds to most messages that Array responds to."
@@ -31,7 +31,7 @@ Koan subclass: TestOrderedCollection [
 
     orderedCollection := OrderedCollection new addAll: #(5 6 7); yourself.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
   ]
 
   testAddElements [
@@ -40,19 +40,19 @@ Koan subclass: TestOrderedCollection [
     orderedCollection := OrderedCollection with: 1.
     orderedCollection addFirst: 2.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
 
     orderedCollection addLast: 3.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
 
     orderedCollection add: 4 afterIndex: 2.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
 
     orderedCollection add: 5 beforeIndex: 2.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
   ]
 
   testRemoveElements [
@@ -61,15 +61,15 @@ Koan subclass: TestOrderedCollection [
     orderedCollection := OrderedCollection with: 1 with: 2 with: 3 with: 4.
     orderedCollection removeFirst.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
 
     orderedCollection removeLast.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
 
     orderedCollection removeAtIndex: 1.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: fillMeIn toEqualAsArrays: orderedCollection.
   ]
 
   testAccessingElements [

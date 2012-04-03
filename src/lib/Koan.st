@@ -29,6 +29,12 @@ Object subclass: Koan [
       ifFalse: [ self setTrackerToFalse: 'Expected value SHOULD equal actual value.' expected: expectedValue actual: actualValue ].
   ]
 
+  expect: expectedValue toEqualAsArrays: actualValue [
+    tracker status ifFalse: [^nil].
+    (expectedValue asArray = actualValue asArray)
+      ifFalse: [ self setTrackerToFalse: 'Expected array/collection SHOULD equal actual array/collection.' expected: expectedValue actual: actualValue ].
+  ]
+
   expect: expectedValue toNotEqual: actualValue [
     tracker status ifFalse: [^nil].
     (expectedValue = actualValue)
