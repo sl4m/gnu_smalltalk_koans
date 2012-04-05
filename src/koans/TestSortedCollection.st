@@ -25,7 +25,7 @@ Koan subclass: TestSortedCollection [
       add: 3;
       add: 4.
 
-    self expect: fillMeIn toEqual: sortedCollection.
+    self expect: fillMeIn toEqualAsArrays: sortedCollection.
   ]
 
   testComparingSortedCollections [
