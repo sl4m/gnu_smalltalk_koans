@@ -26,6 +26,8 @@ Koan subclass: TestSortedCollection [
       add: 4.
 
     self expect: fillMeIn toEqual: sortedCollection.
+
+    "Hint: Array objects can transform into SortedCollection objects"
   ]
 
   testComparingSortedCollections [

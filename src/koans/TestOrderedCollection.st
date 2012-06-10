@@ -18,26 +18,29 @@ Koan subclass: TestOrderedCollection [
   testCreatingAnOrderedCollectionWithUpToFiveInitialValues [
     | orderedCollection |
 
-    orderedCollection := OrderedCollection with: $a with: $b with: $c with: $d with: $e.
+    orderedCollection := OrderedCollection with: fillMeIn with: fillMeIn with: $c with: fillMeIn with: fillMeIn.
 
-    self expect: fillMeIn toEqual: (orderedCollection).
+    self expect: orderedCollection toEqual: #($a $b $c $d $e) asOrderedCollection.
     self expect: [ OrderedCollection with: 'a' with: 'b' with: 'c' with: 'd' with: 'e' with: 'f' ] toRaise: fillMeIn.
 
-    "OrderedCollection responds to most messages that Array responds to."
+    "OrderedCollection belongs to the same hierarchy family as Array."
   ]
 
-  testCreatingAnOrderedCollectionFromAConstantArray [
+  testCreatingAnOrderedCollectionFromAnArray [
     | orderedCollection |
 
-    orderedCollection := OrderedCollection new addAll: #(5 6 7); yourself.
+    orderedCollection := OrderedCollection new addAll: {fillMeIn. fillMeIn. fillMeIn}; yourself.
 
-    self expect: fillMeIn toEqual: orderedCollection.
+    self expect: orderedCollection toEqual: #(5 6 7) asOrderedCollection.
   ]
 
   testAddElements [
     | orderedCollection |
 
     orderedCollection := OrderedCollection with: 1.
+
+    self expect: #(1) asOrderedCollection toEqual: orderedCollection.
+
     orderedCollection addFirst: 2.
 
     self expect: fillMeIn toEqual: orderedCollection.

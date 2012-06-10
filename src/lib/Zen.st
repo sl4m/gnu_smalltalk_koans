@@ -93,7 +93,7 @@ Object subclass: Zen [
     TestOrderedCollection -> #(
       #testActsLikeAnExpandableArray
       #testCreatingAnOrderedCollectionWithUpToFiveInitialValues
-      #testCreatingAnOrderedCollectionFromAConstantArray
+      #testCreatingAnOrderedCollectionFromAnArray
       #testAddElements
       #testRemoveElements
       #testAccessingElements

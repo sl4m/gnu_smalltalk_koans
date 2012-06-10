@@ -1,5 +1,9 @@
 ### History
 
+#### 2012-Jun-09
+
+* improved OrderedCollection and SortedCollection koans
+
 #### 2011-Jul-04
 
 * refactored Zen logic (still needs work)
