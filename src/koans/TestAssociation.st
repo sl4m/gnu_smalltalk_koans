@@ -1,5 +1,3 @@
-Object subclass: Klass []
-
 Koan subclass: TestAssociation [
   <comment: 'A collection of association tests.'>
 
@@ -45,7 +43,7 @@ Koan subclass: TestAssociation [
 
     self expect: fillMeIn toEqual: association key.
 
-    obj := Klass new.
+    obj := Object new.
 
     association := obj -> 5.
 
