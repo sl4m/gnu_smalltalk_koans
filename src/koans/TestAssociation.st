@@ -21,7 +21,7 @@ Koan subclass: TestAssociation [
   ]
 
   testAssociationKeysCanBeAnyObject [
-    | association |
+    | association obj |
 
     association := 'a' -> 0.
 
@@ -40,6 +40,12 @@ Koan subclass: TestAssociation [
     self expect: fillMeIn toEqual: association key.
 
     association := $b -> 4.
+
+    self expect: fillMeIn toEqual: association key.
+
+    obj := Object new.
+
+    association := obj -> 5.
 
     self expect: fillMeIn toEqual: association key.
   ]
