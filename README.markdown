@@ -134,13 +134,17 @@ GNU Smalltalk Koans were inspired by Edgecase's [Ruby Koans](https://github.com/
 
 Thanks to [Matt Yoho](http://twitter.com/#!/mattyoho) at Edgecase for letting me port some of the koans over.
 
-Other thanks:
+#### Contributors
+
+* [Craig Demyanovich](http://twitter.com/#!/demmer12) (contributor)
+* [Anita Kuno](https://twitter.com/#!/anteaya) (contributor)
+* [@german](https://github.com/german)
+
+#### Other thanks:
 
 * [8th Light](http://8thlight.com/)
-* [Craig Demyanovich](http://twitter.com/#!/demmer12) (contributor)
 * [Chris Rathman](http://squeak.joyful.com/LanguageNotes) for the awesome language notes.
 * Jayden for being the first person to run through the koans.
-* [Anita Kuno](https://twitter.com/#!/anteaya) (contributor)
 
 ### License
 
