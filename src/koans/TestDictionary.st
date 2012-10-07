@@ -105,22 +105,20 @@ Koan subclass: TestDictionary [
   ]
 
   testIteratingKeys [
-    | dictionary array counter |
+    | dictionary set |
 
     dictionary := Dictionary new
                     add: #a -> 2;
                     add: #c -> 4;
                     add: #e -> 6;
                     yourself.
-    array := Array new: dictionary size.
-    counter := 1.
+    set := Set new.
 
     dictionary keysDo: [ :key |
-      array at: counter put: key.
-      counter := counter + 1.
+      set add: key.
     ].
 
-    self expect: fillMeIn toEqual: array.
+    self expect: fillMeIn toEqual: set.
   ]
 
   testIteratingAssociations [
@@ -145,22 +143,20 @@ Koan subclass: TestDictionary [
   ]
 
   testIteratingKeysAndValues [
-    | dictionary array counter |
+    | dictionary set |
 
     dictionary := Dictionary new
                     add: #a -> 1;
                     add: #b -> 2;
                     add: #c -> 3;
                     yourself.
-    array := Array new: dictionary size.
-    counter := 1.
+    set := Set new.
 
     dictionary keysAndValuesDo: [ :key :value |
-      array at: counter put: (key -> value).
-      counter := counter + 1.
+      set add: (key -> value).
     ].
 
-    self expect: fillMeIn toEqual: array.
+    self expect: fillMeIn toEqual: set.
   ]
 
   testSmalltalkDictionary [

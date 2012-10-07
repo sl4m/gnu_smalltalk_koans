@@ -106,6 +106,12 @@ Object subclass: Zen [
       #testAddingMultiplesCopiesToCollection
       #testCollectionIsNotIndexable
       #testComparingBags).
+    TestSet -> #(
+      #testDuplicateObjectsNotAllowed
+      #testAddingSets
+      #testSubtractingSets
+      #testIntersectionOfSets
+      #testComparingSets).
     TestAssociation -> #(
       #testCreatingAssociationThreeDifferentWays
       #testAssociationKeysCanBeAnyObject
@@ -123,12 +129,6 @@ Object subclass: Zen [
       #testIteratingAssociations
       #testIteratingKeysAndValues
       #testSmalltalkDictionary).
-    TestSet -> #(
-      #testDuplicateObjectsNotAllowed
-      #testAddingSets
-      #testSubtractingSets
-      #testIntersectionOfSets
-      #testComparingSets).
     TestBlock -> #(
       #testBlockCreation
       #testSendingValueMessageExecutesBlocks

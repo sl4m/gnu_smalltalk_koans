@@ -63,11 +63,11 @@ Koan subclass: TestClass [
   ]
 
   testClassInstanceVariableCollection [
-    self expect: fillMeIn toEqual: HelloWorld classVarNames asArray.
+    self expect: fillMeIn toEqual: HelloWorld classVarNames asSet.
   ]
 
   testMessageCollection [
-    self expect: fillMeIn toEqual: HelloWorld selectors asArray.
+    self expect: fillMeIn toEqual: HelloWorld selectors asSet.
   ]
 
   testSourceCodeAt [
@@ -86,7 +86,7 @@ Koan subclass: TestClass [
 
     helloWorld := HelloWorld new.
 
-    self expect: fillMeIn toEqual: HelloWorld allInstances asArray.
+    self expect: fillMeIn toEqual: HelloWorld allInstances asSet.
   ]
 
   testSuperclass [
@@ -94,12 +94,12 @@ Koan subclass: TestClass [
   ]
 
   testAllSuperclasses [
-    self expect: fillMeIn toEqual: SubHelloWorld allSuperclasses asArray.
+    self expect: fillMeIn toEqual: SubHelloWorld allSuperclasses asSet.
 
     "Note: GNUSmalltalk is the namespace."
   ]
 
   testAllSubclasses [
-    self expect: fillMeIn toEqual: HelloWorld allSubclasses asArray.
+    self expect: fillMeIn toEqual: HelloWorld allSubclasses asSet.
   ]
 ]
