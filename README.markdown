@@ -8,8 +8,6 @@ GNU Smalltalk versions `3.2.2` or higher should work on Mac OS X and Linux.  I h
 
 Note: I am certain that `3.0.x` does not work and it will complain about not understanding `#asString`.
 
-Support for Windows is on its way (once I figure out how to build it successfully).
-
 ### Installing GNU Smalltalk on Mac OS X
 
 The simplest way to install GNU Smalltalk is via homebrew:
@@ -116,17 +114,9 @@ Ok, have at it!
 
 Please create a GitHub issue or find me on Twitter (@skim), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
 
-### Future Plans
-
-* Rewrite the runner (make it smarter, faster, stronger)
-* Add an answer sheet
-* Add color to output
-* Add auto runner
-
 There is no set time, but I plan to port these koans over to the following Smalltalk dialects:
 
 * redline
-* Amber
 
 ### Inspiration and Credits
 
