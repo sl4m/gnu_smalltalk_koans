@@ -18,8 +18,6 @@ This will build GNU Smalltalk `3.2.2` in 32-bits.  If you want the latest, I enc
 
 `brew install gnu-smalltalk --HEAD`
 
-You can also install it via MacPorts.
-
 ### Installing GNU Smalltalk on Linux
 
 Make sure you have the following tools installed:
@@ -59,10 +57,8 @@ By default, `script/run` does not reveal the answer.  If you are truly stuck in 
 
 ### Editors with Smalltalk support
 
-* [redcar](https://github.com/redcar/redcar)
 * vim
 * emacs
-* Textmate
 
 ### Things You Should Know Before Starting
 
@@ -77,6 +73,8 @@ By default, `script/run` does not reveal the answer.  If you are truly stuck in 
 `#speak` is the notation used to describe the message 'speak'.
 
 Words wrapped in `<>` are called pragmas and define class comments, category, imported namespaces, and the shape of indexed instance variables.  More information [here](http://www.gnu.org/software/smalltalk/manual/gst.html#Syntax).
+
+In depth information [here](http://squeak.joyful.com/LanguageNotes).
 
 Ok, have at it!
 
@@ -112,34 +110,30 @@ Ok, have at it!
 
 ### Pull Requests and Feedback are Welcome!
 
-Please create a GitHub issue or find me on Twitter (@skim), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
-
-There is no set time, but I plan to port these koans over to the following Smalltalk dialects:
-
-* redline
+Please create a GitHub issue or find me on Twitter ([@skim](https://twitter.com/skim), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
 
 ### Inspiration and Credits
 
-GNU Smalltalk Koans were inspired by Edgecase's [Ruby Koans](https://github.com/edgecase/ruby_koans) and [Aaron Bedra's](http://twitter.com/#!/abedra) [Clojure Koans](https://github.com/functional-koans/clojure-koans) (now maintained by [Colin Jones](http://twitter.com/#!/trptcolin)).
+GNU Smalltalk Koans were inspired by [Ruby Koans](https://github.com/edgecase/ruby_koans) and [Clojure Koans](https://github.com/functional-koans/clojure-koans).
 
-Thanks to [Matt Yoho](http://twitter.com/#!/mattyoho) at Edgecase for letting me port some of the koans over.
+Thanks to [Matt Yoho](https://twitter.com/#!/mattyoho) at Edgecase for letting me port some of the koans over.
 
 #### Contributors
 
-* [Craig Demyanovich](http://twitter.com/#!/demmer12) (contributor)
-* [Anita Kuno](https://twitter.com/#!/anteaya) (contributor)
+* [Craig Demyanovich](https://twitter.com/demmer12)
+* [Anita Kuno](https://twitter.com/anteaya)
 * [@german](https://github.com/german)
 
 #### Other thanks:
 
-* [8th Light](http://8thlight.com/)
+* [8th Light](https://8thlight.com/)
 * [Chris Rathman](http://squeak.joyful.com/LanguageNotes) for the awesome language notes.
-* Jayden for being the first person to run through the koans.
+* [@jayden](https://github.com/jayden) for being the first person to run through the koans.
 
 ### License
 
-![cc-license](http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)
+![cc-license](https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png)
 
 GNU Smalltalk Koans shares the same license as Ruby Koans and is released under a Creative Commons,
 Attribution-NonCommercial-ShareAlike, Version 3.0
-([http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/)) License.
+([https://creativecommons.org/licenses/by-nc-sa/3.0/](https://creativecommons.org/licenses/by-nc-sa/3.0/)) License.
