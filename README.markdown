@@ -14,7 +14,7 @@ The simplest way to install GNU Smalltalk is via homebrew:
 
 `brew install gnu-smalltalk`
 
-This will build GNU Smalltalk `3.2.2` in 32-bits.  If you want the latest, I encourage you to try `HEAD`:
+This will build GNU Smalltalk `3.2.5`.  If you want the latest, I encourage you to try `HEAD`:
 
 `brew install gnu-smalltalk --HEAD`
 
@@ -28,7 +28,7 @@ Make sure you have the following tools installed:
 * Bison 2.0 or later
 * Flex 2.5.x
 
-Grab GNU Smalltalk `3.2.4` source from [ftp://ftp.gnu.org/gnu/smalltalk](ftp://ftp.gnu.org/gnu/smalltalk).
+Grab GNU Smalltalk `3.2.5` source from [ftp://ftp.gnu.org/gnu/smalltalk](ftp://ftp.gnu.org/gnu/smalltalk).
 
 <pre>
 autoreconf -vi
@@ -110,7 +110,7 @@ Ok, have at it!
 
 ### Pull Requests and Feedback are Welcome!
 
-Please create a GitHub issue or find me on Twitter ([@skim](https://twitter.com/skim), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
+Please create a GitHub issue or find me on Twitter ([@skim](https://twitter.com/skim)), if you have any suggestions on how to improve existing koans, new koans, or any other comments.
 
 ### Inspiration and Credits
 
