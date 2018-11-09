@@ -39,6 +39,16 @@ sudo make install
 
 Test by running `gst` and interact with the REPL.
 
+### Using Docker
+
+Make sure you have Docker installed.
+
+Use the Makefile to run this application - in the root directory of the project, type:
+
+`make run`
+
+This will run `script/run`, using GNU Smalltalk.
+
 ### Running koans
 
 In the root directory of the project, type:
