@@ -1,4 +1,4 @@
-## GNU Smalltalk Koans
+## GNU Smalltalk Koans [![Build Status](https://travis-ci.org/sl4m/gnu_smalltalk_koans.svg?branch=master)](https://travis-ci.org/sl4m/gnu_smalltalk_koans)
 
 Hey there and welcome!
 
