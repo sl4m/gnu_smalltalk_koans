@@ -8,38 +8,15 @@ GNU Smalltalk versions `3.2.2` or higher should work on Mac OS X and Linux.  I h
 
 Note: I am certain that `3.0.x` does not work and it will complain about not understanding `#asString`.
 
-### Installing GNU Smalltalk on Mac OS X
+### GNU Smalltalk on Mac OS X
 
 The simplest way to install GNU Smalltalk is via homebrew:
 
 `brew install gnu-smalltalk`
 
-This will build GNU Smalltalk `3.2.5`.  If you want the latest, I encourage you to try `HEAD`:
+Or you can use the Docker image. See below.
 
-`brew install gnu-smalltalk --HEAD`
-
-### Installing GNU Smalltalk on Linux
-
-Make sure you have the following tools installed:
-
-* Autoconf 2.65 or later
-* Automake 1.11 or later
-* Libtool 2.2 or later
-* Bison 2.0 or later
-* Flex 2.5.x
-
-Grab GNU Smalltalk `3.2.5` source from [ftp://ftp.gnu.org/gnu/smalltalk](ftp://ftp.gnu.org/gnu/smalltalk).
-
-<pre>
-autoreconf -vi
-./configure
-make
-sudo make install
-</pre>
-
-Test by running `gst` and interact with the REPL.
-
-### Running koans
+### Running koans locally
 
 In the root directory of the project, type:
 
@@ -54,6 +31,16 @@ This means you will need to open the `TestAssert.st` file under `src/koans` and 
 All koan files contain a set of tests, each starting with 'test'.  Solve each test one by one, running `script/run` in between.
 
 By default, `script/run` does not reveal the answer.  If you are truly stuck in a koan, type `script/run_and_reveal` to run and reveal the answer.  Use this sparingly!
+
+### Running koans via Docker
+
+Make sure you have Docker installed.
+
+In the root directory of the project, type:
+
+`script/docker/run`
+
+This runs against a small [image](https://hub.docker.com/r/sl4m/gnu-smalltalk) built on debian:stretch-slim.
 
 ### Editors with Smalltalk support
 
@@ -123,6 +110,7 @@ Thanks to [Matt Yoho](https://twitter.com/#!/mattyoho) at Edgecase for letting m
 * [Craig Demyanovich](https://twitter.com/demmer12)
 * [Anita Kuno](https://twitter.com/anteaya)
 * [@german](https://github.com/german)
+* [@craigjbass](https://github.com/craigjbass)
 
 #### Other thanks:
 

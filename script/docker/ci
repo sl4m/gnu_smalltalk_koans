@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker run -it -v $(pwd):/koans sl4m/gnu-smalltalk script/dev/run
