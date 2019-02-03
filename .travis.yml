@@ -1,3 +1,6 @@
+services:
+  - docker
 before_install:
   - sudo apt-get install -y gnu-smalltalk
+  - script/docker/ci
 script: gst-package -t ~/.st src/package.xml 1> /dev/null && gst-sunit -p GNUSmalltalk
