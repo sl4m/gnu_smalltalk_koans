@@ -137,7 +137,13 @@ Test subclass: UITestCase [
                       addAll: array;
                       yourself.
 
-    self assert: (ui prettify: collection) = ('(1:1 true:1 $a:1 ''s'':1 #b:1 ) (an instance of Bag)').
+    output := ui prettify: collection.
+    self assert: (output =~ '1:1') matched.
+    self assert: (output =~ 'true:1') matched.
+    self assert: (output =~ '\$a:1') matched.
+    self assert: (output =~ '#b:1') matched.
+    self assert: (output =~ '''s'':1') matched.
+    self assert: (output =~ 'an instance of Bag') matched.
   ]
 
   testPrettifyDictionary [
@@ -150,12 +156,12 @@ Test subclass: UITestCase [
                              add: true -> $e;
                              yourself.
 
-    self assert: (ui prettify: collection) = ('(
-	2->''b''
-	nil->#c
-	$d->3
-	true->$e
-) (an instance of Dictionary)').
+    output := ui prettify: collection.
+    self assert: (output =~ 'true->\$e') matched.
+    self assert: (output =~ '2->''b''') matched.
+    self assert: (output =~ 'nil->#c') matched.
+    self assert: (output =~ '\$d->3') matched.
+    self assert: (output =~ 'an instance of Dictionary') matched.
   ]
 
   testPrettifySet [
@@ -166,7 +172,11 @@ Test subclass: UITestCase [
                       addAll: array;
                       yourself.
 
-    self assert: (ui prettify: collection) = ('(1 #b ) (an instance of Set)').
+    output := ui prettify: collection.
+    self assert: (output =~ '1') matched.
+    self assert: (output =~ '#b') matched.
+    self assert: (output =~ 'an instance of Set') matched.
+    "self assert: (ui prettify: collection) = ('(1 #b ) (an instance of Set)')."
   ]
 
   testPrettifyException [
